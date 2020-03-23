@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.2 (Python 3.7.4 on win32)" generated="20200322 11:56:57.926" rpa="false">
+<suite id="s1" name="SATPlus" source="D:\Programming\Application Security\coe-application-security\TestCases\Fortify\Billing\SATPlus.robot">
+<test id="s1-t1" name="TC_002 Execution of OS Command Injection on SAT Plus POST API">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"Executing Command Injection on SAT Plus POST API"</arg>
+</arguments>
+<status status="PASS" starttime="20200322 11:56:59.285" endtime="20200322 11:56:59.285"></status>
+</kw>
+<kw name="Execute ALL Method API" library="API">
+<arguments>
+<arg>${API_Excel_Location}</arg>
+<arg>${API_Excel_Sheet_Name}</arg>
+<arg>DarkWebPartnerSite</arg>
+<arg>${Payload_Excel_Location}</arg>
+<arg>${Payload_Sheet_Name}</arg>
+<arg>${Expected_Status_Code}</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"Executing ALL Method API"</arg>
+</arguments>
+<status status="PASS" starttime="20200322 11:56:59.286" endtime="20200322 11:56:59.286"></status>
+</kw>
+<kw name="Perform Allmethod Payload Attack" library="PayloadAttack">
+<arguments>
+<arg>${API_Excel_Location}</arg>
+<arg>${API_Excel_Sheet_Name}</arg>
+<arg>${API_Module_Name}</arg>
+<arg>${Payload_Excel_Location}</arg>
+<arg>${Payload_Sheet_Name}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20200322 11:56:59.804" level="INFO">Opening API Excel
+Opened Excel
+Title of Sheet = Fortify_Impact
+Row 1 = API_Name
+Row 2 = Module Name: SAT PLUS
+Row 3 = AssessmentProductUsage
+Row 4 = DarkWebPartnerSite
+Module Found : DarkWebPartnerSite in Row - 4 of Worksheet - Fortify_Impact
+DarkWebPartnerSite
+HTTP Method = POST
+Protocol = http
+
+BaseURL = internal-intsecurityreportingservice-1794047522.ap-south-1.elb.amazonaws.com
+
+RelativeURL = /securityreporting/v1/darkwebpartnersite
+
+Request_Body = {
+"partnerId": "50016305",
+"clientId": "50108915",
+"siteId": "50108915",
+"domain": "{Parameter},ascdsc.net",
+"email": "abc@a.com,xyz@asd.net",
+"alert": true,
+"hostname": "ip-172-28-48-241",
+"status": "Done",
+"createdby": "admin@abc.net",
+"alert_generating_enabled_at": 1574749855,
+"lastrunat": 1574332350,
+"createdat": 1574749855
+}
+
+Header = {'Content-Type': 'application/json; charset=UTF-8'}
+
+Cookie = None
+
+CompleteURL = http://internal-intsecurityreportingservice-1794047522.ap-south-1.elb.amazonaws.com/securityreporting/v1/darkwebpartnersite
+Executing POST Method
+Parameter Observed in Request Body
+Worksheet Found = TEST
+Title of Sheet = TEST
+Number of Payloads for TEST = 3
+Row 1 = 50016305
+
+Vulnerable Body = {
+"partnerId": "50016305",
+"clientId": "50108915",
+"siteId": "50108915",
+"domain": "50016305,ascdsc.net",
+"email": "abc@a.com,xyz@asd.net",
+"alert": true,
+"hostname": "ip-172-28-48-241",
+"status": "Done",
+"createdby": "admin@abc.net",
+"alert_generating_enabled_at": 1574749855,
+"lastrunat": 1574332350,
+"createdat": 1574749855
+}
+StatusCode = 200
+Response Body = "Domain or DarkWeb partner site mapping successfully!!!"
+Response Header = {'Access-Control-Allow-Origin': '*', 'Cache-Control': 'no-cache, no-store', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Sun, 22 Mar 2020 06:26:59 GMT', 'Pragma': 'no-cache', 'Content-Length': '56', 'Connection': 'keep-alive'}
+Response Cookie = &lt;RequestsCookieJar[]&gt;
+['200']
+Row 2 = id;
+
+Vulnerable Body = {
+"partnerId": "50016305",
+"clientId": "50108915",
+"siteId": "50108915",
+"domain": "id;,ascdsc.net",
+"email": "abc@a.com,xyz@asd.net",
+"alert": true,
+"hostname": "ip-172-28-48-241",
+"status": "Done",
+"createdby": "admin@abc.net",
+"alert_generating_enabled_at": 1574749855,
+"lastrunat": 1574332350,
+"createdat": 1574749855
+}
+StatusCode = 200
+Response Body = "Domain or DarkWeb partner site mapping successfully!!!"
+Response Header = {'Access-Control-Allow-Origin': '*', 'Cache-Control': 'no-cache, no-store', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Sun, 22 Mar 2020 06:26:59 GMT', 'Pragma': 'no-cache', 'Content-Length': '56', 'Connection': 'keep-alive'}
+Response Cookie = &lt;RequestsCookieJar[]&gt;
+['200', '200']
+Row 3 = ;id;
+
+Vulnerable Body = {
+"partnerId": "50016305",
+"clientId": "50108915",
+"siteId": "50108915",
+"domain": ";id;,ascdsc.net",
+"email": "abc@a.com,xyz@asd.net",
+"alert": true,
+"hostname": "ip-172-28-48-241",
+"status": "Done",
+"createdby": "admin@abc.net",
+"alert_generating_enabled_at": 1574749855,
+"lastrunat": 1574332350,
+"createdat": 1574749855
+}
+StatusCode = 200
+Response Body = "Domain or DarkWeb partner site mapping successfully!!!"
+Response Header = {'Access-Control-Allow-Origin': '*', 'Cache-Control': 'no-cache, no-store', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Sun, 22 Mar 2020 06:26:59 GMT', 'Pragma': 'no-cache', 'Content-Length': '56', 'Connection': 'keep-alive'}
+Response Cookie = &lt;RequestsCookieJar[]&gt;
+['200', '200', '200']</msg>
+<msg timestamp="20200322 11:56:59.804" level="INFO">${result} = ['200', '200', '200']</msg>
+<status status="PASS" starttime="20200322 11:56:59.286" endtime="20200322 11:56:59.804"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"Executed Sucessfully"</arg>
+</arguments>
+<status status="PASS" starttime="20200322 11:56:59.804" endtime="20200322 11:56:59.805"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${Expected_Status_Code}</arg>
+</arguments>
+<status status="PASS" starttime="20200322 11:56:59.805" endtime="20200322 11:56:59.805"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${result}</arg>
+</arguments>
+<status status="PASS" starttime="20200322 11:56:59.806" endtime="20200322 11:56:59.806"></status>
+</kw>
+<kw name="List Should Not Contain Value" library="Collections">
+<doc>Fails if the ``value`` is found from ``list``.</doc>
+<arguments>
+<arg>${result}</arg>
+<arg>${Expected_Status_Code}</arg>
+<arg>Vulnerability Observed</arg>
+</arguments>
+<msg timestamp="20200322 11:56:59.807" level="FAIL">Vulnerability Observed</msg>
+<status status="FAIL" starttime="20200322 11:56:59.806" endtime="20200322 11:56:59.807"></status>
+</kw>
+<status status="FAIL" starttime="20200322 11:56:59.286" endtime="20200322 11:56:59.807"></status>
+</kw>
+<status status="FAIL" starttime="20200322 11:56:59.284" endtime="20200322 11:56:59.807" critical="yes">Vulnerability Observed</status>
+</test>
+<status status="FAIL" starttime="20200322 11:56:57.928" endtime="20200322 11:56:59.809"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1">Critical Tests</stat>
+<stat pass="0" fail="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" id="s1" name="SATPlus">SATPlus</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
