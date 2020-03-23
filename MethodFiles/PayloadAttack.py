@@ -93,6 +93,7 @@ def perform_get_payload_attack(API_Excel_Location, API_Excel_Sheet_Name, API_Mod
                                         print("Response Cookie = " + str(response.cookies))
                                         result.append(StatusCode)
                                         print(result)
+                                        time.sleep(10)
 
                         elif (AttackVector in API_Request_Body.value):
                             print("Parameter Observed in Request Body")
@@ -119,6 +120,7 @@ def perform_get_payload_attack(API_Excel_Location, API_Excel_Sheet_Name, API_Mod
                                         print("Response Cookie = " + str(response.cookies))
                                         result.append(StatusCode)
                                         print(result)
+                                        time.sleep(10)
 
                         elif (AttackVector in API_Request_Header):
                             print("Parameter Observed in Request Header")
@@ -144,6 +146,7 @@ def perform_get_payload_attack(API_Excel_Location, API_Excel_Sheet_Name, API_Mod
                                         print("Response Cookie = " + str(response.cookies))
                                         result.append(StatusCode)
                                         print(result)
+                                        time.sleep(10)
 
                         elif (AttackVector in API_Request_Cookie):
                             print("Parameter Observed in Request Cookie")
@@ -169,6 +172,7 @@ def perform_get_payload_attack(API_Excel_Location, API_Excel_Sheet_Name, API_Mod
                                         print("Response Cookie = " + str(response.cookies))
                                         result.append(StatusCode)
                                         print(result)
+                                        time.sleep(10)
 
                 else:
                     {"HTTP Method is not GET"}
@@ -256,6 +260,7 @@ def perform_post_payload_attack(API_Excel_Location, API_Excel_Sheet_Name, API_Mo
                                     print("Response Cookie = " + str(response.cookies))
                                     result.append(StatusCode)
                                     print(result)
+                                    time.sleep(10)
 
                     elif (AttackVector in API_Request_Body.value):
                         print("Parameter Observed in Request Body")
@@ -281,6 +286,7 @@ def perform_post_payload_attack(API_Excel_Location, API_Excel_Sheet_Name, API_Mo
                                     print("Response Cookie = " + str(response.cookies))
                                     result.append(StatusCode)
                                     print(result)
+                                    time.sleep(10)
 
                     elif (AttackVector in API_Request_Header):
                         print("Parameter Observed in Request Header")
@@ -306,6 +312,7 @@ def perform_post_payload_attack(API_Excel_Location, API_Excel_Sheet_Name, API_Mo
                                     print("Response Cookie = " + str(response.cookies))
                                     result.append(StatusCode)
                                     print(result)
+                                    time.sleep(10)
 
                     elif (AttackVector in API_Request_Cookie):
                         print("Parameter Observed in Request Cookie")
@@ -332,6 +339,7 @@ def perform_post_payload_attack(API_Excel_Location, API_Excel_Sheet_Name, API_Mo
                                     print("Response Cookie = " + str(response.cookies))
                                     result.append(StatusCode)
                                     print(result)
+                                    time.sleep(10)
                 else:
                     {"HTTP Method is not POST"}
                 break
@@ -417,6 +425,7 @@ def perform_put_payload_attack(API_Excel_Location, API_Excel_Sheet_Name, API_Mod
                                 print("Response Cookie = " + str(response.cookies))
                                 result.append(StatusCode)
                                 print(result)
+                                time.sleep(10)
 
                 elif (AttackVector in API_Request_Body.value):
                     print("Parameter Observed in Request Body")
@@ -442,6 +451,7 @@ def perform_put_payload_attack(API_Excel_Location, API_Excel_Sheet_Name, API_Mod
                                 print("Response Cookie = " + str(response.cookies))
                                 result.append(StatusCode)
                                 print(result)
+                                time.sleep(10)
 
                 elif (AttackVector in API_Request_Header):
                     print("Parameter Observed in Request Header")
@@ -467,6 +477,7 @@ def perform_put_payload_attack(API_Excel_Location, API_Excel_Sheet_Name, API_Mod
                                 print("Response Cookie = " + str(response.cookies))
                                 result.append(StatusCode)
                                 print(result)
+                                time.sleep(10)
 
                 elif (AttackVector in API_Request_Cookie):
                     print("Parameter Observed in Request Cookie")
@@ -492,6 +503,7 @@ def perform_put_payload_attack(API_Excel_Location, API_Excel_Sheet_Name, API_Mod
                                 print("Response Cookie = " + str(response.cookies))
                                 result.append(StatusCode)
                                 print(result)
+                                time.sleep(10)
                 else:
                     {"HTTP Method is not PUT"}
                 break
@@ -576,6 +588,7 @@ def perform_allmethod_payload_attack(API_Excel_Location, API_Excel_Sheet_Name, A
                                         print("Response Cookie = " + str(response.cookies))
                                         result.append(StatusCode)
                                         print(result)
+                                        time.sleep(10)
 
                         elif(AttackVector in API_Request_Body.value):
                             print("Parameter Observed in Request Body")
@@ -601,6 +614,7 @@ def perform_allmethod_payload_attack(API_Excel_Location, API_Excel_Sheet_Name, A
                                         print("Response Cookie = " + str(response.cookies))
                                         result.append(StatusCode)
                                         print(result)
+                                        time.sleep(10)
 
                         elif(AttackVector in API_Request_Header):
                             print("Parameter Observed in Request Header")
@@ -626,6 +640,7 @@ def perform_allmethod_payload_attack(API_Excel_Location, API_Excel_Sheet_Name, A
                                         print("Response Cookie = " + str(response.cookies))
                                         result.append(StatusCode)
                                         print(result)
+                                        time.sleep(10)
 
                         elif(AttackVector in API_Request_Cookie):
                             print("Parameter Observed in Request Cookie")
@@ -652,6 +667,7 @@ def perform_allmethod_payload_attack(API_Excel_Location, API_Excel_Sheet_Name, A
                                         print("Response Cookie = " + str(response.cookies))
                                         result.append(StatusCode)
                                         print(result)
+                                        time.sleep(10)
                         elif():
                             print("No Parameter Observed in " + str(API_RowContents.value))
 
@@ -683,6 +699,7 @@ def perform_allmethod_payload_attack(API_Excel_Location, API_Excel_Sheet_Name, A
                                         print("Response Cookie = " + str(response.cookies))
                                         result.append(StatusCode)
                                         print(result)
+                                        time.sleep(10)
 
                         elif (AttackVector in API_Request_Body.value):
                             print("Parameter Observed in Request Body")
@@ -709,6 +726,7 @@ def perform_allmethod_payload_attack(API_Excel_Location, API_Excel_Sheet_Name, A
                                         print("Response Cookie = " + str(response.cookies))
                                         result.append(StatusCode)
                                         print(result)
+                                        time.sleep(10)
 
                         elif (AttackVector in API_Request_Header):
                             print("Parameter Observed in Request Header")
@@ -734,6 +752,7 @@ def perform_allmethod_payload_attack(API_Excel_Location, API_Excel_Sheet_Name, A
                                         print("Response Cookie = " + str(response.cookies))
                                         result.append(StatusCode)
                                         print(result)
+                                        time.sleep(10)
 
                         elif (AttackVector in API_Request_Cookie):
                             print("Parameter Observed in Request Cookie")
@@ -759,6 +778,7 @@ def perform_allmethod_payload_attack(API_Excel_Location, API_Excel_Sheet_Name, A
                                         print("Response Cookie = " + str(response.cookies))
                                         result.append(StatusCode)
                                         print(result)
+                                        time.sleep(10)
                         elif ():
                             print("No Parameter Observed in " + str(API_RowContents.value))
 
@@ -790,6 +810,7 @@ def perform_allmethod_payload_attack(API_Excel_Location, API_Excel_Sheet_Name, A
                                         print("Response Cookie = " + str(response.cookies))
                                         result.append(StatusCode)
                                         print(result)
+                                        time.sleep(10)
 
                         elif (AttackVector in API_Request_Body.value):
                             print("Parameter Observed in Request Body")
@@ -816,6 +837,7 @@ def perform_allmethod_payload_attack(API_Excel_Location, API_Excel_Sheet_Name, A
                                         print("Response Cookie = " + str(response.cookies))
                                         result.append(StatusCode)
                                         print(result)
+                                        time.sleep(10)
 
                         elif (AttackVector in API_Request_Header):
                             print("Parameter Observed in Request Header")
@@ -841,6 +863,7 @@ def perform_allmethod_payload_attack(API_Excel_Location, API_Excel_Sheet_Name, A
                                         print("Response Cookie = " + str(response.cookies))
                                         result.append(StatusCode)
                                         print(result)
+                                        time.sleep(10)
 
                         elif (AttackVector in API_Request_Cookie):
                             print("Parameter Observed in Request Cookie")
@@ -866,6 +889,7 @@ def perform_allmethod_payload_attack(API_Excel_Location, API_Excel_Sheet_Name, A
                                         print("Response Cookie = " + str(response.cookies))
                                         result.append(StatusCode)
                                         print(result)
+                                        time.sleep(10)
                         elif ():
                             print("No Parameter Observed in " + str(API_RowContents.value))
                     else:
