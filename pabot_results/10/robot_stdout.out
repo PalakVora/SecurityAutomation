@@ -1,0 +1,14 @@
+==============================================================================
+Batch Profile                                                                 
+==============================================================================
+TC_011 Host Header Injection Attack on Batch Profile                  "Performing Host Header Injection Attack on Batch Profile"
+"Executing Host Header Injection Attack"
+D:/Programming/Application Security/coe-application-security/DataFiles/API.xlsx
+{}
+| PASS |
+------------------------------------------------------------------------------
+Batch Profile                                                         | PASS |
+1 critical test, 1 passed, 0 failed
+1 test total, 1 passed, 0 failed
+==============================================================================
+Output:  C:\Users\palak\Downloads\coe-application-security\pabot_results\10\output.xml

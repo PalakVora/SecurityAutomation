@@ -1,0 +1,13 @@
+==============================================================================
+Batch Profile                                                                 
+==============================================================================
+TC_001                                                                "Verifying Batch Profile API is functionally working"
+"Started API Execution"
+"Executed Sucessfully"
+| PASS |
+------------------------------------------------------------------------------
+Batch Profile                                                         | PASS |
+1 critical test, 1 passed, 0 failed
+1 test total, 1 passed, 0 failed
+==============================================================================
+Output:  C:\Users\palak\Downloads\coe-application-security\pabot_results\0\output.xml

@@ -1,6 +1,6 @@
 *** Settings ***
 Library  SeleniumLibrary
-Resource  ../../../Resources/API.robot
+Resource  ../../../../Resources/API.robot
 
 *** Variables ***
 ${Excel_Location}  D:/Programming/Application Security/coe-application-security/DataFiles/API.xlsx
@@ -28,14 +28,18 @@ TC_006 Lightweight Directory Access Protocol Attack on Techview-Console
     Injection Attack  ${Excel_Location}  ITSM  Techview-Console  ${Payload_Excel_Location}  LDAP
 
 TC_007 Server Side Injection Attack on Techview-Console
-    log to console  "Performing Server Side Injection on Techview-Console"
+    log to console  "Performing Server Side Injection Attack on Techview-Console"
     Injection Attack  ${Excel_Location}  ITSM  Techview-Console  ${Payload_Excel_Location}  SSI
 
 TC_008 XPath Injection on Techview-Console
-    log to console  "Performing XPath Injection on Techview-Console"
-    Injection Attack  ${Excel_Location}  ITSM  Techview-Console  ${Payload_Excel_Location}  SSI
+    log to console  "Performing XPath Injection Attack on Techview-Console"
+    Injection Attack  ${Excel_Location}  ITSM  Techview-Console  ${Payload_Excel_Location}  XPATH
 
 TC_009 Basic Bash Command Injection
-    log to console  "Performing Basic Bash Command Injection on Techview-Console"
-    Injection Attack  ${Excel_Location}  ITSM  Techview-Console  ${Payload_Excel_Location}  SSI
+    log to console  "Performing Basic Bash Command Injection Attack on Techview-Console"
+    Injection Attack  ${Excel_Location}  ITSM  Techview-Console  ${Payload_Excel_Location}  BASH
+
+TC_010 Verb Parameter Tampering
+    log to console  "Performing Verb Tampering attack on Techview-Console"
+    Dangerous Method  ${Excel_Location}  ITSM  Techview-Console
 

@@ -1,5 +1,4 @@
 *** Settings ***
-Library  ../../PreDefined_Methods/Method_Factory.py
 Library  SeleniumLibrary
 Library  OperatingSystem
 Library  robot.api.logger
@@ -8,7 +7,6 @@ Library  RequestsLibrary
 Library  Collections
 Library  JSONLibrary
 Library  requests
-Library  panda as pd
 
 
 #Test Setup  Start Browser and Maximize
@@ -88,10 +86,6 @@ TC_005 Delete Student Details
     #status is the key of the json response, we are looking for its key
     ${status}=  get from list  @{json_response_list}  0
     should be equal  ${status}  true
-
-TC_006 Read Excel Contents
-    Read Excel Contents
-
 
 
 *** Keywords ***

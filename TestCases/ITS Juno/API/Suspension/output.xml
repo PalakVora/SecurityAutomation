@@ -1,0 +1,971 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.1 (Python 3.7.4 on win32)" generated="20200724 14:11:54.979" rpa="false">
+<suite id="s1" name="Suspension family 1" source="D:\Programming\Application Security\coe-application-security\TestCases\ITS Juno\API\Suspension\Suspension_family_1.robot">
+<test id="s1-t1" name="TC_003 SQL Injection on Suspension API Family 1">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"Performing SQL Injection Attack on Suspension API Family 1"</arg>
+</arguments>
+<status status="PASS" starttime="20200724 14:11:57.329" endtime="20200724 14:11:57.329"></status>
+</kw>
+<kw name="Injection Attack" library="API">
+<arguments>
+<arg>${Excel_Location}</arg>
+<arg>ITS_Juno</arg>
+<arg>Suspension_family_1</arg>
+<arg>${Payload_Excel_Location}</arg>
+<arg>SQL</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"Executing Injection Attack"</arg>
+</arguments>
+<status status="PASS" starttime="20200724 14:11:57.332" endtime="20200724 14:11:57.337"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${Excel_Location}</arg>
+</arguments>
+<status status="PASS" starttime="20200724 14:11:57.337" endtime="20200724 14:11:57.339"></status>
+</kw>
+<kw name="Input Validation" library="API_Injection">
+<arguments>
+<arg>${Excel_Location}</arg>
+<arg>${Excel_Sheet_Name}</arg>
+<arg>${Module_Name}</arg>
+<arg>${Payload_Excel_Location}</arg>
+<arg>${Payload_Sheet_Name}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20200724 14:27:47.717" level="INFO">Opening Excel
+Opened Excel
+Title of Sheet = ITS_Juno
+Row 1 = API_Name
+Row 2 = Suspension_family_1
+Module Found : Suspension_family_1 in Row - 2 of Worksheet - ITS_Juno
+Suspension_family_1
+GET
+GET
+http
+http
+
+BaseURL = rmmitsapi.dtitsupport247.net
+
+RelativeURL = /rmmitsapi/v2/partners/$50016301$/sites/$50110612$/conditions/$1028$/family/$1$/$suspension$
+
+http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/$50016301$/sites/$50110612$/conditions/$1028$/family/$1$/$suspension$
+Body = {"":""}
+
+{'': ''}
+Header = {"Content-Type": "application/json","Connection": "keep-alive"}
+
+{'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie = {"":""}
+
+{'': ''}
+{'HTTPMethod': 'GET', 'Protocol': 'http', 'URL': 'http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/$50016301$/sites/$50110612$/conditions/$1028$/family/$1$/$suspension$', 'Body': {'': ''}, 'Header': {'Content-Type': 'application/json', 'Connection': 'keep-alive'}, 'Cookie': {'': ''}}
+Row 3 = Suspension_family_91
+Row 4 = Suspension_family_32_Filter
+Row 5 = Suspension_family_96_Filter
+Row 6 = Suspension_family_91_Filter
+Row 7 = Suspension_family_32
+Row 8 = None
+Row 9 = None
+Row 10 = None
+Row 11 = None
+Row 12 = None
+Row 13 = None
+Row 14 = None
+Row 15 = None
+Row 16 = None
+Row 17 = None
+Row 18 = None
+Row 19 = None
+Row 20 = None
+Row 21 = None
+Row 22 = None
+Row 23 = None
+Row 24 = None
+Row 25 = None
+Row 26 = None
+Row 27 = None
+Row 28 = None
+Row 29 = None
+Row 30 = None
+Row 31 = None
+Row 32 = None
+Row 33 = None
+Row 34 = None
+Row 35 = None
+Row 36 = None
+Row 37 = None
+Row 38 = None
+Data from find_vulnerable_parameters 
+{'HTTPMethod': 'GET', 'Protocol': 'http', 'URL': 'http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/$50016301$/sites/$50110612$/conditions/$1028$/family/$1$/$suspension$', 'Body': {'': ''}, 'Header': {'Content-Type': 'application/json', 'Connection': 'keep-alive'}, 'Cookie': {'': ''}}
+HTTP Method: GET
+Protocol: http
+URL: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/$50016301$/sites/$50110612$/conditions/$1028$/family/$1$/$suspension$
+Body: {'': ''}
+Header: {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie: {'': ''}
+Parameter found in URL
+['50016301', '50110612', '1028', '1', 'suspension']
+Parameter found in Body
+[]
+Parameter found in Header
+[]
+Parameter found in Cookie
+[]
+Executing GET Method
+Parameter found in URL
+Row 1 = "\'"
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/"\'"/sites/50110612/conditions/1028/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/"\'"/sites/50110612/conditions/1028/family/1/suspension
+['500']
+['500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/"\'"/conditions/1028/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/"\'"/conditions/1028/family/1/suspension
+['500', '500']
+['500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/"\'"/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/"\'"/family/1/suspension
+['500', '500', '500']
+['500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/500"\'"630"\'"/sites/50"\'""\'"06"\'"2/conditions/"\'"028/family/"\'"/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/500"\'"630"\'"/sites/50"\'""\'"06"\'"2/conditions/"\'"028/family/"\'"/suspension
+['500', '500', '500', '500']
+['500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/1028/family/1/"\'"
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/1028/family/1/"\'"
+['500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500']
+Row 2 = "\\\'
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/"\\\'/sites/50110612/conditions/1028/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/"\\\'/sites/50110612/conditions/1028/family/1/suspension
+['500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/"\\\'/conditions/1028/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/"\\\'/conditions/1028/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/"\\\'/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/"\\\'/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/500"\\\'630"\\\'/sites/50"\\\'"\\\'06"\\\'2/conditions/"\\\'028/family/"\\\'/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/500"\\\'630"\\\'/sites/50"\\\'"\\\'06"\\\'2/conditions/"\\\'028/family/"\\\'/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/1028/family/1/"\\\'
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/1028/family/1/"\\\'
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Row 3 = "||\'"
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/"||\'"/sites/50110612/conditions/1028/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/"||\'"/sites/50110612/conditions/1028/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/"||\'"/conditions/1028/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/"||\'"/conditions/1028/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/"||\'"/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/"||\'"/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/500"||\'"630"||\'"/sites/50"||\'""||\'"06"||\'"2/conditions/"||\'"028/family/"||\'"/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/500"||\'"630"||\'"/sites/50"||\'""||\'"06"||\'"2/conditions/"||\'"028/family/"||\'"/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/1028/family/1/"||\'"
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/1028/family/1/"||\'"
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Row 4 = "1\'1"
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/"1\'1"/sites/50110612/conditions/1028/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/"1\'1"/sites/50110612/conditions/1028/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/"1\'1"/conditions/1028/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/"1\'1"/conditions/1028/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/"1\'1"/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/"1\'1"/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/500"1\'1"630"1\'1"/sites/50"1\'1""1\'1"06"1\'1"2/conditions/"1\'1"028/family/"1\'1"/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/500"1\'1"630"1\'1"/sites/50"1\'1""1\'1"06"1\'1"2/conditions/"1\'1"028/family/"1\'1"/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/1028/family/1/"1\'1"
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/1028/family/1/"1\'1"
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Row 5 = "-%s"%(r_time())
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/"-%s"%(r_time())/sites/50110612/conditions/1028/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/"-%s"%(r_time())/sites/50110612/conditions/1028/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/"-%s"%(r_time())/conditions/1028/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/"-%s"%(r_time())/conditions/1028/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/"-%s"%(r_time())/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/"-%s"%(r_time())/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/500"-%s"%(r_time())630"-%s"%(r_time())/sites/50"-%s"%(r_time())"-%s"%(r_time())06"-%s"%(r_time())2/conditions/"-%s"%(r_time())028/family/"-%s"%(r_time())/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/500"-%s"%(r_time())630"-%s"%(r_time())/sites/50"-%s"%(r_time())"-%s"%(r_time())06"-%s"%(r_time())2/conditions/"-%s"%(r_time())028/family/"-%s"%(r_time())/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/1028/family/1/"-%s"%(r_time())
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/1028/family/1/"-%s"%(r_time())
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Row 6 = "\'%s"%(r_time())
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/"\'%s"%(r_time())/sites/50110612/conditions/1028/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/"\'%s"%(r_time())/sites/50110612/conditions/1028/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/"\'%s"%(r_time())/conditions/1028/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/"\'%s"%(r_time())/conditions/1028/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/"\'%s"%(r_time())/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/"\'%s"%(r_time())/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/500"\'%s"%(r_time())630"\'%s"%(r_time())/sites/50"\'%s"%(r_time())"\'%s"%(r_time())06"\'%s"%(r_time())2/conditions/"\'%s"%(r_time())028/family/"\'%s"%(r_time())/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/500"\'%s"%(r_time())630"\'%s"%(r_time())/sites/50"\'%s"%(r_time())"\'%s"%(r_time())06"\'%s"%(r_time())2/conditions/"\'%s"%(r_time())028/family/"\'%s"%(r_time())/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/1028/family/1/"\'%s"%(r_time())
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/1028/family/1/"\'%s"%(r_time())
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Row 7 = "%s\'"%(r_string(10))
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/"%s\'"%(r_string(10))/sites/50110612/conditions/1028/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/"%s\'"%(r_string(10))/sites/50110612/conditions/1028/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/"%s\'"%(r_string(10))/conditions/1028/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/"%s\'"%(r_string(10))/conditions/1028/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/"%s\'"%(r_string(10))/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/"%s\'"%(r_string(10))/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/500"%s\'"%(r_string(10))630"%s\'"%(r_string(10))/sites/50"%s\'"%(r_string(10))"%s\'"%(r_string(10))06"%s\'"%(r_string(10))2/conditions/"%s\'"%(r_string(10))028/family/"%s\'"%(r_string(10))/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/500"%s\'"%(r_string(10))630"%s\'"%(r_string(10))/sites/50"%s\'"%(r_string(10))"%s\'"%(r_string(10))06"%s\'"%(r_string(10))2/conditions/"%s\'"%(r_string(10))028/family/"%s\'"%(r_string(10))/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/1028/family/1/"%s\'"%(r_string(10))
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/1028/family/1/"%s\'"%(r_string(10))
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Row 8 = "\\\"%s"%(r_string(10))
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/"\\\"%s"%(r_string(10))/sites/50110612/conditions/1028/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/"\\\"%s"%(r_string(10))/sites/50110612/conditions/1028/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/"\\\"%s"%(r_string(10))/conditions/1028/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/"\\\"%s"%(r_string(10))/conditions/1028/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/"\\\"%s"%(r_string(10))/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/"\\\"%s"%(r_string(10))/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/500"\\\"%s"%(r_string(10))630"\\\"%s"%(r_string(10))/sites/50"\\\"%s"%(r_string(10))"\\\"%s"%(r_string(10))06"\\\"%s"%(r_string(10))2/conditions/"\\\"%s"%(r_string(10))028/family/"\\\"%s"%(r_string(10))/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/500"\\\"%s"%(r_string(10))630"\\\"%s"%(r_string(10))/sites/50"\\\"%s"%(r_string(10))"\\\"%s"%(r_string(10))06"\\\"%s"%(r_string(10))2/conditions/"\\\"%s"%(r_string(10))028/family/"\\\"%s"%(r_string(10))/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/1028/family/1/"\\\"%s"%(r_string(10))
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/1028/family/1/"\\\"%s"%(r_string(10))
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Row 9 = "%s=\'%s"%(r_time(),r_time())
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/"%s=\'%s"%(r_time(),r_time())/sites/50110612/conditions/1028/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/"%s=\'%s"%(r_time(),r_time())/sites/50110612/conditions/1028/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/"%s=\'%s"%(r_time(),r_time())/conditions/1028/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/"%s=\'%s"%(r_time(),r_time())/conditions/1028/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/"%s=\'%s"%(r_time(),r_time())/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/"%s=\'%s"%(r_time(),r_time())/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/500"%s=\'%s"%(r_time(),r_time())630"%s=\'%s"%(r_time(),r_time())/sites/50"%s=\'%s"%(r_time(),r_time())"%s=\'%s"%(r_time(),r_time())06"%s=\'%s"%(r_time(),r_time())2/conditions/"%s=\'%s"%(r_time(),r_time())028/family/"%s=\'%s"%(r_time(),r_time())/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/500"%s=\'%s"%(r_time(),r_time())630"%s=\'%s"%(r_time(),r_time())/sites/50"%s=\'%s"%(r_time(),r_time())"%s=\'%s"%(r_time(),r_time())06"%s=\'%s"%(r_time(),r_time())2/conditions/"%s=\'%s"%(r_time(),r_time())028/family/"%s=\'%s"%(r_time(),r_time())/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/1028/family/1/"%s=\'%s"%(r_time(),r_time())
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/1028/family/1/"%s=\'%s"%(r_time(),r_time())
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Row 10 = "))\'+OR+%s=%s"%(r_time(),r_time())
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/"))\'+OR+%s=%s"%(r_time(),r_time())/sites/50110612/conditions/1028/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/"))\'+OR+%s=%s"%(r_time(),r_time())/sites/50110612/conditions/1028/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/"))\'+OR+%s=%s"%(r_time(),r_time())/conditions/1028/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/"))\'+OR+%s=%s"%(r_time(),r_time())/conditions/1028/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/"))\'+OR+%s=%s"%(r_time(),r_time())/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/"))\'+OR+%s=%s"%(r_time(),r_time())/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/500"))\'+OR+%s=%s"%(r_time(),r_time())630"))\'+OR+%s=%s"%(r_time(),r_time())/sites/50"))\'+OR+%s=%s"%(r_time(),r_time())"))\'+OR+%s=%s"%(r_time(),r_time())06"))\'+OR+%s=%s"%(r_time(),r_time())2/conditions/"))\'+OR+%s=%s"%(r_time(),r_time())028/family/"))\'+OR+%s=%s"%(r_time(),r_time())/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/500"))\'+OR+%s=%s"%(r_time(),r_time())630"))\'+OR+%s=%s"%(r_time(),r_time())/sites/50"))\'+OR+%s=%s"%(r_time(),r_time())"))\'+OR+%s=%s"%(r_time(),r_time())06"))\'+OR+%s=%s"%(r_time(),r_time())2/conditions/"))\'+OR+%s=%s"%(r_time(),r_time())028/family/"))\'+OR+%s=%s"%(r_time(),r_time())/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/1028/family/1/"))\'+OR+%s=%s"%(r_time(),r_time())
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/1028/family/1/"))\'+OR+%s=%s"%(r_time(),r_time())
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Row 11 = "))) AND %s=%s"%(r_time(),r_time())
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/"))) AND %s=%s"%(r_time(),r_time())/sites/50110612/conditions/1028/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/"))) AND %s=%s"%(r_time(),r_time())/sites/50110612/conditions/1028/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/"))) AND %s=%s"%(r_time(),r_time())/conditions/1028/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/"))) AND %s=%s"%(r_time(),r_time())/conditions/1028/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/"))) AND %s=%s"%(r_time(),r_time())/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/"))) AND %s=%s"%(r_time(),r_time())/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/500"))) AND %s=%s"%(r_time(),r_time())630"))) AND %s=%s"%(r_time(),r_time())/sites/50"))) AND %s=%s"%(r_time(),r_time())"))) AND %s=%s"%(r_time(),r_time())06"))) AND %s=%s"%(r_time(),r_time())2/conditions/"))) AND %s=%s"%(r_time(),r_time())028/family/"))) AND %s=%s"%(r_time(),r_time())/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/500"))) AND %s=%s"%(r_time(),r_time())630"))) AND %s=%s"%(r_time(),r_time())/sites/50"))) AND %s=%s"%(r_time(),r_time())"))) AND %s=%s"%(r_time(),r_time())06"))) AND %s=%s"%(r_time(),r_time())2/conditions/"))) AND %s=%s"%(r_time(),r_time())028/family/"))) AND %s=%s"%(r_time(),r_time())/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/1028/family/1/"))) AND %s=%s"%(r_time(),r_time())
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/1028/family/1/"))) AND %s=%s"%(r_time(),r_time())
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Row 12 = "; OR \'%s\'=\'%s\'"%(r_time(),r_time())
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/"; OR \'%s\'=\'%s\'"%(r_time(),r_time())/sites/50110612/conditions/1028/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/"; OR \'%s\'=\'%s\'"%(r_time(),r_time())/sites/50110612/conditions/1028/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/"; OR \'%s\'=\'%s\'"%(r_time(),r_time())/conditions/1028/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/"; OR \'%s\'=\'%s\'"%(r_time(),r_time())/conditions/1028/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/"; OR \'%s\'=\'%s\'"%(r_time(),r_time())/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/"; OR \'%s\'=\'%s\'"%(r_time(),r_time())/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/500"; OR \'%s\'=\'%s\'"%(r_time(),r_time())630"; OR \'%s\'=\'%s\'"%(r_time(),r_time())/sites/50"; OR \'%s\'=\'%s\'"%(r_time(),r_time())"; OR \'%s\'=\'%s\'"%(r_time(),r_time())06"; OR \'%s\'=\'%s\'"%(r_time(),r_time())2/conditions/"; OR \'%s\'=\'%s\'"%(r_time(),r_time())028/family/"; OR \'%s\'=\'%s\'"%(r_time(),r_time())/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/500"; OR \'%s\'=\'%s\'"%(r_time(),r_time())630"; OR \'%s\'=\'%s\'"%(r_time(),r_time())/sites/50"; OR \'%s\'=\'%s\'"%(r_time(),r_time())"; OR \'%s\'=\'%s\'"%(r_time(),r_time())06"; OR \'%s\'=\'%s\'"%(r_time(),r_time())2/conditions/"; OR \'%s\'=\'%s\'"%(r_time(),r_time())028/family/"; OR \'%s\'=\'%s\'"%(r_time(),r_time())/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/1028/family/1/"; OR \'%s\'=\'%s\'"%(r_time(),r_time())
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/1028/family/1/"; OR \'%s\'=\'%s\'"%(r_time(),r_time())
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Row 13 = "\'OR \'))%s=%s --"%(r_time(),r_time())
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/"\'OR \'))%s=%s --"%(r_time(),r_time())/sites/50110612/conditions/1028/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/"\'OR \'))%s=%s --"%(r_time(),r_time())/sites/50110612/conditions/1028/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/"\'OR \'))%s=%s --"%(r_time(),r_time())/conditions/1028/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/"\'OR \'))%s=%s --"%(r_time(),r_time())/conditions/1028/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/"\'OR \'))%s=%s --"%(r_time(),r_time())/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/"\'OR \'))%s=%s --"%(r_time(),r_time())/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/500"\'OR \'))%s=%s --"%(r_time(),r_time())630"\'OR \'))%s=%s --"%(r_time(),r_time())/sites/50"\'OR \'))%s=%s --"%(r_time(),r_time())"\'OR \'))%s=%s --"%(r_time(),r_time())06"\'OR \'))%s=%s --"%(r_time(),r_time())2/conditions/"\'OR \'))%s=%s --"%(r_time(),r_time())028/family/"\'OR \'))%s=%s --"%(r_time(),r_time())/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/500"\'OR \'))%s=%s --"%(r_time(),r_time())630"\'OR \'))%s=%s --"%(r_time(),r_time())/sites/50"\'OR \'))%s=%s --"%(r_time(),r_time())"\'OR \'))%s=%s --"%(r_time(),r_time())06"\'OR \'))%s=%s --"%(r_time(),r_time())2/conditions/"\'OR \'))%s=%s --"%(r_time(),r_time())028/family/"\'OR \'))%s=%s --"%(r_time(),r_time())/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/1028/family/1/"\'OR \'))%s=%s --"%(r_time(),r_time())
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/1028/family/1/"\'OR \'))%s=%s --"%(r_time(),r_time())
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Row 14 = "\'AND \')))%s=%s --#"%(r_time(),r_time())
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/"\'AND \')))%s=%s --#"%(r_time(),r_time())/sites/50110612/conditions/1028/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/"\'AND \')))%s=%s --#"%(r_time(),r_time())/sites/50110612/conditions/1028/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/"\'AND \')))%s=%s --#"%(r_time(),r_time())/conditions/1028/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/"\'AND \')))%s=%s --#"%(r_time(),r_time())/conditions/1028/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/"\'AND \')))%s=%s --#"%(r_time(),r_time())/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/"\'AND \')))%s=%s --#"%(r_time(),r_time())/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/500"\'AND \')))%s=%s --#"%(r_time(),r_time())630"\'AND \')))%s=%s --#"%(r_time(),r_time())/sites/50"\'AND \')))%s=%s --#"%(r_time(),r_time())"\'AND \')))%s=%s --#"%(r_time(),r_time())06"\'AND \')))%s=%s --#"%(r_time(),r_time())2/conditions/"\'AND \')))%s=%s --#"%(r_time(),r_time())028/family/"\'AND \')))%s=%s --#"%(r_time(),r_time())/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/500"\'AND \')))%s=%s --#"%(r_time(),r_time())630"\'AND \')))%s=%s --#"%(r_time(),r_time())/sites/50"\'AND \')))%s=%s --#"%(r_time(),r_time())"\'AND \')))%s=%s --#"%(r_time(),r_time())06"\'AND \')))%s=%s --#"%(r_time(),r_time())2/conditions/"\'AND \')))%s=%s --#"%(r_time(),r_time())028/family/"\'AND \')))%s=%s --#"%(r_time(),r_time())/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/1028/family/1/"\'AND \')))%s=%s --#"%(r_time(),r_time())
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/1028/family/1/"\'AND \')))%s=%s --#"%(r_time(),r_time())
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Row 15 = " %s 1=1 --"%(r_string(20))
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/" %s 1=1 --"%(r_string(20))/sites/50110612/conditions/1028/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/" %s 1=1 --"%(r_string(20))/sites/50110612/conditions/1028/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/" %s 1=1 --"%(r_string(20))/conditions/1028/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/" %s 1=1 --"%(r_string(20))/conditions/1028/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/" %s 1=1 --"%(r_string(20))/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/" %s 1=1 --"%(r_string(20))/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/500" %s 1=1 --"%(r_string(20))630" %s 1=1 --"%(r_string(20))/sites/50" %s 1=1 --"%(r_string(20))" %s 1=1 --"%(r_string(20))06" %s 1=1 --"%(r_string(20))2/conditions/" %s 1=1 --"%(r_string(20))028/family/" %s 1=1 --"%(r_string(20))/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/500" %s 1=1 --"%(r_string(20))630" %s 1=1 --"%(r_string(20))/sites/50" %s 1=1 --"%(r_string(20))" %s 1=1 --"%(r_string(20))06" %s 1=1 --"%(r_string(20))2/conditions/" %s 1=1 --"%(r_string(20))028/family/" %s 1=1 --"%(r_string(20))/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/1028/family/1/" %s 1=1 --"%(r_string(20))
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/1028/family/1/" %s 1=1 --"%(r_string(20))
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Row 16 = " or sleep(%s)=\'"%(r_time())
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/" or sleep(%s)=\'"%(r_time())/sites/50110612/conditions/1028/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/" or sleep(%s)=\'"%(r_time())/sites/50110612/conditions/1028/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/" or sleep(%s)=\'"%(r_time())/conditions/1028/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/" or sleep(%s)=\'"%(r_time())/conditions/1028/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/" or sleep(%s)=\'"%(r_time())/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/" or sleep(%s)=\'"%(r_time())/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/500" or sleep(%s)=\'"%(r_time())630" or sleep(%s)=\'"%(r_time())/sites/50" or sleep(%s)=\'"%(r_time())" or sleep(%s)=\'"%(r_time())06" or sleep(%s)=\'"%(r_time())2/conditions/" or sleep(%s)=\'"%(r_time())028/family/" or sleep(%s)=\'"%(r_time())/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/500" or sleep(%s)=\'"%(r_time())630" or sleep(%s)=\'"%(r_time())/sites/50" or sleep(%s)=\'"%(r_time())" or sleep(%s)=\'"%(r_time())06" or sleep(%s)=\'"%(r_time())2/conditions/" or sleep(%s)=\'"%(r_time())028/family/" or sleep(%s)=\'"%(r_time())/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/1028/family/1/" or sleep(%s)=\'"%(r_time())
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/1028/family/1/" or sleep(%s)=\'"%(r_time())
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Row 17 = "%s' AND userid IS NULL; --"%(r_string(10))
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/"%s' AND userid IS NULL; --"%(r_string(10))/sites/50110612/conditions/1028/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/"%s' AND userid IS NULL; --"%(r_string(10))/sites/50110612/conditions/1028/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/"%s' AND userid IS NULL; --"%(r_string(10))/conditions/1028/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/"%s' AND userid IS NULL; --"%(r_string(10))/conditions/1028/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/"%s' AND userid IS NULL; --"%(r_string(10))/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/"%s' AND userid IS NULL; --"%(r_string(10))/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/500"%s' AND userid IS NULL; --"%(r_string(10))630"%s' AND userid IS NULL; --"%(r_string(10))/sites/50"%s' AND userid IS NULL; --"%(r_string(10))"%s' AND userid IS NULL; --"%(r_string(10))06"%s' AND userid IS NULL; --"%(r_string(10))2/conditions/"%s' AND userid IS NULL; --"%(r_string(10))028/family/"%s' AND userid IS NULL; --"%(r_string(10))/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/500"%s' AND userid IS NULL; --"%(r_string(10))630"%s' AND userid IS NULL; --"%(r_string(10))/sites/50"%s' AND userid IS NULL; --"%(r_string(10))"%s' AND userid IS NULL; --"%(r_string(10))06"%s' AND userid IS NULL; --"%(r_string(10))2/conditions/"%s' AND userid IS NULL; --"%(r_string(10))028/family/"%s' AND userid IS NULL; --"%(r_string(10))/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/1028/family/1/"%s' AND userid IS NULL; --"%(r_string(10))
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/1028/family/1/"%s' AND userid IS NULL; --"%(r_string(10))
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Row 18 = "\") or pg_sleep(%s)--"%(r_time())
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/"\") or pg_sleep(%s)--"%(r_time())/sites/50110612/conditions/1028/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/"\") or pg_sleep(%s)--"%(r_time())/sites/50110612/conditions/1028/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/"\") or pg_sleep(%s)--"%(r_time())/conditions/1028/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/"\") or pg_sleep(%s)--"%(r_time())/conditions/1028/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/"\") or pg_sleep(%s)--"%(r_time())/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/"\") or pg_sleep(%s)--"%(r_time())/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/500"\") or pg_sleep(%s)--"%(r_time())630"\") or pg_sleep(%s)--"%(r_time())/sites/50"\") or pg_sleep(%s)--"%(r_time())"\") or pg_sleep(%s)--"%(r_time())06"\") or pg_sleep(%s)--"%(r_time())2/conditions/"\") or pg_sleep(%s)--"%(r_time())028/family/"\") or pg_sleep(%s)--"%(r_time())/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/500"\") or pg_sleep(%s)--"%(r_time())630"\") or pg_sleep(%s)--"%(r_time())/sites/50"\") or pg_sleep(%s)--"%(r_time())"\") or pg_sleep(%s)--"%(r_time())06"\") or pg_sleep(%s)--"%(r_time())2/conditions/"\") or pg_sleep(%s)--"%(r_time())028/family/"\") or pg_sleep(%s)--"%(r_time())/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/1028/family/1/"\") or pg_sleep(%s)--"%(r_time())
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/1028/family/1/"\") or pg_sleep(%s)--"%(r_time())
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Row 19 = "; exec (\'sel\' + \'ect us\' + \'er\')"
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/"; exec (\'sel\' + \'ect us\' + \'er\')"/sites/50110612/conditions/1028/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/"; exec (\'sel\' + \'ect us\' + \'er\')"/sites/50110612/conditions/1028/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/"; exec (\'sel\' + \'ect us\' + \'er\')"/conditions/1028/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/"; exec (\'sel\' + \'ect us\' + \'er\')"/conditions/1028/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/"; exec (\'sel\' + \'ect us\' + \'er\')"/family/1/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/"; exec (\'sel\' + \'ect us\' + \'er\')"/family/1/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/500"; exec (\'sel\' + \'ect us\' + \'er\')"630"; exec (\'sel\' + \'ect us\' + \'er\')"/sites/50"; exec (\'sel\' + \'ect us\' + \'er\')""; exec (\'sel\' + \'ect us\' + \'er\')"06"; exec (\'sel\' + \'ect us\' + \'er\')"2/conditions/"; exec (\'sel\' + \'ect us\' + \'er\')"028/family/"; exec (\'sel\' + \'ect us\' + \'er\')"/suspension
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/500"; exec (\'sel\' + \'ect us\' + \'er\')"630"; exec (\'sel\' + \'ect us\' + \'er\')"/sites/50"; exec (\'sel\' + \'ect us\' + \'er\')""; exec (\'sel\' + \'ect us\' + \'er\')"06"; exec (\'sel\' + \'ect us\' + \'er\')"2/conditions/"; exec (\'sel\' + \'ect us\' + \'er\')"028/family/"; exec (\'sel\' + \'ect us\' + \'er\')"/suspension
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+URL : http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/1028/family/1/"; exec (\'sel\' + \'ect us\' + \'er\')"
+Body : {'': ''}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'': ''}
+&lt;module 'traceback' from 'c:\\python37\\lib\\traceback.py'&gt;
+Error in executing: http://rmmitsapi.dtitsupport247.net/rmmitsapi/v2/partners/50016301/sites/50110612/conditions/1028/family/1/"; exec (\'sel\' + \'ect us\' + \'er\')"
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']</msg>
+<msg timestamp="20200724 14:27:47.730" level="INFO">${result} = ['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '50...</msg>
+<status status="PASS" starttime="20200724 14:11:57.340" endtime="20200724 14:27:47.730"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${result}</arg>
+</arguments>
+<status status="PASS" starttime="20200724 14:27:47.731" endtime="20200724 14:27:47.732"></status>
+</kw>
+<kw name="List Should Not Contain Value" library="Collections">
+<doc>Fails if the ``value`` is found from ``list``.</doc>
+<arguments>
+<arg>${result}</arg>
+<arg>200</arg>
+</arguments>
+<status status="PASS" starttime="20200724 14:27:47.732" endtime="20200724 14:27:47.733"></status>
+</kw>
+<kw name="List Should Not Contain Value" library="Collections">
+<doc>Fails if the ``value`` is found from ``list``.</doc>
+<arguments>
+<arg>${result}</arg>
+<arg>201</arg>
+</arguments>
+<status status="PASS" starttime="20200724 14:27:47.733" endtime="20200724 14:27:47.735"></status>
+</kw>
+<kw name="List Should Not Contain Value" library="Collections">
+<doc>Fails if the ``value`` is found from ``list``.</doc>
+<arguments>
+<arg>${result}</arg>
+<arg>202</arg>
+</arguments>
+<status status="PASS" starttime="20200724 14:27:47.735" endtime="20200724 14:27:47.736"></status>
+</kw>
+<status status="PASS" starttime="20200724 14:11:57.330" endtime="20200724 14:27:47.736"></status>
+</kw>
+<status status="PASS" starttime="20200724 14:11:57.328" endtime="20200724 14:27:47.737" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20200724 14:11:54.982" endtime="20200724 14:27:47.739"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="Suspension family 1">Suspension family 1</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20200724 14:11:55.319" level="ERROR">Error in file 'D:\Programming\Application Security\coe-application-security\Resources\API.robot' on line 3: Importing test library 'JSpringBotGlobal' failed: ModuleNotFoundError: No module named 'JSpringBotGlobal'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Python37\Scripts\robot.exe
+  c:\python37\python37.zip
+  c:\python37\DLLs
+  c:\python37\lib
+  c:\python37
+  c:\python37\lib\site-packages
+  c:\python37\lib\site-packages\win32
+  c:\python37\lib\site-packages\win32\lib
+  c:\python37\lib\site-packages\Pythonwin</msg>
+</errors>
+</robot>

@@ -1,0 +1,14 @@
+==============================================================================
+Batch Profile                                                                 
+==============================================================================
+TC_004 Cross Site Scripting on Batch Profile API                      "Performing Cross Site Scripting Attack on Batch Profile API"
+"Executing Injection Attack"
+D:/Programming/Application Security/coe-application-security/DataFiles/API.xlsx
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+| PASS |
+------------------------------------------------------------------------------
+Batch Profile                                                         | PASS |
+1 critical test, 1 passed, 0 failed
+1 test total, 1 passed, 0 failed
+==============================================================================
+Output:  C:\Users\palak\Downloads\coe-application-security\pabot_results\3\output.xml

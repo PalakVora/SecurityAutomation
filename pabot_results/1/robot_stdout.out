@@ -1,0 +1,13 @@
+==============================================================================
+Batch Profile                                                                 
+==============================================================================
+TC_002 HTTP Strict Transport Security Check on Batch Profile API      "Performing HTTP Strict Transport Security Check on Batch Profile API"
+"Executing HTTP Strict Transport Security Check"
+{}
+| PASS |
+------------------------------------------------------------------------------
+Batch Profile                                                         | PASS |
+1 critical test, 1 passed, 0 failed
+1 test total, 1 passed, 0 failed
+==============================================================================
+Output:  C:\Users\palak\Downloads\coe-application-security\pabot_results\1\output.xml

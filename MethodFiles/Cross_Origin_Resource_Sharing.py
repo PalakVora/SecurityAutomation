@@ -1,5 +1,7 @@
 import requests, openpyxl,json, re, traceback, logging, time
-from fpdf import FPDF
+
+
+#========================== OPEN EXCEL======================================
 
 def readexcel(Excel_Location, Excel_Sheet_Name, Module_Name):
     data = {}
@@ -11,118 +13,351 @@ def readexcel(Excel_Location, Excel_Sheet_Name, Module_Name):
         print("Error in opening API Excel File")
         traceback.print_stack()
 
+#========================== GET SHEET FROM EXCEL======================================
+
+def find_sheet_name(Excel_Sheet_Name,Module_Name,Excel_WorkBook):
+    print("inside sheet name")
+    for sheetname in Excel_WorkBook.worksheets:
+        if sheetname.title == Excel_Sheet_Name:
+            ActiveWorkSheet = Excel_WorkBook[sheetname.title]
+            print("Title of Sheet = " + ActiveWorkSheet.title)
+            print("Sheetname =" + sheetname.title)
+            return sheetname
+        else:
+            continue
+
+#========================== FIND API NAME FROM EXCEL SHEET ======================================
+
+def find_module_name(Sheetname,Module_Name):
+    RowLength = Sheetname.max_row
+    ColumnLength = Sheetname.max_column
+    for i in range(1, RowLength + 2):
+        RowContents = Sheetname.cell(row=i, column=1)
+        print("Row " + str(RowContents.row) + " = " + str(RowContents.value))
+        if ((RowContents.value) == Module_Name):
+            print("Module Found : " + str(RowContents.value) + " in Row - " + str(RowContents.row) + " of Worksheet - " + Sheetname.title)
+            return RowContents
+        else:
+            continue
+        try:
+            print(str((Sheetname["A" + str(RowContents.row)]).value) + "\n That API name section")
+        except Exception as error:
+            print("Error in getting API Name")
+            traceback.print_stack()
+        break
+              
+
+        #          for j in range(1, ColumnLength + 1):
+        #             Response = dict()
+        #            ColumnContents = SheetName.cell(row=RowContents.row, column=j)
+        #           print(ColumnContents.value, end="" + "\n")
+
+#========================== GET THE HTTP METHOD FROM THE API OF THE EXCEL SHEET ======================================
+#      
+def read_method(Sheetname,Rowcontents,Excel_WorkBook):
+        try:
+            HTTP_Method = (Sheetname["B" + str(Rowcontents.row)].value)
+            print("ROw" + str(Rowcontents.row))
+            print(HTTP_Method.value)
+            return str(HTTP_Method.value)
+        except Exception as error:
+            print("Error in reading HTTP Method from Excel File")
+            print(error)
+            Excel_WorkBook.close()
+            return 0
+            
+#========================== GET PROTOCOL FROM THE API OF THE EXCEL SHEET ======================================
+
+def read_protocol(Sheetname,RowContents,Excel_WorkBook):
+        try:
+            Request_Protocol = (Sheetname["C" + str(RowContents.row)])
+            print(Request_Protocol.value)
+            return str(Request_Protocol.value)
+        except Exception as error:
+            print("Error in reading Request Protocol from Excel File")
+            Excel_WorkBook.close()                        
+                        
+
+
+#========================== GET BASE URL FROM THE API OF THE EXCEL SHEET ======================================
+
+def read_base_url(Sheetname,RowContents,Excel_WorkBook):
+        try:
+            Request_BaseURL = (Sheetname["D" + str(RowContents.row)])
+            print("BaseURL = " + str(Request_BaseURL.value) + "\n")
+            return str(Request_BaseURL.value)
+           
+        except:
+            print("Error in reading Request Base URL from Excel File")
+            Excel_WorkBook.close() 
+
+#========================== GET RELATIVE URL FROM THE API OF THE EXCEL SHEET ======================================
+
+def read_relative_url(Sheetname,RowContents,Excel_WorkBook):   
+        try:
+             Request_RelativeURL = (Sheetname["E" + str(RowContents.row)])
+             print("RelativeURL = " + str(Request_RelativeURL.value) + "\n")
+             return str(Request_RelativeURL.value)
+        except:
+            print("Error in reading Request Relative URL from Excel File")
+            Excel_WorkBook.close()
+
+
+   #                 SEt URL
+  #                      try:
+  #                          data['URL'] = str(data['Protocol']) + "://" + str(data['BaseURL']) + str(data['RelativeURL'])
+  #                          print(data['URL'])
+  #                      except Exception as error:
+  #                          print(error)
+  #                          traceback.print_stack()
+ #                           Excel_WorkBook.close()
+#                            break
+
+ 
+#========================== GET BODY FROM THE API OF THE EXCEL SHEET ======================================
+
+def read_body(Sheetname,RowContents,Excel_WorkBook):
     try:
-        for SheetName in Excel_WorkBook.worksheets:
-            if SheetName.title == Excel_Sheet_Name:
-                ActiveWorkSheet = Excel_WorkBook[SheetName.title]
-                print("Title of Sheet = " + ActiveWorkSheet.title)
-                RowLength = SheetName.max_row
-                ColumnLength = SheetName.max_column
-                for i in range(1, RowLength + 1):
-                    RowContents = SheetName.cell(row=i, column=1)
-                    print("Row " + str(RowContents.row) + " = " + str(RowContents.value))
-                    if ((RowContents.value) == Module_Name):
-                        print("Module Found : " + str(RowContents.value) + " in Row - " + str(
-                            RowContents.row) + " of Worksheet - " + ActiveWorkSheet.title)
-                    else:
-                        continue
+        Body_Row = json.loads(str((Sheetname["F" + str(RowContents.row)]).value))
+        print("Body ROW",Body_Row)
+        return Body_Row
+    except:
+        print("Error in reading Request Body from Excel File")
+        Excel_WorkBook.close()
+#data['Body'] = json.loads(str((SheetName["F" + str(RowContents.row)]).value))
+#Body_Row=(Sheetname["F" + str(RowContents.row)])                      
 
-                    for j in range(1, ColumnLength + 1):
-                        Response = dict()
-                        ColumnContents = SheetName.cell(row=RowContents.row, column=j)
-                        print(ColumnContents.value, end="" + "\n")
+#========================== GET HEADER FROM THE API OF THE EXCEL SHEET ======================================
 
-                        try:
-                            data['API'] = str((SheetName["A" + str(RowContents.row)]).value)
-                            print(data['API'] + "\n")
-                        except Exception as error:
-                            print("Error in getting API Name")
-                            traceback.print_stack()
-                            Excel_WorkBook.close()
-                            break
+def read_header(Sheetname,RowContents,Excel_WorkBook):
+    try:
+        Header_Row = json.loads(str((Sheetname["G" + str(RowContents.row)]).value))
+        return Header_Row
+    except:
+        print("Error in reading Request Header from Excel File")
+        Excel_WorkBook.close()
+#Header_Row = (Sheetname["G" + str(RowContents.row)])
+#data['Header'] = json.loads(str((SheetName["G" + str(RowContents.row)]).value))                        try:
 
-                        try:
-                            data['HTTPMethod'] = str((SheetName["B" + str(RowContents.row)]).value)
-                            print(data['HTTPMethod'] + "\n")
-                        except Exception as error:
-                            print(error)
-                            traceback.print_stack()
-                            Excel_WorkBook.close()
-                            break
+#========================== GET COOKIE FROM THE API OF THE EXCEL SHEET ======================================
 
-                        try:
-                            data['Protocol'] = str((SheetName["C" + str(RowContents.row)]).value)
-                            print(data['Protocol'] + "\n")
-                        except Exception as error:
-                            print("Error in getting Protocol")
-                            traceback.print_stack()
-                            Excel_WorkBook.close()
-                            break
+def read_cookie(Sheetname,RowContents,Excel_WorkBook):
+    try:
+        Cookie_Row = json.loads(str((Sheetname["H" + str(RowContents.row)]).value))
+        return Cookie_Row
+    except:
+        print("Error in reading Request Cookie from Excel File")
+        Excel_WorkBook.close()
+        
+# Cookie_Row = (Sheetname["H" + str(RowContents.row)])
+#  data['Cookie'] = json.loads(str((SheetName["H" + str(RowContents.row)]).value))
 
-                        try:
-                            data['BaseURL'] = str((SheetName["D" + str(RowContents.row)]).value)
-                            print(data['BaseURL'] + "\n")
-                        except Exception as error:
-                            print("Error in Getting Base URL")
-                            traceback.print_stack()
-                            Excel_WorkBook.close()
-                            break
-
-                        try:
-                            data['RelativeURL'] = str((SheetName["E" + str(RowContents.row)]).value)
-                            print(data['RelativeURL'] + "\n")
-                        except Exception as error:
-                            print("Error in getting Relative URL")
-                            traceback.print_stack()
-                            Excel_WorkBook.close()
-                            break
-
-                        try:
-                            data['URL'] = str(data['Protocol']) + "://" + str(data['BaseURL']) + str(data['RelativeURL'])
-                            print(data['URL'])
-                        except Exception as error:
-                            print(error)
-                            traceback.print_stack()
-                            Excel_WorkBook.close()
-                            break
-
-                        try:
-                            data['Body'] = json.loads(str((SheetName["F" + str(RowContents.row)]).value))
-                            print(data['Body'])
-                        except Exception as error:
-                            print(error)
-                            traceback.print_stack()
-                            Excel_WorkBook.close()
-                            break
-
-                        try:
-                            data['Header'] = json.loads(str((SheetName["G" + str(RowContents.row)]).value))
-                            print(data['Header'])
-                        except Exception as error:
-                            print(error)
-                            traceback.print_stack()
-                            Excel_WorkBook.close()
-                            break
-
-                        try:
-                            data['Cookie'] = json.loads(str((SheetName["H" + str(RowContents.row)]).value))
-                            print(data['Cookie'])
-                        except Exception as error:
-                            print(error)
-                            traceback.print_stack()
-                            Excel_WorkBook.close()
-                            break
-                        break
-                    break
-                    print(data)
-                    Excel_WorkBook.close()
-
+#========================== GET ALL API DETAILS TO SEND THE REQUEST ======================================
+                      
+def find_api(Excel_Location, Excel_Sheet_Name, Module_Name):
+    try:
+        data = {}
+        Excel_WorkBook=readexcel(Excel_Location, Excel_Sheet_Name, Module_Name)
+        print("Outside read excel")
+        Sheetname=find_sheet_name(Excel_Sheet_Name,Module_Name,Excel_WorkBook)
+        print("Out of sheet name" + Sheetname.title)
+        Rowcontents=find_module_name(Sheetname,Module_Name)
+        print("Outside row")
+        if(read_method(Sheetname,Rowcontents,Excel_WorkBook)):
+            method_name=read_method(Sheetname,Rowcontents,Excel_WorkBook)
+            data['HTTPMethod'] = method_name
+            print(data['HTTPMethod'])
+        else:
+             raise Error("HTTP Method not recognised")
+        protocol_name=read_protocol(Sheetname,Rowcontents,Excel_WorkBook)
+        data['Protocol'] = protocol_name
+        print(data['Protocol'] + "\n")
+        base_url=read_base_url(Sheetname,Rowcontents,Excel_WorkBook)
+        relative_url=read_relative_url(Sheetname,Rowcontents,Excel_WorkBook)
+        try:
+            data['URL'] = str(data['Protocol']) + "://" + base_url + relative_url
+            print(data['URL'])
+        except:
+            print("Error in concatenating URL")
+            #Excel_WorkBook.close()
+        body=read_body(Sheetname,Rowcontents,Excel_WorkBook)
+        print("Body = " + body + "\n")
+        data['Body'] = body
+        print("Fdata Body")
+        print(data['Body'])
+        header=read_header(Sheetname,Rowcontents,Excel_WorkBook)
+        print("Header = " + header + "\n")
+        data['Header'] = json.loads(header)
+        print(data['Header'])
+        cookie=read_cookie(Sheetname,Rowcontents,Excel_WorkBook) 
+        print("Cookie = " + cookie + "\n")
+        data['Cookie'] = json.loads(cookie)
+        print(data['Cookie'])
+        print(data)
     except:
         print("Error in reading contents")
+
     return data
 
 
-def HHI(Excel_Location, Excel_Sheet_Name, Module_Name):
+#========================== IDENTIFY THE $ PARAMETERS TO BE ATTACKED ======================================
+
+def find_vulnerable_parameters(result):
+    parameter = {}
+    try:
+        Method = str(result['HTTPMethod'])
+        parameter['HTTPMethod'] = Method
+        print("HTTP Method: " + parameter['HTTPMethod'])
+
+        Protocol = str(result['Protocol'])
+        parameter['Protocol'] = Protocol
+        print("Protocol: " + parameter['Protocol'])
+
+        parameter['URL'] = str(result['URL'])
+        print("URL: " + str(parameter['URL']))
+
+        parameter['Body']=result['Body']
+        print("Body: " + str(parameter['Body']))
+
+        parameter['Header']=result['Header']
+        print("Header: " + str(parameter['Header']))
+
+        parameter['Cookie']=result['Cookie']
+        print("Cookie: " + str(parameter['Cookie']))
+
+    except:
+
+        print("Error in Reading API Contents")
+
+    try:
+        parameter['URL_Parameter'] = re.findall(r'\$(.*?)\$', parameter['URL'])
+        if(parameter['URL_Parameter']):
+            print("Parameter found in URL")
+            print(parameter['URL_Parameter'])
+        else:
+            print("No Parameter found in URL")
+           # parameter['URL_Parameter'] = parameter['URL']
+
+        parameter['Body_Parameter'] = re.findall(r'\$(.*?)\$', str(parameter['Body']))
+        if(parameter['Body_Parameter']):
+            print("Parameter found in Body")
+            print(parameter['Body_Parameter'])
+        else:
+            print("No Parameter found in Body")
+            parameter['Body_Parameter'] = parameter['Body']
+
+        parameter['Header_Parameter'] = re.findall(r'\$(.*?)\$', str(parameter['Header']))
+        if (parameter['Header_Parameter']):
+            print("Parameter found in Header")
+            print(parameter['Header_Parameter'])
+        else:
+            print("No Parameter found in Header")
+            #parameter['Header_Parameter'] = parameter['Header']
+
+        parameter['Cookie_Parameter'] = re.findall(r'\$(.*?)\$', str(parameter['Cookie']))
+        if (parameter['Cookie_Parameter']):
+            print("Parameter found in Cookie")
+            print(parameter['Cookie_Parameter'])
+        else:
+            print("No Parameter found in Cookie")
+            #parameter['Cookie_Parameter'] = parameter['Cookie']
+    except:
+        print("Error in fetching Parameters")
+
+    return parameter
+
+
+#========================== PERFORM ATTACK ON THE $ PARAMETERS AND GET RESPONSE ======================================
+
+def perform_attack(Area,METhod,Any_Parameter,Payload_RowLength,Payload_SheetName,URL,Body,Header,Cookie):
+    result = []
+    if(Any_Parameter):
+        print("Parameter found in = " + Area)
+        for i in range(2, Payload_RowLength + 1):
+            Payload_RowContents = Payload_SheetName.cell(row=i, column=1)
+            print("Row " + str(Payload_RowContents.row - 1) + " = " + str(Payload_RowContents.value), end="" + "\n")
+            for key in Any_Parameter:
+                if(Area=='URL'):
+                    print("Area is = " + Area)
+                    AttackURL = URL.replace(key, str(Payload_RowContents.value))
+                    AttackURL = AttackURL.replace("$", "")
+                    print("Attack url : " + str(AttackURL))
+                    AttackBody = str(Body).replace("$", "")
+                    print("Body : " + str(AttackBody))
+                    AttackHeader = str(Header).replace("$", "")
+                    print("Header : " + str(AttackHeader))
+                    AttackCookie = str(Cookie).replace("$", "")
+                    print("Cookie : " + AttackCookie)
+                elif(Area == 'Body'):
+                    print("Area is = " + Area)
+                    AttackBody = Body.replace(key, str(Payload_RowContents.value))
+                    print("Original BOdy ===============" + AttackBody)
+                    print("for2", i+1)
+                    AttackURL = URL
+                    print("URL : " + str(AttackURL))
+                    AttackBody = str(AttackBody).replace("$", "")
+                    print("AttackBody : " + str(AttackBody))
+                    AttackHeader = str(Header)
+                    print("Header : " + str(AttackHeader))
+                    AttackCookie = str(Cookie)
+                    print("Cookie : " +  AttackCookie)
+                elif(Area == 'Header'):
+                    print("Area is = " + Area)
+                    AttackHeader = Header.replace(key, str(Payload_RowContents.value))
+                    AttackURL = AttackURL.replace("$", "")
+                    print(AttackURL)
+                    AttackBody = str(Body).replace("$", "")
+                    print(AttackBody)
+                    AttackHeader = str(AttackHeader).replace("$", "")
+                    print(AttackHeader)
+                    AttackCookie = str(Cookie).replace("$", "")
+                    print(AttackCookie)
+                elif(Area == 'Cookie'):
+                    print("Area is = " + Area)
+                    AttackCookie = Cookie.replace(key, str(Payload_RowContents.value))
+                    AttackURL = AttackURL.replace("$", "")
+                    print(AttackURL)
+                    AttackBody = str(Body).replace("$", "")
+                    print(AttackBody)
+                    AttackHeader = str(Header).replace("$", "")
+                    print(AttackHeader)
+                    AttackCookie = str(AttackCookie).replace("$", "")
+                    print(AttackCookie)                
+                try:
+                    if (METhod == 'GET'):
+                        print("Method found in attack = " + METhod)
+                        response = requests.get(AttackURL, data=AttackBody, headers=AttackHeader)
+                    elif(METhod == 'POST'):
+                        print("Method found in attack = " + METhod)
+                        response = requests.post(AttackURL, data=AttackBody, headers=AttackHeader)
+                        print("Got ============ response")
+                    elif(METhod == 'PUT'):
+                        response = requests.put(AttackURL, data=AttackBody, headers=AttackHeader)
+                    elif(METhod == 'DELETE'):
+                        response = requests.delete(AttackURL, data=AttackBody, headers=AttackHeader)
+                    StatusCode = str(response.status_code)
+                    Response_Body = str(response.text)
+                    print("Response Status Code : " + str(StatusCode) + "\n")
+                    print("Response Body : " + str(Response_Body) + "\n")
+                    result.append(StatusCode)
+                    print(result)
+                    time.sleep(10)
+                except:
+                    print(traceback)
+                    print("Error in executing: " + str(AttackURL))
+                    StatusCode = '500'
+                    result.append(StatusCode)
+                    print(result)
+                    time.sleep(10)
+                print(result)
+    else:
+        print("No Parameter choosen in the API")
+    return result
+                   
+
+#========================== MAIN FUNCTION WHICH IS CALLED BY API.ROBOT ======================================
+
+def CORS(Excel_Location, Excel_Sheet_Name, Module_Name):
     result = {}
     try:
         returnvalue = readexcel(Excel_Location, Excel_Sheet_Name, Module_Name)
@@ -179,6 +414,7 @@ def HHI(Excel_Location, Excel_Sheet_Name, Module_Name):
     except Exception as error:
         print(error)
         traceback.print_stack()
+
 
     try:
         Cookie = returnvalue['Cookie']
@@ -289,76 +525,24 @@ def HHI(Excel_Location, Excel_Sheet_Name, Module_Name):
 
     try:
         StatusCode = {}
-        XForwardedHost_Headers = {'X-Forwarded-Host':'www.geeksforgeeks.org'}
-        print(XForwardedHost_Headers)
-        XForwardedFor_Headers = {'X-Forwarded-For': '127.0.0.1'}
-        print(XForwardedFor_Headers)
-        XForwardedFor_Headers = {'X-Forwarded-For': '127.0.0.1'}
-        print(XForwardedFor_Headers)
-        XForwardedProto_Headers = {'X-Forwarded-Proto': 'http'}
-        print(XForwardedProto_Headers)
-        Attack_Host = BaseURL.replace(BaseURL, "www.geeksforgeeks.org")
-        print(Attack_Host)
-        try:
-            URL = str(Protocol) + "://" + str(BaseURL) + str(RelativeURL)
-            print("URL: " + str(URL))
-            HOST_Attack_URL = str(Protocol) + "://" + str(Attack_Host) + str(RelativeURL)
-            print("Host Header Injection URL: " + str(HOST_Attack_URL))
-        except Exception as error:
-            print("Error in concatenating URL with Vulnerable host")
-            traceback.print_stack()
+        Origin = {'Origin':'www.geeksforgeeks.org'}
+        print(Origin)
 
         if(Method == 'GET'):
-            HOST_GET = requests.get(HOST_Attack_URL, data=Body, headers=Header)
-            result['HOST StatusCode'] = str(HOST_GET.status_code)
-
-            XForwardedHost_GET = requests.get(HOST_Attack_URL, data=Body, headers=XForwardedHost_Headers)
-            result['X-Forwarded-Host StatusCode'] = str(XForwardedHost_GET.status_code)
-
-            XForwardedFor_GET = requests.get(HOST_Attack_URL, data=Body, headers=XForwardedFor_Headers)
-            result['X-Forwarded-Header StatusCode'] = str(XForwardedFor_GET.status_code)
-
-            XForwardedProto_GET = requests.get(HOST_Attack_URL, data=Body, headers=XForwardedProto_Headers)
-            result['X-Forwarded-Proto StatusCode'] = str(XForwardedProto_GET.status_code)
+            GET = requests.get(URL, data=Body, headers=Origin)
+            result['GET StatusCode'] = str(GET.status_code)
 
         elif(Method == 'POST'):
-            HOST_POST = requests.post(HOST_Attack_URL, data=Body, headers=Header)
-            result['HOST StatusCode'] = str(HOST_POST.status_code)
-
-            XForwardedHost_POST = requests.post(HOST_Attack_URL, data=Body, headers=XForwardedHost_Headers)
-            result['X-Forwarded-Host StatusCode'] = str(XForwardedHost_POST.status_code)
-
-            XForwardedFor_POST = requests.post(HOST_Attack_URL, data=Body, headers=XForwardedFor_Headers)
-            result['X-Forwarded-Header StatusCode'] = str(XForwardedFor_POST.status_code)
-
-            XForwardedProto_POST = requests.post(HOST_Attack_URL, data=Body, headers=XForwardedProto_Headers)
-            result['X-Forwarded-Proto StatusCode'] = str(XForwardedProto_POST.status_code)
+            POST = requests.post(URL, data=Body, headers=Origin)
+            result['GET StatusCode'] = str(POST.status_code)
 
         elif (Method == 'PUT'):
-            HOST_PUT = requests.put(HOST_Attack_URL, data=Body, headers=Header)
-            result['HOST StatusCode'] = str(HOST_PUT.status_code)
-
-            XForwardedHost_PUT = requests.put(HOST_Attack_URL, data=Body, headers=XForwardedHost_Headers)
-            result['X-Forwarded-Host StatusCode'] = str(XForwardedHost_PUT.status_code)
-
-            XForwardedFor_PUT = requests.put(HOST_Attack_URL, data=Body, headers=XForwardedFor_Headers)
-            result['X-Forwarded-Header StatusCode'] = str(XForwardedFor_PUT.status_code)
-
-            XForwardedProto_PUT = requests.put(HOST_Attack_URL, data=Body, headers=XForwardedProto_Headers)
-            result['X-Forwarded-Proto StatusCode'] = str(XForwardedProto_PUT.status_code)
+            PUT = requests.put(URL, data=Body, headers=Origin)
+            result['HOST StatusCode'] = str(PUT.status_code)
 
         elif (Method == 'DELETE'):
-            HOST_DELETE = requests.delete(HOST_Attack_URL, data=Body, headers=Header)
-            result['HOST StatusCode'] = str(HOST_DELETE.status_code)
-
-            XForwardedHost_DELETE = requests.delete(HOST_Attack_URL, data=Body, headers=XForwardedHost_Headers)
-            result['X-Forwarded-Host StatusCode'] = str(XForwardedHost_DELETE.status_code)
-
-            XForwardedFor_DELETE = requests.delete(HOST_Attack_URL, data=Body, headers=XForwardedFor_Headers)
-            result['X-Forwarded-Header StatusCode'] = str(XForwardedFor_DELETE.status_code)
-
-            XForwardedProto_DELETE = requests.delete(HOST_Attack_URL, data=Body, headers=XForwardedProto_Headers)
-            result['X-Forwarded-Proto StatusCode'] = str(XForwardedProto_DELETE.status_code)
+            DELETE = requests.delete(URL, data=Body, headers=Origin)
+            result['GET StatusCode'] = str(DELETE.status_code)
 
     except Exception as error:
         print("Error in executing HOST Injection")

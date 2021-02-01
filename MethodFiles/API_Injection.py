@@ -1,779 +1,223 @@
 import re, requests, json, openpyxl, time, traceback
+from py._error import Error
+from PythonFiles.Utilities.Get_AttackAPI import find_api
+from PythonFiles.Utilities.Get_AttackPosition import find_vulnerable_parameters
+
+def perform_attack(attack_area,http_method,any_parameter,payload_rowlength,payload_sheetname,url,body,header,set_cookie):
+    result = []
+    if(any_parameter):
+        print("Parameter found in = " + attack_area)
+        for i in range(2, payload_rowlength + 1):
+            payload_rowcontents = payload_sheetname.cell(row=i, column=1)
+            print("Row " + str(payload_rowcontents.row - 1) + " = " + str(payload_rowcontents.value), end="" + "\n")
+            for key in any_parameter:
+                if(attack_area=='URL'):
+                    print("Area is = " + attack_area)
+                    AttackURL = url.replace(key, str(payload_rowcontents.value))
+                    AttackURL = AttackURL.replace("$", "")
+                    print("Attack url : " + str(AttackURL))
+                    AttackBody = str(body).replace("$", "")
+                    print("Body : " + str(AttackBody))
+                    AttackHeader = str(header).replace("$", "")
+                    print("Header : " + str(AttackHeader))
+                    AttackCookie = str(set_cookie).replace("$", "")
+                    print("Cookie : " + AttackCookie)
+                elif(attack_area == 'Body'):
+                    print("Area is = " + attack_area)
+                    AttackBody = body.replace(key, str(payload_rowcontents.value))
+                    print("Original BOdy ===============" + AttackBody)
+                    print("for2", i+1)
+                    AttackURL = url
+                    print("URL : " + str(AttackURL))
+                    AttackBody = str(AttackBody).replace("$", "")
+                    print("AttackBody : " + str(AttackBody))
+                    AttackHeader = str(header)
+                    print("Header : " + str(AttackHeader))
+                    AttackCookie = str(set_cookie)
+                    print("Cookie : " +  AttackCookie)
+                elif(attack_area == 'Header'):
+                    print("Area is = " + attack_area)
+                    AttackHeader = header.replace(key, str(payload_rowcontents.value))
+                    AttackURL = AttackURL.replace("$", "")
+                    print(AttackURL)
+                    AttackBody = str(body).replace("$", "")
+                    print(AttackBody)
+                    AttackHeader = str(AttackHeader).replace("$", "")
+                    print(AttackHeader)
+                    AttackCookie = str(set_cookie).replace("$", "")
+                    print(AttackCookie)
+                elif(attack_area == 'Cookie'):
+                    print("Area is = " + attack_area)
+                    AttackCookie = set_cookie.replace(key, str(payload_rowcontents.value))
+                    AttackURL = AttackURL.replace("$", "")
+                    print(AttackURL)
+                    AttackBody = str(body).replace("$", "")
+                    print(AttackBody)
+                    AttackHeader = str(header).replace("$", "")
+                    print(AttackHeader)
+                    AttackCookie = str(AttackCookie).replace("$", "")
+                    print(AttackCookie)                
+                try:
+                    if (http_method == 'GET'):
+                        print("Method found in attack = " + http_method)
+                        response = requests.get(AttackURL, data=AttackBody, headers=AttackHeader, cookies=AttackCookie)
+                    elif(http_method == 'POST'):
+                        print("Method found in attack = " + http_method)
+                        response = requests.post(AttackURL, data=AttackBody, headers=AttackHeader,cookies=AttackCookie)
+                        print("Got ============ response")
+                    elif(http_method == 'PUT'):
+                        response = requests.put(AttackURL, data=AttackBody, headers=AttackHeader,cookies=AttackCookie)
+                    elif(http_method == 'DELETE'):
+                        response = requests.delete(AttackURL, data=AttackBody, headers=AttackHeader,cookies=AttackCookie)
+                    StatusCode = str(response.status_code)
+                    Response_Body = str(response.text)
+                    print("Response Status Code : " + str(StatusCode) + "\n")
+                    print("Response Body : " + str(Response_Body) + "\n")
+                    result.append(StatusCode)
+                    print(result)
+                    time.sleep(10)
+                except:
+                    print(traceback)
+                    print("Error in executing: " + str(AttackURL))
+                    StatusCode = '500'
+                    result.append(StatusCode)
+                    print(result)
+                    time.sleep(10)
+                print(result)
+    else:
+        print("No Parameter choosen in the API")
+    return result
 
 
-def readexcel(Excel_Location, Excel_Sheet_Name, Module_Name):
-    data = {}
-    print("Opening Excel")
+#========================== MAIN FUNCTION WHICH IS CALLED BY API.ROBOT ======================================
+
+def input_validation(excel_location, excel_sheetname, module_name, payload_excel_location, attack_payload_sheetname):
     try:
-        Excel_WorkBook = openpyxl.load_workbook(Excel_Location)
-        print("Opened Excel")
-    except:
-        print("Error in opening API Excel File")
-
-    try:
-        for SheetName in Excel_WorkBook.worksheets:
-            if SheetName.title == Excel_Sheet_Name:
-                ActiveWorkSheet = Excel_WorkBook[SheetName.title]
-                print("Title of Sheet = " + ActiveWorkSheet.title)
-                RowLength = SheetName.max_row
-                ColumnLength = SheetName.max_column
-                for i in range(1, RowLength + 1):
-                    RowContents = SheetName.cell(row=i, column=1)
-                    print("Row " + str(RowContents.row) + " = " + str(RowContents.value))
-                    if ((RowContents.value) == Module_Name):
-                        print("Module Found : " + str(RowContents.value) + " in Row - " + str(
-                            RowContents.row) + " of Worksheet - " + ActiveWorkSheet.title)
-                    else:
-                        continue
-
-                    for j in range(1, ColumnLength + 1):
-                        Response = dict()
-                        ColumnContents = SheetName.cell(row=RowContents.row, column=j)
-                        print(ColumnContents.value, end="" + "\n")
-
-                        try:
-                            HTTP_Method = (SheetName["B" + str(RowContents.row)])
-                            print(HTTP_Method.value)
-                            data['HTTPMethod'] = str(HTTP_Method.value)
-                            print(data['HTTPMethod'])
-                        except:
-                            print("Error in reading HTTP Method from Excel File")
-                            Excel_WorkBook.close()
-                            break
-
-                        try:
-                            Request_Protocol = (SheetName["C" + str(RowContents.row)])
-                            print(Request_Protocol.value)
-                            data['Protocol'] = str(Request_Protocol.value)
-                            print(data['Protocol'] + "\n")
-                        except:
-                            print("Error in reading Request Protocol from Excel File")
-                            Excel_WorkBook.close()
-                            break
-
-                        try:
-                            Request_BaseURL = (SheetName["D" + str(RowContents.row)])
-                            print("BaseURL = " + str(Request_BaseURL.value) + "\n")
-                        except:
-                            print("Error in reading Request Base URL from Excel File")
-                            Excel_WorkBook.close()
-                            break
-
-                        try:
-                            Request_RelativeURL = (SheetName["E" + str(RowContents.row)])
-                            print("RelativeURL = " + str(Request_RelativeURL.value) + "\n")
-                        except:
-                            print("Error in reading Request Relative URL from Excel File")
-                            Excel_WorkBook.close()
-                            break
-
-                        try:
-                            data['URL'] = str(data['Protocol']) + "://" + str(Request_BaseURL.value) + str(Request_RelativeURL.value)
-                            print(data['URL'])
-                        except:
-                            print("Error in concatenating URL")
-                            Excel_WorkBook.close()
-                            break
-
-                        try:
-                            Body_Row = (SheetName["F" + str(RowContents.row)])
-                            Body_Content = str(Body_Row.value)
-                            print("Body = " + Body_Content + "\n")
-                            data['Body'] = json.loads(Body_Content)
-                            print(data['Body'])
-                        except:
-                            print("Error in reading Request Body from Excel File")
-                            Excel_WorkBook.close()
-                            break
-
-                        try:
-                            Header_Row = (SheetName["G" + str(RowContents.row)])
-                            Header_Content = str(Header_Row.value)
-                            print("Header = " + Header_Content + "\n")
-                            data['Header'] = json.loads(Header_Content)
-                            print(data['Header'])
-                        except:
-                            print("Error in reading Request Header from Excel File")
-                            Excel_WorkBook.close()
-                            break
-
-                        try:
-                            Cookie_Row = (SheetName["H" + str(RowContents.row)])
-                            Cookie_Content = str(Cookie_Row.value)
-                            print("Cookie = " + Cookie_Content + "\n")
-                            data['Cookie'] = json.loads(Cookie_Content)
-                            print(data['Cookie'])
-                        except:
-                            print("Error in reading Request Cookie from Excel File")
-                            Excel_WorkBook.close()
-                            break
-
-                        print(data)
-
-                        break
-    except:
-        print("Error in reading contents")
-
-    return data
-
-def find_vulnerable_parameters(Excel_Location, Excel_Sheet_Name, Module_Name):
-    parameter = {}
-    try:
-        result = readexcel(Excel_Location, Excel_Sheet_Name, Module_Name)
+        result = find_api(excel_location, excel_sheetname, module_name)
         print("Data from find_vulnerable_parameters ")
         print(result)
     except:
         print('Error in executing Read Excel Method')
 
+    attack = find_vulnerable_parameters(result)
+    attack_method = attack['HTTPMethod']
+    print("MEthod" + attack_method)
+
+    attack_url = attack['URL']
+    url_parameter = attack['URL_Parameter']  
+
+    body = attack['Body']
+    body_parameter = attack['Body_Parameter']
+
+    header = attack['Header']
+    header_parameter = attack['Header_Parameter']
+
+    set_cookie = attack['Cookie']
+    cookie_parameter = attack['Cookie_Parameter']
     try:
-        Method = str(result['HTTPMethod'])
-        parameter['HTTPMethod'] = Method
-        print("HTTP Method: " + parameter['HTTPMethod'])
-
-        Protocol = str(result['Protocol'])
-        parameter['Protocol'] = Protocol
-        print("Protocol: " + parameter['Protocol'])
-
-        parameter['URL'] = str(result['URL'])
-        print("URL: " + str(parameter['URL']))
-
-        parameter['Body']=result['Body']
-        print("Body: " + str(parameter['Body']))
-
-        parameter['Header']=result['Header']
-        print("Header: " + str(parameter['Header']))
-
-        parameter['Cookie']=result['Cookie']
-        print("Cookie: " + str(parameter['Cookie']))
-
-    except:
-
-        print("Error in Reading API Contents")
-
-    try:
-        parameter['URL_Parameter'] = re.findall(r'\$(.*?)\$', parameter['URL'])
-        if(parameter['URL_Parameter'] != ""):
-            print("Parameter found in URL")
-            print(parameter['URL_Parameter'])
-        else:
-            print("No Parameter found in URL")
-            parameter['URL_Parameter'] = parameter['URL']
-
-        parameter['Body_Parameter'] = re.findall(r'\$(.*?)\$', str(parameter['Body']))
-        if(parameter['Body_Parameter'] != ""):
-            print("Parameter found in Body")
-            print(parameter['Body_Parameter'])
-        else:
-            print("No Parameter found in Body")
-            parameter['Body_Parameter'] = parameter['Body']
-
-        parameter['Header_Parameter'] = re.findall(r'\$(.*?)\$', str(parameter['Header']))
-        if (parameter['Header_Parameter'] != ""):
-            print("Parameter found in Header")
-            print(parameter['Header_Parameter'])
-        else:
-            print("No Parameter found in Header")
-            parameter['Header_Parameter'] = parameter['Header']
-
-        parameter['Cookie_Parameter'] = re.findall(r'\$(.*?)\$', str(parameter['Cookie']))
-        if (parameter['Cookie_Parameter'] != ""):
-            print("Parameter found in Cookie")
-            print(parameter['Cookie_Parameter'])
-        else:
-            print("No Parameter found in Cookie")
-            parameter['Cookie_Parameter'] = parameter['Cookie']
-    except:
-        print("Error in fetching Parameters")
-
-    return parameter
-
-
-def input_validation(Excel_Location, Excel_Sheet_Name, Module_Name, Payload_Excel_Location, Payload_Sheet_Name):
-    result = []
-    print("Executing Input Validation")
-    Attack = find_vulnerable_parameters(Excel_Location, Excel_Sheet_Name, Module_Name)
-    print("Data from input_validation")
-    print(Attack)
-
-    Method = Attack['HTTPMethod']
-    print(Method)
-
-    URL = Attack['URL']
-    print("URL: " + URL)
-    URL_Parameter = Attack['URL_Parameter']
-    print("Parameters in URL: ")
-    print(URL_Parameter)
-
-    Body = Attack['Body']
-    print("Body: ")
-    print(Body)
-    Body_Parameter = Attack['Body_Parameter']
-    print("Parameters in Body: ")
-    print(Body_Parameter)
-
-    Header = Attack['Header']
-    print("Header: ")
-    print(Header)
-    Header_Parameter = Attack['Header_Parameter']
-    print("Parameters in Header: ")
-    print(Header_Parameter)
-
-    Cookie = Attack['Cookie']
-    print("Cookie: ")
-    print(Cookie)
-    Cookie_Parameter = Attack['Cookie_Parameter']
-    print("Parameters in Cookie: ")
-    print(Cookie_Parameter)
-    try:
-        if(Method == 'GET'):
+        payload_excel_workbook_location = openpyxl.load_workbook(payload_excel_location)
+        for payload_sheetname in payload_excel_workbook_location.worksheets:
+            if payload_sheetname.title == attack_payload_sheetname:
+                print("Worksheet Found = " + payload_sheetname.title)
+                payload_activeworksheet = payload_excel_workbook_location[payload_sheetname.title]
+                print("Title of Sheet = " + payload_activeworksheet.title)
+                payload_rowlength = payload_sheetname.max_row
+                print("Number of Payloads for " + str(payload_sheetname.title) + " = " + str(payload_rowlength - 1))
+        if(attack_method == 'GET'):
             print('Executing GET Method')
-
-            if(URL_Parameter != ""):
+            if(url_parameter):
                 print("Parameter found in URL")
-                Payload_Excel_WorkBook_Location = openpyxl.load_workbook(Payload_Excel_Location)
-                for Payload_SheetName in Payload_Excel_WorkBook_Location.worksheets:
-                    if Payload_SheetName.title == Payload_Sheet_Name:
-                        print("Worksheet Found = " + Payload_SheetName.title)
-                        Payload_ActiveWorkSheet = Payload_Excel_WorkBook_Location[Payload_SheetName.title]
-                        print("Title of Sheet = " + Payload_ActiveWorkSheet.title)
-                        Payload_RowLength = Payload_SheetName.max_row
-                        Payload_ColumnLength = Payload_SheetName.max_column
-                        print("Number of Payloads for " + str(Payload_SheetName.title) + " = " + str(Payload_RowLength - 1))
-                        for i in range(2, Payload_RowLength + 1):
-                            Payload_RowContents = Payload_SheetName.cell(row=i, column=1)
-                            print("Row " + str(Payload_RowContents.row - 1) + " = " + str(Payload_RowContents.value), end="" + "\n")
-                            for key in URL_Parameter:
-                                AttackURL = URL.replace(key, str(Payload_RowContents.value))
-                                AttackURL = AttackURL.replace("$", "")
-                                print(AttackURL)
-                                AttackBody = str(Body).replace("$", "")
-                                print(AttackBody)
-                                AttackHeader = str(Header).replace("$", "")
-                                print(AttackHeader)
-                                AttackCookie = str(Cookie).replace("$", "")
-                                print(AttackCookie)
-                                try:
-                                    response = requests.get(AttackURL, data=AttackBody, headers=Header)
-                                    StatusCode = str(response.status_code)
-                                    print(StatusCode + "\n")
-                                    result.append(StatusCode)
-                                    print(result)
-                                    time.sleep(10)
-                                except:
-                                    print(traceback)
-                                    print("Error in executing: " + str(AttackURL))
-                                    StatusCode = '500'
-                                    result.append(StatusCode)
-                                    print(result)
-                                    time.sleep(10)
-                                print(result)
+                api_hit_result = perform_attack('URL','GET',url_parameter,payload_rowlength,payload_sheetname,attack_url,body,header,set_cookie)
+            elif(body_parameter):
+                print("Parameter found in Body")
+                api_hit_result = perform_attack('Body','GET',body_parameter,payload_rowlength,payload_sheetname,attack_url,body,header,set_cookie)
+
+            elif(header_parameter):
+                print("Parameter found in POST Header")
+                api_hit_result = perform_attack('Header','GET',header_parameter,payload_rowlength,payload_sheetname,attack_url,body,header,set_cookie)
+
+            elif(cookie_parameter):
+                print("Parameter found in POST Cookie")
+                api_hit_result = perform_attack('Cookie','GET',cookie_parameter,payload_rowlength,payload_sheetname,attack_url,body,header,set_cookie)
+                    
             else:
                 print("No Parameter choosen in the API")
-
-        elif(Method == 'POST'):
+                
+        elif(attack_method == 'POST'):
             print('Executing POST Method')
 
-            if(URL_Parameter != ""):
-                print("Parameter found in POST URL")
-                Payload_Excel_WorkBook_Location = openpyxl.load_workbook(Payload_Excel_Location)
-                for Payload_SheetName in Payload_Excel_WorkBook_Location.worksheets:
-                    if Payload_SheetName.title == Payload_Sheet_Name:
-                        print("Worksheet Found = " + Payload_SheetName.title)
-                        Payload_ActiveWorkSheet = Payload_Excel_WorkBook_Location[Payload_SheetName.title]
-                        print("Title of Sheet = " + Payload_ActiveWorkSheet.title)
-                        Payload_RowLength = Payload_SheetName.max_row
-                        Payload_ColumnLength = Payload_SheetName.max_column
-                        print("Number of Payloads for " + str(Payload_SheetName.title) + " = " + str(Payload_RowLength - 1))
-                        for i in range(2, Payload_RowLength + 1):
-                            Payload_RowContents = Payload_SheetName.cell(row=i, column=1)
-                            print("Row " + str(Payload_RowContents.row - 1) + " = " + str(Payload_RowContents.value), end="" + "\n")
-                            for key in URL_Parameter:
-                                AttackURL = URL.replace(key, str(Payload_RowContents.value))
-                                AttackURL = AttackURL.replace("$", "")
-                                print(AttackURL)
-                                AttackBody = str(Body).replace("$", "")
-                                print(AttackBody)
-                                AttackHeader = str(Header).replace("$", "")
-                                print(AttackHeader)
-                                AttackCookie = str(Cookie).replace("$", "")
-                                print(AttackCookie)
-                                try:
-                                    response = requests.post(AttackURL, data=AttackBody, headers=Header)
-                                    StatusCode = str(response.status_code)
-                                    print(StatusCode + "\n")
-                                    result.append(StatusCode)
-                                    print(result)
-                                    time.sleep(10)
-                                except:
-                                    print("Error in executing: " + str(AttackURL))
-                                    StatusCode = '500'
-                                    result.append(StatusCode)
-                                    print(result)
-                                    time.sleep(10)
-                                print(result)
-
-            elif(Body_Parameter != ""):
+            if(url_parameter):
+                print("Parameter found in URL")
+                api_hit_result = perform_attack('URL','POST',url_parameter,payload_rowlength,payload_sheetname,attack_url,body,header,set_cookie)
+            
+            elif(body_parameter):
                 print("Parameter found in POST Body")
-                Payload_Excel_WorkBook_Location = openpyxl.load_workbook(Payload_Excel_Location)
-                for Payload_SheetName in Payload_Excel_WorkBook_Location.worksheets:
-                    if Payload_SheetName.title == Payload_Sheet_Name:
-                        print("Worksheet Found = " + Payload_SheetName.title)
-                        Payload_ActiveWorkSheet = Payload_Excel_WorkBook_Location[Payload_SheetName.title]
-                        print("Title of Sheet = " + Payload_ActiveWorkSheet.title)
-                        Payload_RowLength = Payload_SheetName.max_row
-                        Payload_ColumnLength = Payload_SheetName.max_column
-                        print("Number of Payloads for " + str(Payload_SheetName.title) + " = " + str(
-                            Payload_RowLength - 1))
-                        for i in range(2, Payload_RowLength + 1):
-                            Payload_RowContents = Payload_SheetName.cell(row=i, column=1)
-                            print("Row " + str(Payload_RowContents.row - 1) + " = " + str(Payload_RowContents.value),
-                                  end="" + "\n")
-                            for key in Body_Parameter:
-                                AttackBody = Body.replace(key, str(Payload_RowContents.value))
-                                AttackURL = AttackURL.replace("$", "")
-                                print(AttackURL)
-                                AttackBody = str(Body).replace("$", "")
-                                print(AttackBody)
-                                AttackHeader = str(Header).replace("$", "")
-                                print(AttackHeader)
-                                AttackCookie = str(Cookie).replace("$", "")
-                                print(AttackCookie)
-                                try:
-                                    response = requests.post(AttackURL, data=AttackBody, headers=Header)
-                                    StatusCode = str(response.status_code)
-                                    print(StatusCode + "\n")
-                                    result.append(StatusCode)
-                                    print(result)
-                                    time.sleep(10)
-                                except:
-                                    print("Error in executing: " + str(AttackURL))
-                                    StatusCode = '500'
-                                    result.append(StatusCode)
-                                    print(result)
-                                    time.sleep(10)
-                                print(result)
+                api_hit_result = perform_attack('Body','POST',body_parameter,payload_rowlength,payload_sheetname,attack_url,body,header,set_cookie)
 
-            elif(Header_Parameter != ""):
+            elif(header_parameter):
                 print("Parameter found in POST Header")
-                Payload_Excel_WorkBook_Location = openpyxl.load_workbook(Payload_Excel_Location)
-                for Payload_SheetName in Payload_Excel_WorkBook_Location.worksheets:
-                    if Payload_SheetName.title == Payload_Sheet_Name:
-                        print("Worksheet Found = " + Payload_SheetName.title)
-                        Payload_ActiveWorkSheet = Payload_Excel_WorkBook_Location[Payload_SheetName.title]
-                        print("Title of Sheet = " + Payload_ActiveWorkSheet.title)
-                        Payload_RowLength = Payload_SheetName.max_row
-                        Payload_ColumnLength = Payload_SheetName.max_column
-                        print("Number of Payloads for " + str(Payload_SheetName.title) + " = " + str(
-                            Payload_RowLength - 1))
-                        for i in range(2, Payload_RowLength + 1):
-                            Payload_RowContents = Payload_SheetName.cell(row=i, column=1)
-                            print("Row " + str(Payload_RowContents.row - 1) + " = " + str(Payload_RowContents.value),
-                                  end="" + "\n")
-                            for key in Header_Parameter:
-                                AttackHeader = Header.replace(key, str(Payload_RowContents.value))
-                                AttackURL = AttackURL.replace("$", "")
-                                print(AttackURL)
-                                AttackBody = str(Body).replace("$", "")
-                                print(AttackBody)
-                                AttackHeader = str(Header).replace("$", "")
-                                print(AttackHeader)
-                                AttackCookie = str(Cookie).replace("$", "")
-                                print(AttackCookie)
-                                try:
-                                    response = requests.post(AttackURL, data=AttackBody, headers=Header)
-                                    StatusCode = str(response.status_code)
-                                    print(StatusCode + "\n")
-                                    result.append(StatusCode)
-                                    print(result)
-                                    time.sleep(10)
-                                except:
-                                    print("Error in executing: " + str(AttackURL))
-                                    StatusCode = '500'
-                                    result.append(StatusCode)
-                                    print(result)
-                                    time.sleep(10)
-                                print(result)
+                api_hit_result = perform_attack('Header','POST',header_parameter,payload_rowlength,payload_sheetname,attack_url,body,header,set_cookie)
 
-            elif(Cookie_Parameter != ""):
+            elif(cookie_parameter):
                 print("Parameter found in POST Cookie")
-                Payload_Excel_WorkBook_Location = openpyxl.load_workbook(Payload_Excel_Location)
-                for Payload_SheetName in Payload_Excel_WorkBook_Location.worksheets:
-                    if Payload_SheetName.title == Payload_Sheet_Name:
-                        print("Worksheet Found = " + Payload_SheetName.title)
-                        Payload_ActiveWorkSheet = Payload_Excel_WorkBook_Location[Payload_SheetName.title]
-                        print("Title of Sheet = " + Payload_ActiveWorkSheet.title)
-                        Payload_RowLength = Payload_SheetName.max_row
-                        Payload_ColumnLength = Payload_SheetName.max_column
-                        print("Number of Payloads for " + str(Payload_SheetName.title) + " = " + str(
-                            Payload_RowLength - 1))
-                        for i in range(2, Payload_RowLength + 1):
-                            Payload_RowContents = Payload_SheetName.cell(row=i, column=1)
-                            print("Row " + str(Payload_RowContents.row - 1) + " = " + str(Payload_RowContents.value),
-                                  end="" + "\n")
-                            for key in Cookie_Parameter:
-                                AttackCookie = Cookie.replace(key, str(Payload_RowContents.value))
-                                AttackURL = AttackURL.replace("$", "")
-                                print(AttackURL)
-                                AttackBody = str(Body).replace("$", "")
-                                print(AttackBody)
-                                AttackHeader = str(Header).replace("$", "")
-                                print(AttackHeader)
-                                AttackCookie = str(Cookie).replace("$", "")
-                                print(AttackCookie)
-                                try:
-                                    response = requests.post(AttackURL, data=AttackBody, headers=Header)
-                                    StatusCode = str(response.status_code)
-                                    print(StatusCode + "\n")
-                                    result.append(StatusCode)
-                                    print(result)
-                                    time.sleep(10)
-                                except:
-                                    print("Error in executing: " + str(AttackURL))
-                                    StatusCode = '500'
-                                    result.append(StatusCode)
-                                    print(result)
-                                    time.sleep(10)
-                                print(result)
+                api_hit_result = perform_attack('Cookie','POST',cookie_parameter,payload_rowlength,payload_sheetname,attack_url,body,header,set_cookie)
+                    
             else:
                 print("No Parameter choosen in the API")
 
-        elif(Method == 'PUT'):
+        elif(attack_method == 'PUT'):
             print('Executing PUT Method')
 
-            if(URL_Parameter != ""):
+            if(url_parameter):
                 print("Parameter found in PUT URL")
-                Payload_Excel_WorkBook_Location = openpyxl.load_workbook(Payload_Excel_Location)
-                for Payload_SheetName in Payload_Excel_WorkBook_Location.worksheets:
-                    if Payload_SheetName.title == Payload_Sheet_Name:
-                        print("Worksheet Found = " + Payload_SheetName.title)
-                        Payload_ActiveWorkSheet = Payload_Excel_WorkBook_Location[Payload_SheetName.title]
-                        print("Title of Sheet = " + Payload_ActiveWorkSheet.title)
-                        Payload_RowLength = Payload_SheetName.max_row
-                        Payload_ColumnLength = Payload_SheetName.max_column
-                        print("Number of Payloads for " + str(Payload_SheetName.title) + " = " + str(Payload_RowLength - 1))
-                        for i in range(2, Payload_RowLength + 1):
-                            Payload_RowContents = Payload_SheetName.cell(row=i, column=1)
-                            print("Row " + str(Payload_RowContents.row - 1) + " = " + str(Payload_RowContents.value), end="" + "\n")
-                            for key in URL_Parameter:
-                                AttackURL = URL.replace(key, str(Payload_RowContents.value))
-                                AttackURL = AttackURL.replace("$", "")
-                                print(AttackURL)
-                                AttackBody = str(Body).replace("$", "")
-                                print(AttackBody)
-                                AttackHeader = str(Header).replace("$", "")
-                                print(AttackHeader)
-                                AttackCookie = str(Cookie).replace("$", "")
-                                print(AttackCookie)
-                                try:
-                                    response = requests.put(AttackURL, data=AttackBody, headers=Header)
-                                    StatusCode = str(response.status_code)
-                                    print(StatusCode + "\n")
-                                    result.append(StatusCode)
-                                    print(result)
-                                    time.sleep(10)
-                                except:
-                                    print("Error in executing: " + str(AttackURL))
-                                    StatusCode = '500'
-                                    result.append(StatusCode)
-                                    print(result)
-                                    time.sleep(10)
-                                print(result)
+                api_hit_result = perform_attack('URL','PUT',url_parameter,payload_rowlength,payload_sheetname,attack_url,body,header,set_cookie)
 
-            elif(Body_Parameter != ""):
+
+            elif(body_parameter):
                 print("Parameter found in PUT Body")
-                Payload_Excel_WorkBook_Location = openpyxl.load_workbook(Payload_Excel_Location)
-                for Payload_SheetName in Payload_Excel_WorkBook_Location.worksheets:
-                    if Payload_SheetName.title == Payload_Sheet_Name:
-                        print("Worksheet Found = " + Payload_SheetName.title)
-                        Payload_ActiveWorkSheet = Payload_Excel_WorkBook_Location[Payload_SheetName.title]
-                        print("Title of Sheet = " + Payload_ActiveWorkSheet.title)
-                        Payload_RowLength = Payload_SheetName.max_row
-                        Payload_ColumnLength = Payload_SheetName.max_column
-                        print("Number of Payloads for " + str(Payload_SheetName.title) + " = " + str(
-                            Payload_RowLength - 1))
-                        for i in range(2, Payload_RowLength + 1):
-                            Payload_RowContents = Payload_SheetName.cell(row=i, column=1)
-                            print("Row " + str(Payload_RowContents.row - 1) + " = " + str(Payload_RowContents.value),
-                                  end="" + "\n")
-                            for key in Body_Parameter:
-                                AttackBody = Body.replace(key, str(Payload_RowContents.value))
-                                AttackURL = AttackURL.replace("$", "")
-                                print(AttackURL)
-                                AttackBody = str(Body).replace("$", "")
-                                print(AttackBody)
-                                AttackHeader = str(Header).replace("$", "")
-                                print(AttackHeader)
-                                AttackCookie = str(Cookie).replace("$", "")
-                                print(AttackCookie)
-                                try:
-                                    response = requests.put(AttackURL, data=AttackBody, headers=Header)
-                                    StatusCode = str(response.status_code)
-                                    print(StatusCode + "\n")
-                                    result.append(StatusCode)
-                                    print(result)
-                                    time.sleep(10)
-                                except:
-                                    print("Error in executing: " + str(AttackURL))
-                                    StatusCode = '500'
-                                    result.append(StatusCode)
-                                    print(result)
-                                    time.sleep(10)
-                                print(result)
+                api_hit_result = perform_attack('Body','PUT',body_parameter,payload_rowlength,payload_sheetname,attack_url,body,header,set_cookie)
 
-            elif(Header_Parameter != ""):
+
+            elif(header_parameter):
                 print("Parameter found in PUT Header")
-                Payload_Excel_WorkBook_Location = openpyxl.load_workbook(Payload_Excel_Location)
-                for Payload_SheetName in Payload_Excel_WorkBook_Location.worksheets:
-                    if Payload_SheetName.title == Payload_Sheet_Name:
-                        print("Worksheet Found = " + Payload_SheetName.title)
-                        Payload_ActiveWorkSheet = Payload_Excel_WorkBook_Location[Payload_SheetName.title]
-                        print("Title of Sheet = " + Payload_ActiveWorkSheet.title)
-                        Payload_RowLength = Payload_SheetName.max_row
-                        Payload_ColumnLength = Payload_SheetName.max_column
-                        print("Number of Payloads for " + str(Payload_SheetName.title) + " = " + str(
-                            Payload_RowLength - 1))
-                        for i in range(2, Payload_RowLength + 1):
-                            Payload_RowContents = Payload_SheetName.cell(row=i, column=1)
-                            print("Row " + str(Payload_RowContents.row - 1) + " = " + str(Payload_RowContents.value),
-                                  end="" + "\n")
-                            for key in Header_Parameter:
-                                AttackHeader = Header.replace(key, str(Payload_RowContents.value))
-                                AttackURL = AttackURL.replace("$", "")
-                                print(AttackURL)
-                                AttackBody = str(Body).replace("$", "")
-                                print(AttackBody)
-                                AttackHeader = str(Header).replace("$", "")
-                                print(AttackHeader)
-                                AttackCookie = str(Cookie).replace("$", "")
-                                print(AttackCookie)
-                                try:
-                                    response = requests.get(AttackURL, data=AttackBody, headers=Header)
-                                    StatusCode = str(response.status_code)
-                                    print(StatusCode + "\n")
-                                    result.append(StatusCode)
-                                    print(result)
-                                    time.sleep(10)
-                                except:
-                                    print("Error in executing: " + str(AttackURL))
-                                    StatusCode = '500'
-                                    result.append(StatusCode)
-                                    print(result)
-                                    time.sleep(10)
-                                print(result)
+                api_hit_result = perform_attack('Header','PUT',header_parameter,payload_rowlength,payload_sheetname,attack_url,body,header,set_cookie)
 
-            elif(Cookie_Parameter != ""):
+        
+            elif(cookie_parameter):
                 print("Parameter found in PUT Cookie")
-                Payload_Excel_WorkBook_Location = openpyxl.load_workbook(Payload_Excel_Location)
-                for Payload_SheetName in Payload_Excel_WorkBook_Location.worksheets:
-                    if Payload_SheetName.title == Payload_Sheet_Name:
-                        print("Worksheet Found = " + Payload_SheetName.title)
-                        Payload_ActiveWorkSheet = Payload_Excel_WorkBook_Location[Payload_SheetName.title]
-                        print("Title of Sheet = " + Payload_ActiveWorkSheet.title)
-                        Payload_RowLength = Payload_SheetName.max_row
-                        Payload_ColumnLength = Payload_SheetName.max_column
-                        print("Number of Payloads for " + str(Payload_SheetName.title) + " = " + str(
-                            Payload_RowLength - 1))
-                        for i in range(2, Payload_RowLength + 1):
-                            Payload_RowContents = Payload_SheetName.cell(row=i, column=1)
-                            print("Row " + str(Payload_RowContents.row - 1) + " = " + str(Payload_RowContents.value),
-                                  end="" + "\n")
-                            for key in Cookie_Parameter:
-                                AttackCookie = Cookie.replace(key, str(Payload_RowContents.value))
-                                AttackURL = AttackURL.replace("$", "")
-                                print(AttackURL)
-                                AttackBody = str(Body).replace("$", "")
-                                print(AttackBody)
-                                AttackHeader = str(Header).replace("$", "")
-                                print(AttackHeader)
-                                AttackCookie = str(Cookie).replace("$", "")
-                                print(AttackCookie)
-                                try:
-                                    response = requests.put(AttackURL, data=AttackBody, headers=Header)
-                                    StatusCode = str(response.status_code)
-                                    print(StatusCode + "\n")
-                                    result.append(StatusCode)
-                                    print(result)
-                                    time.sleep(10)
-                                except:
-                                    print("Error in executing: " + str(AttackURL))
-                                    StatusCode = '500'
-                                    result.append(StatusCode)
-                                    print(result)
-                                    time.sleep(10)
-                                print(result)
+                api_hit_result = perform_attack('Cookie','PUT',cookie_parameter,payload_rowlength,payload_sheetname,attack_url,body,header,set_cookie)
+        
             else:
                 print("No Parameter choosen in the API")
 
-        if(Method == 'DELETE'):
+        if(attack_method == 'DELETE'):
             print('Executing DELETE Method')
 
-            if(URL_Parameter != ""):
+            if(url_parameter):
                 print("Parameter found in DELETE URL")
-                Payload_Excel_WorkBook_Location = openpyxl.load_workbook(Payload_Excel_Location)
-                for Payload_SheetName in Payload_Excel_WorkBook_Location.worksheets:
-                    if Payload_SheetName.title == Payload_Sheet_Name:
-                        print("Worksheet Found = " + Payload_SheetName.title)
-                        Payload_ActiveWorkSheet = Payload_Excel_WorkBook_Location[Payload_SheetName.title]
-                        print("Title of Sheet = " + Payload_ActiveWorkSheet.title)
-                        Payload_RowLength = Payload_SheetName.max_row
-                        Payload_ColumnLength = Payload_SheetName.max_column
-                        print("Number of Payloads for " + str(Payload_SheetName.title) + " = " + str(Payload_RowLength - 1))
-                        for i in range(2, Payload_RowLength + 1):
-                            Payload_RowContents = Payload_SheetName.cell(row=i, column=1)
-                            print("Row " + str(Payload_RowContents.row - 1) + " = " + str(Payload_RowContents.value), end="" + "\n")
-                            for key in URL_Parameter:
-                                AttackURL = URL.replace(key, str(Payload_RowContents.value))
-                                AttackURL = AttackURL.replace("$", "")
-                                print(AttackURL)
-                                AttackBody = str(Body).replace("$", "")
-                                print(AttackBody)
-                                AttackHeader = str(Header).replace("$", "")
-                                print(AttackHeader)
-                                AttackCookie = str(Cookie).replace("$", "")
-                                print(AttackCookie)
-                                try:
-                                    response = requests.delete(AttackURL, data=AttackBody, headers=Header)
-                                    StatusCode = str(response.status_code)
-                                    print(StatusCode + "\n")
-                                    result.append(StatusCode)
-                                    print(result)
-                                    time.sleep(10)
-                                except:
-                                    print("Error in executing: " + str(AttackURL))
-                                    StatusCode = '500'
-                                    result.append(StatusCode)
-                                    print(result)
-                                    time.sleep(10)
-                                print(result)
+                api_hit_result = perform_attack('URL','DELETE',url_parameter,payload_rowlength,payload_sheetname,attack_url,body,header,set_cookie)
 
-            elif(Body_Parameter != ""):
+
+            elif(body_parameter):
                 print("Parameter found in DELETE Body")
-                Payload_Excel_WorkBook_Location = openpyxl.load_workbook(Payload_Excel_Location)
-                for Payload_SheetName in Payload_Excel_WorkBook_Location.worksheets:
-                    if Payload_SheetName.title == Payload_Sheet_Name:
-                        print("Worksheet Found = " + Payload_SheetName.title)
-                        Payload_ActiveWorkSheet = Payload_Excel_WorkBook_Location[Payload_SheetName.title]
-                        print("Title of Sheet = " + Payload_ActiveWorkSheet.title)
-                        Payload_RowLength = Payload_SheetName.max_row
-                        Payload_ColumnLength = Payload_SheetName.max_column
-                        print("Number of Payloads for " + str(Payload_SheetName.title) + " = " + str(
-                            Payload_RowLength - 1))
-                        for i in range(2, Payload_RowLength + 1):
-                            Payload_RowContents = Payload_SheetName.cell(row=i, column=1)
-                            print("Row " + str(Payload_RowContents.row - 1) + " = " + str(Payload_RowContents.value),
-                                  end="" + "\n")
-                            for key in Body_Parameter:
-                                AttackBody = Body.replace(key, str(Payload_RowContents.value))
-                                AttackURL = AttackURL.replace("$", "")
-                                print(AttackURL)
-                                AttackBody = str(Body).replace("$", "")
-                                print(AttackBody)
-                                AttackHeader = str(Header).replace("$", "")
-                                print(AttackHeader)
-                                AttackCookie = str(Cookie).replace("$", "")
-                                print(AttackCookie)
-                                try:
-                                    response = requests.delete(AttackURL, data=AttackBody, headers=Header)
-                                    StatusCode = str(response.status_code)
-                                    print(StatusCode + "\n")
-                                    result.append(StatusCode)
-                                    print(result)
-                                    time.sleep(10)
-                                except:
-                                    print("Error in executing: " + str(AttackURL))
-                                    StatusCode = '500'
-                                    result.append(StatusCode)
-                                    print(result)
-                                    time.sleep(10)
-                                print(result)
+                api_hit_result = perform_attack('Body','DELETE',body_parameter,payload_rowlength,payload_sheetname,attack_url,body,header,set_cookie)
 
-            elif(Header_Parameter != ""):
+
+            elif(header_parameter):
                 print("Parameter found in DELETE Header")
-                Payload_Excel_WorkBook_Location = openpyxl.load_workbook(Payload_Excel_Location)
-                for Payload_SheetName in Payload_Excel_WorkBook_Location.worksheets:
-                    if Payload_SheetName.title == Payload_Sheet_Name:
-                        print("Worksheet Found = " + Payload_SheetName.title)
-                        Payload_ActiveWorkSheet = Payload_Excel_WorkBook_Location[Payload_SheetName.title]
-                        print("Title of Sheet = " + Payload_ActiveWorkSheet.title)
-                        Payload_RowLength = Payload_SheetName.max_row
-                        Payload_ColumnLength = Payload_SheetName.max_column
-                        print("Number of Payloads for " + str(Payload_SheetName.title) + " = " + str(
-                            Payload_RowLength - 1))
-                        for i in range(2, Payload_RowLength + 1):
-                            Payload_RowContents = Payload_SheetName.cell(row=i, column=1)
-                            print("Row " + str(Payload_RowContents.row - 1) + " = " + str(Payload_RowContents.value),
-                                  end="" + "\n")
-                            for key in Header_Parameter:
-                                AttackHeader = Header.replace(key, str(Payload_RowContents.value))
-                                AttackURL = AttackURL.replace("$", "")
-                                print(AttackURL)
-                                AttackBody = str(Body).replace("$", "")
-                                print(AttackBody)
-                                AttackHeader = str(Header).replace("$", "")
-                                print(AttackHeader)
-                                AttackCookie = str(Cookie).replace("$", "")
-                                print(AttackCookie)
-                                try:
-                                    response = requests.delete(AttackURL, data=AttackBody, headers=Header)
-                                    StatusCode = str(response.status_code)
-                                    print(StatusCode + "\n")
-                                    result.append(StatusCode)
-                                    print(result)
-                                    time.sleep(10)
-                                except:
-                                    print("Error in executing: " + str(AttackURL))
-                                    StatusCode = '500'
-                                    result.append(StatusCode)
-                                    print(result)
-                                    time.sleep(10)
-                                print(result)
+                api_hit_result = perform_attack('Header','DELETE',header_parameter,payload_rowlength,payload_sheetname,attack_url,body,header,set_cookie)
 
-            elif(Cookie_Parameter != ""):
+        
+            elif(cookie_parameter):
                 print("Parameter found in DELETE Cookie")
-                Payload_Excel_WorkBook_Location = openpyxl.load_workbook(Payload_Excel_Location)
-                for Payload_SheetName in Payload_Excel_WorkBook_Location.worksheets:
-                    if Payload_SheetName.title == Payload_Sheet_Name:
-                        print("Worksheet Found = " + Payload_SheetName.title)
-                        Payload_ActiveWorkSheet = Payload_Excel_WorkBook_Location[Payload_SheetName.title]
-                        print("Title of Sheet = " + Payload_ActiveWorkSheet.title)
-                        Payload_RowLength = Payload_SheetName.max_row
-                        Payload_ColumnLength = Payload_SheetName.max_column
-                        print("Number of Payloads for " + str(Payload_SheetName.title) + " = " + str(
-                            Payload_RowLength - 1))
-                        for i in range(2, Payload_RowLength + 1):
-                            Payload_RowContents = Payload_SheetName.cell(row=i, column=1)
-                            print("Row " + str(Payload_RowContents.row - 1) + " = " + str(Payload_RowContents.value),
-                                  end="" + "\n")
-                            for key in Cookie_Parameter:
-                                AttackCookie = Cookie.replace(key, str(Payload_RowContents.value))
-                                AttackURL = AttackURL.replace("$", "")
-                                print(AttackURL)
-                                AttackBody = str(Body).replace("$", "")
-                                print(AttackBody)
-                                AttackHeader = str(Header).replace("$", "")
-                                print(AttackHeader)
-                                AttackCookie = str(Cookie).replace("$", "")
-                                print(AttackCookie)
-                                try:
-                                    response = requests.delete(AttackURL, data=AttackBody, headers=Header)
-                                    StatusCode = str(response.status_code)
-                                    print(StatusCode + "\n")
-                                    result.append(StatusCode)
-                                    print(result)
-                                    time.sleep(10)
-                                except:
-                                    print("Error in executing: " + str(AttackURL))
-                                    StatusCode = '500'
-                                    result.append(StatusCode)
-                                    print(result)
-                                    time.sleep(10)
-                                print(result)
+                api_hit_result = perform_attack('Cookie','DELETE',cookie_parameter,payload_rowlength,payload_sheetname,attack_url,body,header,set_cookie)
+        
             else:
                 print("No Parameter choosen in the API")
 
     except:
         print("Error in identifying the method")
-    return result
+    return api_hit_result
 
 """
     for key in URL_Parameter:

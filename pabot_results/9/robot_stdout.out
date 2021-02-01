@@ -1,0 +1,13 @@
+==============================================================================
+Batch Profile                                                                 
+==============================================================================
+TC_010 Verb Parameter Tampering on Batch Profile API                  "Performing Verb Tampering attack on Batch Profile API"
+"Executing Dangerous Methods"
+['{}']
+| PASS |
+------------------------------------------------------------------------------
+Batch Profile                                                         | PASS |
+1 critical test, 1 passed, 0 failed
+1 test total, 1 passed, 0 failed
+==============================================================================
+Output:  C:\Users\palak\Downloads\coe-application-security\pabot_results\9\output.xml

@@ -1,0 +1,1322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.1 (Python 3.7.4 on win32)" generated="20200625 15:25:30.161" rpa="false">
+<suite id="s1" name="Asset" source="D:\Programming\Application Security\coe-application-security\TestCases\Agent\API\Agent Microservice\Asset.robot">
+<test id="s1-t1" name="TC_000 Verify Asset API is functionally working">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"Verifying API is functionally working"</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:32.048" endtime="20200625 15:25:32.048"></status>
+</kw>
+<kw name="Execute API" library="API">
+<arguments>
+<arg>${Excel_Location}</arg>
+<arg>Agent</arg>
+<arg>Asset_API</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"Started API Execution"</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:32.049" endtime="20200625 15:25:32.049"></status>
+</kw>
+<kw name="REST" library="REST">
+<arguments>
+<arg>${API_Excel_Location}</arg>
+<arg>${API_Excel_Sheet_Name}</arg>
+<arg>${API_Module_Name}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20200625 15:25:33.573" level="INFO">Opening Excel
+Opened Excel
+Title of Sheet = Agent
+Row 1 = API_Name
+Row 2 = GATEWAY_API_POST
+Row 3 = GATEWAY_API_GET
+Row 4 = GATEWAY_API_DELETE
+Row 5 = Mapping_API
+Row 6 = Packages_API
+Row 7 = Asset_API
+Module Found : Asset_API in Row - 7 of Worksheet - Agent
+Asset_API
+HTTP Method = POST
+HTTP Method = POST
+Protocol = https
+
+BaseURL = qa.agent.exec.itsupport247.net
+
+RelativeURL = /agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset
+
+Body = {"createTimeUTC": "2019-11-08T06:07:08.104Z","agentInstalledUTC":"2019-10-07T09:48:09.829Z","createdBy":"/agent/plugin/asset","name":"asset","type":"assetCollection","endpointID":"5e09a52f-c400-4880-8b60-62da19c2098b","partnerID":"150151","clientID":"259542","siteID":"259542","regID":"7255599","friendlyName":"RMM-PN-LT-500","remoteAddress":"10.4.36.95","resourceType":"Desktop","endpointType":"Server","networks":[{"vendor":"Intel Corporation","product":"Intel(R) Dual Band Wireless-AC 8265","dhcpEnabled":true,"dhcpServer":"1.1.1.1","dhcpServers":["1.1.1.1"],"dhcpLeaseObtained":"2019-09-12T09:43:44Z","dhcpLeaseExpires":"2019-09-20T14:46:28Z","dnsServers":["10.4.17.6"],"ipEnabled":true,"ipv4":"10.4.36.111","ipv4List":["10.4.36.111"],"ipv6":"fe80::8daa:9908:869a:67bc","ipv6List":["fe80::8daa:9908:869a:67bc"],"subnetMask":"255.255.254.0","subnetMasks":["255.255.254.0"],"defaultIPGateway":"10.4.36.1","defaultIPGateways":["10.4.36.1"],"macAddress":"60:F6:77:4A:24:79","winsPrimaryServer":"0.0.0.0","winsSecondaryServer":"0.0.0.0","logicalName":"Intel(R) Dual Band Wireless-AC 8265","interfaceIndex":13,"speed":173300000,"dhcpLeaseDuration":0}],"system":{"product":"Dell Inc.","model":"Latitude 7480","timeZone":"+0530","timeZoneDescription":"IST","systemName":"RMM-PN-LT-500","domain":"CORP","domainRole":1}}
+
+{'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}
+Header = {"Continuum-Probe-EndpointId":"$3792393741297393242$"}
+
+{'Continuum-Probe-EndpointId': '$3792393741297393242$'}
+Cookie = {"":""}
+
+{'': ''}
+CompleteURL = https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset
+Found POST API, So Executing It.
+StatusCode = 200</msg>
+<msg timestamp="20200625 15:25:33.573" level="INFO">${result} = {'StatusCode': '200', 'ResponseBody': ''}</msg>
+<status status="PASS" starttime="20200625 15:25:32.050" endtime="20200625 15:25:33.573"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"Executed Sucessfully"</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:33.574" endtime="20200625 15:25:33.574"></status>
+</kw>
+<kw name="Dictionary Should Contain Value" library="Collections">
+<doc>Fails if ``value`` is not found from ``dictionary``.</doc>
+<arguments>
+<arg>${result}</arg>
+<arg>200</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:33.574" endtime="20200625 15:25:33.574"></status>
+</kw>
+<status status="PASS" starttime="20200625 15:25:32.049" endtime="20200625 15:25:33.575"></status>
+</kw>
+<status status="PASS" starttime="20200625 15:25:32.047" endtime="20200625 15:25:33.575" critical="yes"></status>
+</test>
+<test id="s1-t2" name="TC_001 HTTP Strict Transport Security Check on Asset API">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"Performing HTTP Strict Transport Security Check on Asset API"</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:33.577" endtime="20200625 15:25:33.578"></status>
+</kw>
+<kw name="HTTP Strict Transport Security" library="API">
+<arguments>
+<arg>${Excel_Location}</arg>
+<arg>Agent</arg>
+<arg>Asset_API</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"Executing HTTP Strict Transport Security Check"</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:33.579" endtime="20200625 15:25:33.579"></status>
+</kw>
+<kw name="HSTS" library="HSTS">
+<arguments>
+<arg>${Excel_Location}</arg>
+<arg>${Excel_Sheet_Name}</arg>
+<arg>${Module_Name}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20200625 15:25:33.609" level="INFO">Opening Excel
+Opened Excel
+Title of Sheet = Agent
+Row 1 = API_Name
+Row 2 = GATEWAY_API_POST
+Row 3 = GATEWAY_API_GET
+Row 4 = GATEWAY_API_DELETE
+Row 5 = Mapping_API
+Row 6 = Packages_API
+Row 7 = Asset_API
+Module Found : Asset_API in Row - 7 of Worksheet - Agent
+Asset_API
+https
+https
+
+{'Protocol': 'https'}</msg>
+<msg timestamp="20200625 15:25:33.609" level="INFO">${result} = {'Protocol': 'https'}</msg>
+<status status="PASS" starttime="20200625 15:25:33.579" endtime="20200625 15:25:33.610"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${result}</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:33.610" endtime="20200625 15:25:33.610"></status>
+</kw>
+<kw name="Dictionary Should Not Contain Value" library="Collections">
+<doc>Fails if ``value`` is found from ``dictionary``.</doc>
+<arguments>
+<arg>${result}</arg>
+<arg>http</arg>
+<arg>Vulnerability Not Observed</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:33.611" endtime="20200625 15:25:33.611"></status>
+</kw>
+<status status="PASS" starttime="20200625 15:25:33.578" endtime="20200625 15:25:33.611"></status>
+</kw>
+<status status="PASS" starttime="20200625 15:25:33.577" endtime="20200625 15:25:33.612" critical="yes"></status>
+</test>
+<test id="s1-t3" name="TC_002 SQL Injection on Asset API">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"Performing SQL Injection Attack on Asset API"</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:33.614" endtime="20200625 15:25:33.614"></status>
+</kw>
+<kw name="Injection Attack" library="API">
+<arguments>
+<arg>${Excel_Location}</arg>
+<arg>Agent</arg>
+<arg>Asset_API</arg>
+<arg>${Payload_Excel_Location}</arg>
+<arg>SQL</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"Executing Injection Attack"</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:33.615" endtime="20200625 15:25:33.616"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${Excel_Location}</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:33.616" endtime="20200625 15:25:33.616"></status>
+</kw>
+<kw name="Input Validation" library="Injection">
+<arguments>
+<arg>${Excel_Location}</arg>
+<arg>${Excel_Sheet_Name}</arg>
+<arg>${Module_Name}</arg>
+<arg>${Payload_Excel_Location}</arg>
+<arg>${Payload_Sheet_Name}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20200625 15:25:33.688" level="INFO">Executing Input Validation
+Opening Excel
+Opened Excel
+Title of Sheet = Agent
+Row 1 = API_Name
+Row 2 = GATEWAY_API_POST
+Row 3 = GATEWAY_API_GET
+Row 4 = GATEWAY_API_DELETE
+Row 5 = Mapping_API
+Row 6 = Packages_API
+Row 7 = Asset_API
+Module Found : Asset_API in Row - 7 of Worksheet - Agent
+Asset_API
+POST
+POST
+https
+https
+
+BaseURL = qa.agent.exec.itsupport247.net
+
+RelativeURL = /agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset
+
+https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset
+Body = {"createTimeUTC": "2019-11-08T06:07:08.104Z","agentInstalledUTC":"2019-10-07T09:48:09.829Z","createdBy":"/agent/plugin/asset","name":"asset","type":"assetCollection","endpointID":"5e09a52f-c400-4880-8b60-62da19c2098b","partnerID":"150151","clientID":"259542","siteID":"259542","regID":"7255599","friendlyName":"RMM-PN-LT-500","remoteAddress":"10.4.36.95","resourceType":"Desktop","endpointType":"Server","networks":[{"vendor":"Intel Corporation","product":"Intel(R) Dual Band Wireless-AC 8265","dhcpEnabled":true,"dhcpServer":"1.1.1.1","dhcpServers":["1.1.1.1"],"dhcpLeaseObtained":"2019-09-12T09:43:44Z","dhcpLeaseExpires":"2019-09-20T14:46:28Z","dnsServers":["10.4.17.6"],"ipEnabled":true,"ipv4":"10.4.36.111","ipv4List":["10.4.36.111"],"ipv6":"fe80::8daa:9908:869a:67bc","ipv6List":["fe80::8daa:9908:869a:67bc"],"subnetMask":"255.255.254.0","subnetMasks":["255.255.254.0"],"defaultIPGateway":"10.4.36.1","defaultIPGateways":["10.4.36.1"],"macAddress":"60:F6:77:4A:24:79","winsPrimaryServer":"0.0.0.0","winsSecondaryServer":"0.0.0.0","logicalName":"Intel(R) Dual Band Wireless-AC 8265","interfaceIndex":13,"speed":173300000,"dhcpLeaseDuration":0}],"system":{"product":"Dell Inc.","model":"Latitude 7480","timeZone":"+0530","timeZoneDescription":"IST","systemName":"RMM-PN-LT-500","domain":"CORP","domainRole":1}}
+
+{'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}
+Header = {"Continuum-Probe-EndpointId":"$3792393741297393242$"}
+
+{'Continuum-Probe-EndpointId': '$3792393741297393242$'}
+Cookie = {"":""}
+
+{'': ''}
+{'HTTPMethod': 'POST', 'Protocol': 'https', 'URL': 'https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset', 'Body': {'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}, 'Header': {'Continuum-Probe-EndpointId': '$3792393741297393242$'}, 'Cookie': {'': ''}}
+Data from find_vulnerable_parameters 
+{'HTTPMethod': 'POST', 'Protocol': 'https', 'URL': 'https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset', 'Body': {'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}, 'Header': {'Continuum-Probe-EndpointId': '$3792393741297393242$'}, 'Cookie': {'': ''}}
+HTTP Method: POST
+Protocol: https
+URL: https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset
+Body: {'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}
+Header: {'Continuum-Probe-EndpointId': '$3792393741297393242$'}
+Cookie: {'': ''}
+Parameter found in URL
+[]
+Parameter found in Body
+[]
+Parameter found in Header
+['3792393741297393242']
+Parameter found in Cookie
+[]
+Data from input_validation
+{'HTTPMethod': 'POST', 'Protocol': 'https', 'URL': 'https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset', 'Body': {'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}, 'Header': {'Continuum-Probe-EndpointId': '$3792393741297393242$'}, 'Cookie': {'': ''}, 'URL_Parameter': [], 'Body_Parameter': [], 'Header_Parameter': ['3792393741297393242'], 'Cookie_Parameter': []}
+POST
+URL: https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset
+Parameters in URL: 
+[]
+Body: 
+{'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}
+Parameters in Body: 
+[]
+Header: 
+{'Continuum-Probe-EndpointId': '$3792393741297393242$'}
+Parameters in Header: 
+['3792393741297393242']
+Cookie: 
+{'': ''}
+Parameters in Cookie: 
+[]
+Executing POST Method
+Parameter found in POST URL
+Worksheet Found = SQL
+Title of Sheet = SQL
+Number of Payloads for SQL = 19
+Row 1 = "\'"
+Row 2 = "\\\'
+Row 3 = "||\'"
+Row 4 = "1\'1"
+Row 5 = "-%s"%(r_time())
+Row 6 = "\'%s"%(r_time())
+Row 7 = "%s\'"%(r_string(10))
+Row 8 = "\\\"%s"%(r_string(10))
+Row 9 = "%s=\'%s"%(r_time(),r_time())
+Row 10 = "))\'+OR+%s=%s"%(r_time(),r_time())
+Row 11 = "))) AND %s=%s"%(r_time(),r_time())
+Row 12 = "; OR \'%s\'=\'%s\'"%(r_time(),r_time())
+Row 13 = "\'OR \'))%s=%s --"%(r_time(),r_time())
+Row 14 = "\'AND \')))%s=%s --#"%(r_time(),r_time())
+Row 15 = " %s 1=1 --"%(r_string(20))
+Row 16 = " or sleep(%s)=\'"%(r_time())
+Row 17 = "%s' AND userid IS NULL; --"%(r_string(10))
+Row 18 = "\") or pg_sleep(%s)--"%(r_time())
+Row 19 = "; exec (\'sel\' + \'ect us\' + \'er\')"</msg>
+<msg timestamp="20200625 15:25:33.688" level="INFO">${result} = []</msg>
+<status status="PASS" starttime="20200625 15:25:33.617" endtime="20200625 15:25:33.688"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${result}</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:33.688" endtime="20200625 15:25:33.689"></status>
+</kw>
+<kw name="List Should Not Contain Value" library="Collections">
+<doc>Fails if the ``value`` is found from ``list``.</doc>
+<arguments>
+<arg>${result}</arg>
+<arg>200</arg>
+<arg>Vulnerability Not Observed</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:33.689" endtime="20200625 15:25:33.689"></status>
+</kw>
+<status status="PASS" starttime="20200625 15:25:33.615" endtime="20200625 15:25:33.689"></status>
+</kw>
+<status status="PASS" starttime="20200625 15:25:33.614" endtime="20200625 15:25:33.690" critical="yes"></status>
+</test>
+<test id="s1-t4" name="TC_003 Cross Site Scripting on Asset API">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"Performing Cross Site Scripting Attack on Asset API"</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:33.692" endtime="20200625 15:25:33.693"></status>
+</kw>
+<kw name="Injection Attack" library="API">
+<arguments>
+<arg>${Excel_Location}</arg>
+<arg>Agent</arg>
+<arg>Asset_API</arg>
+<arg>${Payload_Excel_Location}</arg>
+<arg>XSS</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"Executing Injection Attack"</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:33.694" endtime="20200625 15:25:33.694"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${Excel_Location}</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:33.694" endtime="20200625 15:25:33.694"></status>
+</kw>
+<kw name="Input Validation" library="Injection">
+<arguments>
+<arg>${Excel_Location}</arg>
+<arg>${Excel_Sheet_Name}</arg>
+<arg>${Module_Name}</arg>
+<arg>${Payload_Excel_Location}</arg>
+<arg>${Payload_Sheet_Name}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20200625 15:25:33.778" level="INFO">Executing Input Validation
+Opening Excel
+Opened Excel
+Title of Sheet = Agent
+Row 1 = API_Name
+Row 2 = GATEWAY_API_POST
+Row 3 = GATEWAY_API_GET
+Row 4 = GATEWAY_API_DELETE
+Row 5 = Mapping_API
+Row 6 = Packages_API
+Row 7 = Asset_API
+Module Found : Asset_API in Row - 7 of Worksheet - Agent
+Asset_API
+POST
+POST
+https
+https
+
+BaseURL = qa.agent.exec.itsupport247.net
+
+RelativeURL = /agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset
+
+https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset
+Body = {"createTimeUTC": "2019-11-08T06:07:08.104Z","agentInstalledUTC":"2019-10-07T09:48:09.829Z","createdBy":"/agent/plugin/asset","name":"asset","type":"assetCollection","endpointID":"5e09a52f-c400-4880-8b60-62da19c2098b","partnerID":"150151","clientID":"259542","siteID":"259542","regID":"7255599","friendlyName":"RMM-PN-LT-500","remoteAddress":"10.4.36.95","resourceType":"Desktop","endpointType":"Server","networks":[{"vendor":"Intel Corporation","product":"Intel(R) Dual Band Wireless-AC 8265","dhcpEnabled":true,"dhcpServer":"1.1.1.1","dhcpServers":["1.1.1.1"],"dhcpLeaseObtained":"2019-09-12T09:43:44Z","dhcpLeaseExpires":"2019-09-20T14:46:28Z","dnsServers":["10.4.17.6"],"ipEnabled":true,"ipv4":"10.4.36.111","ipv4List":["10.4.36.111"],"ipv6":"fe80::8daa:9908:869a:67bc","ipv6List":["fe80::8daa:9908:869a:67bc"],"subnetMask":"255.255.254.0","subnetMasks":["255.255.254.0"],"defaultIPGateway":"10.4.36.1","defaultIPGateways":["10.4.36.1"],"macAddress":"60:F6:77:4A:24:79","winsPrimaryServer":"0.0.0.0","winsSecondaryServer":"0.0.0.0","logicalName":"Intel(R) Dual Band Wireless-AC 8265","interfaceIndex":13,"speed":173300000,"dhcpLeaseDuration":0}],"system":{"product":"Dell Inc.","model":"Latitude 7480","timeZone":"+0530","timeZoneDescription":"IST","systemName":"RMM-PN-LT-500","domain":"CORP","domainRole":1}}
+
+{'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}
+Header = {"Continuum-Probe-EndpointId":"$3792393741297393242$"}
+
+{'Continuum-Probe-EndpointId': '$3792393741297393242$'}
+Cookie = {"":""}
+
+{'': ''}
+{'HTTPMethod': 'POST', 'Protocol': 'https', 'URL': 'https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset', 'Body': {'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}, 'Header': {'Continuum-Probe-EndpointId': '$3792393741297393242$'}, 'Cookie': {'': ''}}
+Data from find_vulnerable_parameters 
+{'HTTPMethod': 'POST', 'Protocol': 'https', 'URL': 'https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset', 'Body': {'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}, 'Header': {'Continuum-Probe-EndpointId': '$3792393741297393242$'}, 'Cookie': {'': ''}}
+HTTP Method: POST
+Protocol: https
+URL: https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset
+Body: {'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}
+Header: {'Continuum-Probe-EndpointId': '$3792393741297393242$'}
+Cookie: {'': ''}
+Parameter found in URL
+[]
+Parameter found in Body
+[]
+Parameter found in Header
+['3792393741297393242']
+Parameter found in Cookie
+[]
+Data from input_validation
+{'HTTPMethod': 'POST', 'Protocol': 'https', 'URL': 'https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset', 'Body': {'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}, 'Header': {'Continuum-Probe-EndpointId': '$3792393741297393242$'}, 'Cookie': {'': ''}, 'URL_Parameter': [], 'Body_Parameter': [], 'Header_Parameter': ['3792393741297393242'], 'Cookie_Parameter': []}
+POST
+URL: https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset
+Parameters in URL: 
+[]
+Body: 
+{'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}
+Parameters in Body: 
+[]
+Header: 
+{'Continuum-Probe-EndpointId': '$3792393741297393242$'}
+Parameters in Header: 
+['3792393741297393242']
+Cookie: 
+{'': ''}
+Parameters in Cookie: 
+[]
+Executing POST Method
+Parameter found in POST URL
+Worksheet Found = XSS
+Title of Sheet = XSS
+Number of Payloads for XSS = 13
+Row 1 = r"&lt;script&gt;alert('"+r_string(5)+"')&lt;/script&gt;"
+Row 2 = r"&lt;script&gt;alert('"+r_string(5)+r"');&lt;/script&gt;"
+Row 3 = r"\'\';!--\"&lt;"+r_string(5)+r"&gt;=&amp;{()}"
+Row 4 = r"&lt;script&gt;a=/"+r_string(5)+r"/"
+Row 5 = r"&lt;body onload=alert('"+r_string(5)+r"')&gt;"
+Row 6 = r"&lt;iframe src=javascript:alert('"+r_string(5)+r"')&gt;"
+Row 7 = r"&lt;x onxxx=alert('"+r_string(5)+r"') 1='"
+Row 8 = r"&lt;/script&gt;&lt;svg onload=alert("+r_string(5)+r")&gt;"
+Row 9 = r"&lt;svg onload=alert('"+r_string(5)+r"')&gt;"
+Row 10 = r"alert\`"+r_string(5)+r"\`"
+Row 11 = r"&gt;&lt;script&gt;"+r_string(5)+""
+Row 12 = r"\"&gt;&lt;script&gt;alert('"+r_string(5)+"');&lt;/script&gt;"
+Row 13 = r"&lt;  script &gt; "+r_string(5)+" &lt; / script&gt;"</msg>
+<msg timestamp="20200625 15:25:33.779" level="INFO">${result} = []</msg>
+<status status="PASS" starttime="20200625 15:25:33.695" endtime="20200625 15:25:33.779"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${result}</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:33.779" endtime="20200625 15:25:33.779"></status>
+</kw>
+<kw name="List Should Not Contain Value" library="Collections">
+<doc>Fails if the ``value`` is found from ``list``.</doc>
+<arguments>
+<arg>${result}</arg>
+<arg>200</arg>
+<arg>Vulnerability Not Observed</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:33.779" endtime="20200625 15:25:33.780"></status>
+</kw>
+<status status="PASS" starttime="20200625 15:25:33.693" endtime="20200625 15:25:33.780"></status>
+</kw>
+<status status="PASS" starttime="20200625 15:25:33.692" endtime="20200625 15:25:33.780" critical="yes"></status>
+</test>
+<test id="s1-t5" name="TC_005 Local File Inclusion Attack on Asset API">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"Performing Local File Inclusion Attack on Asset API"</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:33.783" endtime="20200625 15:25:33.783"></status>
+</kw>
+<kw name="Injection Attack" library="API">
+<arguments>
+<arg>${Excel_Location}</arg>
+<arg>Agent</arg>
+<arg>Asset_API</arg>
+<arg>${Payload_Excel_Location}</arg>
+<arg>LFI</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"Executing Injection Attack"</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:33.785" endtime="20200625 15:25:33.785"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${Excel_Location}</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:33.786" endtime="20200625 15:25:33.786"></status>
+</kw>
+<kw name="Input Validation" library="Injection">
+<arguments>
+<arg>${Excel_Location}</arg>
+<arg>${Excel_Sheet_Name}</arg>
+<arg>${Module_Name}</arg>
+<arg>${Payload_Excel_Location}</arg>
+<arg>${Payload_Sheet_Name}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20200625 15:25:33.862" level="INFO">Executing Input Validation
+Opening Excel
+Opened Excel
+Title of Sheet = Agent
+Row 1 = API_Name
+Row 2 = GATEWAY_API_POST
+Row 3 = GATEWAY_API_GET
+Row 4 = GATEWAY_API_DELETE
+Row 5 = Mapping_API
+Row 6 = Packages_API
+Row 7 = Asset_API
+Module Found : Asset_API in Row - 7 of Worksheet - Agent
+Asset_API
+POST
+POST
+https
+https
+
+BaseURL = qa.agent.exec.itsupport247.net
+
+RelativeURL = /agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset
+
+https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset
+Body = {"createTimeUTC": "2019-11-08T06:07:08.104Z","agentInstalledUTC":"2019-10-07T09:48:09.829Z","createdBy":"/agent/plugin/asset","name":"asset","type":"assetCollection","endpointID":"5e09a52f-c400-4880-8b60-62da19c2098b","partnerID":"150151","clientID":"259542","siteID":"259542","regID":"7255599","friendlyName":"RMM-PN-LT-500","remoteAddress":"10.4.36.95","resourceType":"Desktop","endpointType":"Server","networks":[{"vendor":"Intel Corporation","product":"Intel(R) Dual Band Wireless-AC 8265","dhcpEnabled":true,"dhcpServer":"1.1.1.1","dhcpServers":["1.1.1.1"],"dhcpLeaseObtained":"2019-09-12T09:43:44Z","dhcpLeaseExpires":"2019-09-20T14:46:28Z","dnsServers":["10.4.17.6"],"ipEnabled":true,"ipv4":"10.4.36.111","ipv4List":["10.4.36.111"],"ipv6":"fe80::8daa:9908:869a:67bc","ipv6List":["fe80::8daa:9908:869a:67bc"],"subnetMask":"255.255.254.0","subnetMasks":["255.255.254.0"],"defaultIPGateway":"10.4.36.1","defaultIPGateways":["10.4.36.1"],"macAddress":"60:F6:77:4A:24:79","winsPrimaryServer":"0.0.0.0","winsSecondaryServer":"0.0.0.0","logicalName":"Intel(R) Dual Band Wireless-AC 8265","interfaceIndex":13,"speed":173300000,"dhcpLeaseDuration":0}],"system":{"product":"Dell Inc.","model":"Latitude 7480","timeZone":"+0530","timeZoneDescription":"IST","systemName":"RMM-PN-LT-500","domain":"CORP","domainRole":1}}
+
+{'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}
+Header = {"Continuum-Probe-EndpointId":"$3792393741297393242$"}
+
+{'Continuum-Probe-EndpointId': '$3792393741297393242$'}
+Cookie = {"":""}
+
+{'': ''}
+{'HTTPMethod': 'POST', 'Protocol': 'https', 'URL': 'https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset', 'Body': {'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}, 'Header': {'Continuum-Probe-EndpointId': '$3792393741297393242$'}, 'Cookie': {'': ''}}
+Data from find_vulnerable_parameters 
+{'HTTPMethod': 'POST', 'Protocol': 'https', 'URL': 'https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset', 'Body': {'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}, 'Header': {'Continuum-Probe-EndpointId': '$3792393741297393242$'}, 'Cookie': {'': ''}}
+HTTP Method: POST
+Protocol: https
+URL: https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset
+Body: {'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}
+Header: {'Continuum-Probe-EndpointId': '$3792393741297393242$'}
+Cookie: {'': ''}
+Parameter found in URL
+[]
+Parameter found in Body
+[]
+Parameter found in Header
+['3792393741297393242']
+Parameter found in Cookie
+[]
+Data from input_validation
+{'HTTPMethod': 'POST', 'Protocol': 'https', 'URL': 'https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset', 'Body': {'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}, 'Header': {'Continuum-Probe-EndpointId': '$3792393741297393242$'}, 'Cookie': {'': ''}, 'URL_Parameter': [], 'Body_Parameter': [], 'Header_Parameter': ['3792393741297393242'], 'Cookie_Parameter': []}
+POST
+URL: https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset
+Parameters in URL: 
+[]
+Body: 
+{'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}
+Parameters in Body: 
+[]
+Header: 
+{'Continuum-Probe-EndpointId': '$3792393741297393242$'}
+Parameters in Header: 
+['3792393741297393242']
+Cookie: 
+{'': ''}
+Parameters in Cookie: 
+[]
+Executing POST Method
+Parameter found in POST URL
+Worksheet Found = LFI
+Title of Sheet = LFI
+Number of Payloads for LFI = 20
+Row 1 = "/etc/passwd%00"
+Row 2 = "/etc/passwd"
+Row 3 = "etc/passwd"
+Row 4 = "%00../../../../../../etc/passwd"
+Row 5 = "%00../etc/passwd%00"
+Row 6 = "/./././././././././././boot.ini"
+Row 7 = r"/..\../..\../..\../..\../..\../..\../boot.ini"
+Row 8 = "..//..//..//..//..//boot.ini"
+Row 9 = "../../boot.ini"
+Row 10 = "/../../../../../../../../../../../boot.ini%00"
+Row 11 = "/../../../../../../../../../../../boot.ini%00.html"
+Row 12 = "C:/boot.ini"
+Row 13 = "/../../../../../../../../../../etc/passwd^^"
+Row 14 = r"/..\../..\../..\../..\../..\../..\../etc/passwd"
+Row 15 = r"..\..\..\..\..\..\..\..\..\..\etc\passwd%"
+Row 16 = "../../../../../../../../../../../../localstart.asp"
+Row 17 = "index.php"
+Row 18 = "../index.php"
+Row 19 = "index.asp"
+Row 20 = "../index.asp"</msg>
+<msg timestamp="20200625 15:25:33.862" level="INFO">${result} = []</msg>
+<status status="PASS" starttime="20200625 15:25:33.786" endtime="20200625 15:25:33.862"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${result}</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:33.862" endtime="20200625 15:25:33.863"></status>
+</kw>
+<kw name="List Should Not Contain Value" library="Collections">
+<doc>Fails if the ``value`` is found from ``list``.</doc>
+<arguments>
+<arg>${result}</arg>
+<arg>200</arg>
+<arg>Vulnerability Not Observed</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:33.863" endtime="20200625 15:25:33.863"></status>
+</kw>
+<status status="PASS" starttime="20200625 15:25:33.784" endtime="20200625 15:25:33.863"></status>
+</kw>
+<status status="PASS" starttime="20200625 15:25:33.782" endtime="20200625 15:25:33.864" critical="yes"></status>
+</test>
+<test id="s1-t6" name="TC_006 Lightweight Directory Access Protocol Attack on Asset API">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"Performing Lightweight Directory Access Protocol Attack on Asset API"</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:33.866" endtime="20200625 15:25:33.866"></status>
+</kw>
+<kw name="Injection Attack" library="API">
+<arguments>
+<arg>${Excel_Location}</arg>
+<arg>Agent</arg>
+<arg>Asset_API</arg>
+<arg>${Payload_Excel_Location}</arg>
+<arg>LDAP</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"Executing Injection Attack"</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:33.867" endtime="20200625 15:25:33.868"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${Excel_Location}</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:33.868" endtime="20200625 15:25:33.868"></status>
+</kw>
+<kw name="Input Validation" library="Injection">
+<arguments>
+<arg>${Excel_Location}</arg>
+<arg>${Excel_Sheet_Name}</arg>
+<arg>${Module_Name}</arg>
+<arg>${Payload_Excel_Location}</arg>
+<arg>${Payload_Sheet_Name}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20200625 15:25:33.941" level="INFO">Executing Input Validation
+Opening Excel
+Opened Excel
+Title of Sheet = Agent
+Row 1 = API_Name
+Row 2 = GATEWAY_API_POST
+Row 3 = GATEWAY_API_GET
+Row 4 = GATEWAY_API_DELETE
+Row 5 = Mapping_API
+Row 6 = Packages_API
+Row 7 = Asset_API
+Module Found : Asset_API in Row - 7 of Worksheet - Agent
+Asset_API
+POST
+POST
+https
+https
+
+BaseURL = qa.agent.exec.itsupport247.net
+
+RelativeURL = /agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset
+
+https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset
+Body = {"createTimeUTC": "2019-11-08T06:07:08.104Z","agentInstalledUTC":"2019-10-07T09:48:09.829Z","createdBy":"/agent/plugin/asset","name":"asset","type":"assetCollection","endpointID":"5e09a52f-c400-4880-8b60-62da19c2098b","partnerID":"150151","clientID":"259542","siteID":"259542","regID":"7255599","friendlyName":"RMM-PN-LT-500","remoteAddress":"10.4.36.95","resourceType":"Desktop","endpointType":"Server","networks":[{"vendor":"Intel Corporation","product":"Intel(R) Dual Band Wireless-AC 8265","dhcpEnabled":true,"dhcpServer":"1.1.1.1","dhcpServers":["1.1.1.1"],"dhcpLeaseObtained":"2019-09-12T09:43:44Z","dhcpLeaseExpires":"2019-09-20T14:46:28Z","dnsServers":["10.4.17.6"],"ipEnabled":true,"ipv4":"10.4.36.111","ipv4List":["10.4.36.111"],"ipv6":"fe80::8daa:9908:869a:67bc","ipv6List":["fe80::8daa:9908:869a:67bc"],"subnetMask":"255.255.254.0","subnetMasks":["255.255.254.0"],"defaultIPGateway":"10.4.36.1","defaultIPGateways":["10.4.36.1"],"macAddress":"60:F6:77:4A:24:79","winsPrimaryServer":"0.0.0.0","winsSecondaryServer":"0.0.0.0","logicalName":"Intel(R) Dual Band Wireless-AC 8265","interfaceIndex":13,"speed":173300000,"dhcpLeaseDuration":0}],"system":{"product":"Dell Inc.","model":"Latitude 7480","timeZone":"+0530","timeZoneDescription":"IST","systemName":"RMM-PN-LT-500","domain":"CORP","domainRole":1}}
+
+{'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}
+Header = {"Continuum-Probe-EndpointId":"$3792393741297393242$"}
+
+{'Continuum-Probe-EndpointId': '$3792393741297393242$'}
+Cookie = {"":""}
+
+{'': ''}
+{'HTTPMethod': 'POST', 'Protocol': 'https', 'URL': 'https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset', 'Body': {'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}, 'Header': {'Continuum-Probe-EndpointId': '$3792393741297393242$'}, 'Cookie': {'': ''}}
+Data from find_vulnerable_parameters 
+{'HTTPMethod': 'POST', 'Protocol': 'https', 'URL': 'https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset', 'Body': {'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}, 'Header': {'Continuum-Probe-EndpointId': '$3792393741297393242$'}, 'Cookie': {'': ''}}
+HTTP Method: POST
+Protocol: https
+URL: https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset
+Body: {'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}
+Header: {'Continuum-Probe-EndpointId': '$3792393741297393242$'}
+Cookie: {'': ''}
+Parameter found in URL
+[]
+Parameter found in Body
+[]
+Parameter found in Header
+['3792393741297393242']
+Parameter found in Cookie
+[]
+Data from input_validation
+{'HTTPMethod': 'POST', 'Protocol': 'https', 'URL': 'https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset', 'Body': {'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}, 'Header': {'Continuum-Probe-EndpointId': '$3792393741297393242$'}, 'Cookie': {'': ''}, 'URL_Parameter': [], 'Body_Parameter': [], 'Header_Parameter': ['3792393741297393242'], 'Cookie_Parameter': []}
+POST
+URL: https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset
+Parameters in URL: 
+[]
+Body: 
+{'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}
+Parameters in Body: 
+[]
+Header: 
+{'Continuum-Probe-EndpointId': '$3792393741297393242$'}
+Parameters in Header: 
+['3792393741297393242']
+Cookie: 
+{'': ''}
+Parameters in Cookie: 
+[]
+Executing POST Method
+Parameter found in POST URL
+Worksheet Found = LDAP
+Title of Sheet = LDAP
+Number of Payloads for LDAP = 13
+Row 1 = "!"
+Row 2 = "%29"
+Row 3 = "%21"
+Row 4 = "%28"
+Row 5 = "%26"
+Row 6 = "("
+Row 7 = ")"
+Row 8 = "@\'"
+Row 9 = "*()|&amp;'"
+Row 10 = "%s*"%r_string(10)
+Row 11 = "*(|(%s=*))"%r_string(10)
+Row 12 = "%s*)((|%s=*)"%(r_string(10),r_string(10))
+Row 13 = r"%2A%28%7C%28"+r_string(10)+r"%3D%2A%29%29"</msg>
+<msg timestamp="20200625 15:25:33.941" level="INFO">${result} = []</msg>
+<status status="PASS" starttime="20200625 15:25:33.869" endtime="20200625 15:25:33.942"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${result}</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:33.942" endtime="20200625 15:25:33.942"></status>
+</kw>
+<kw name="List Should Not Contain Value" library="Collections">
+<doc>Fails if the ``value`` is found from ``list``.</doc>
+<arguments>
+<arg>${result}</arg>
+<arg>200</arg>
+<arg>Vulnerability Not Observed</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:33.942" endtime="20200625 15:25:33.942"></status>
+</kw>
+<status status="PASS" starttime="20200625 15:25:33.867" endtime="20200625 15:25:33.943"></status>
+</kw>
+<status status="PASS" starttime="20200625 15:25:33.865" endtime="20200625 15:25:33.943" critical="yes"></status>
+</test>
+<test id="s1-t7" name="TC_007 Server Side Injection Attack on Asset API">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"Performing Server Side Injection Attack on Asset API"</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:33.946" endtime="20200625 15:25:33.946"></status>
+</kw>
+<kw name="Injection Attack" library="API">
+<arguments>
+<arg>${Excel_Location}</arg>
+<arg>Agent</arg>
+<arg>Asset_API</arg>
+<arg>${Payload_Excel_Location}</arg>
+<arg>SSI</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"Executing Injection Attack"</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:33.947" endtime="20200625 15:25:33.948"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${Excel_Location}</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:33.948" endtime="20200625 15:25:33.949"></status>
+</kw>
+<kw name="Input Validation" library="Injection">
+<arguments>
+<arg>${Excel_Location}</arg>
+<arg>${Excel_Sheet_Name}</arg>
+<arg>${Module_Name}</arg>
+<arg>${Payload_Excel_Location}</arg>
+<arg>${Payload_Sheet_Name}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20200625 15:25:34.029" level="INFO">Executing Input Validation
+Opening Excel
+Opened Excel
+Title of Sheet = Agent
+Row 1 = API_Name
+Row 2 = GATEWAY_API_POST
+Row 3 = GATEWAY_API_GET
+Row 4 = GATEWAY_API_DELETE
+Row 5 = Mapping_API
+Row 6 = Packages_API
+Row 7 = Asset_API
+Module Found : Asset_API in Row - 7 of Worksheet - Agent
+Asset_API
+POST
+POST
+https
+https
+
+BaseURL = qa.agent.exec.itsupport247.net
+
+RelativeURL = /agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset
+
+https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset
+Body = {"createTimeUTC": "2019-11-08T06:07:08.104Z","agentInstalledUTC":"2019-10-07T09:48:09.829Z","createdBy":"/agent/plugin/asset","name":"asset","type":"assetCollection","endpointID":"5e09a52f-c400-4880-8b60-62da19c2098b","partnerID":"150151","clientID":"259542","siteID":"259542","regID":"7255599","friendlyName":"RMM-PN-LT-500","remoteAddress":"10.4.36.95","resourceType":"Desktop","endpointType":"Server","networks":[{"vendor":"Intel Corporation","product":"Intel(R) Dual Band Wireless-AC 8265","dhcpEnabled":true,"dhcpServer":"1.1.1.1","dhcpServers":["1.1.1.1"],"dhcpLeaseObtained":"2019-09-12T09:43:44Z","dhcpLeaseExpires":"2019-09-20T14:46:28Z","dnsServers":["10.4.17.6"],"ipEnabled":true,"ipv4":"10.4.36.111","ipv4List":["10.4.36.111"],"ipv6":"fe80::8daa:9908:869a:67bc","ipv6List":["fe80::8daa:9908:869a:67bc"],"subnetMask":"255.255.254.0","subnetMasks":["255.255.254.0"],"defaultIPGateway":"10.4.36.1","defaultIPGateways":["10.4.36.1"],"macAddress":"60:F6:77:4A:24:79","winsPrimaryServer":"0.0.0.0","winsSecondaryServer":"0.0.0.0","logicalName":"Intel(R) Dual Band Wireless-AC 8265","interfaceIndex":13,"speed":173300000,"dhcpLeaseDuration":0}],"system":{"product":"Dell Inc.","model":"Latitude 7480","timeZone":"+0530","timeZoneDescription":"IST","systemName":"RMM-PN-LT-500","domain":"CORP","domainRole":1}}
+
+{'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}
+Header = {"Continuum-Probe-EndpointId":"$3792393741297393242$"}
+
+{'Continuum-Probe-EndpointId': '$3792393741297393242$'}
+Cookie = {"":""}
+
+{'': ''}
+{'HTTPMethod': 'POST', 'Protocol': 'https', 'URL': 'https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset', 'Body': {'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}, 'Header': {'Continuum-Probe-EndpointId': '$3792393741297393242$'}, 'Cookie': {'': ''}}
+Data from find_vulnerable_parameters 
+{'HTTPMethod': 'POST', 'Protocol': 'https', 'URL': 'https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset', 'Body': {'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}, 'Header': {'Continuum-Probe-EndpointId': '$3792393741297393242$'}, 'Cookie': {'': ''}}
+HTTP Method: POST
+Protocol: https
+URL: https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset
+Body: {'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}
+Header: {'Continuum-Probe-EndpointId': '$3792393741297393242$'}
+Cookie: {'': ''}
+Parameter found in URL
+[]
+Parameter found in Body
+[]
+Parameter found in Header
+['3792393741297393242']
+Parameter found in Cookie
+[]
+Data from input_validation
+{'HTTPMethod': 'POST', 'Protocol': 'https', 'URL': 'https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset', 'Body': {'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}, 'Header': {'Continuum-Probe-EndpointId': '$3792393741297393242$'}, 'Cookie': {'': ''}, 'URL_Parameter': [], 'Body_Parameter': [], 'Header_Parameter': ['3792393741297393242'], 'Cookie_Parameter': []}
+POST
+URL: https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset
+Parameters in URL: 
+[]
+Body: 
+{'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}
+Parameters in Body: 
+[]
+Header: 
+{'Continuum-Probe-EndpointId': '$3792393741297393242$'}
+Parameters in Header: 
+['3792393741297393242']
+Cookie: 
+{'': ''}
+Parameters in Cookie: 
+[]
+Executing POST Method
+Parameter found in POST URL
+Worksheet Found = SSI
+Title of Sheet = SSI
+Number of Payloads for SSI = 5
+Row 1 = &lt;pre&gt;&lt;!--#exec cmd="/etc/passwd" --&gt;&lt;/pre&gt;'
+Row 2 = &lt;pre&gt;&lt;!--#exec cmd="/bin/cat /etc/passwd" --&gt;&lt;/pre&gt;'
+Row 3 = &lt;pre&gt;&lt;!--#exec cmd="/bi*/ca? /et*/passw?" --&gt;&lt;/pre&gt;'
+Row 4 = &lt;!--#exec cmd="/etc/passwd" --&gt;'
+Row 5 = &lt;!--#exec cmd="/et*/pa??w?" --&gt;'</msg>
+<msg timestamp="20200625 15:25:34.029" level="INFO">${result} = []</msg>
+<status status="PASS" starttime="20200625 15:25:33.949" endtime="20200625 15:25:34.029"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${result}</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:34.030" endtime="20200625 15:25:34.031"></status>
+</kw>
+<kw name="List Should Not Contain Value" library="Collections">
+<doc>Fails if the ``value`` is found from ``list``.</doc>
+<arguments>
+<arg>${result}</arg>
+<arg>200</arg>
+<arg>Vulnerability Not Observed</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:34.031" endtime="20200625 15:25:34.032"></status>
+</kw>
+<status status="PASS" starttime="20200625 15:25:33.947" endtime="20200625 15:25:34.032"></status>
+</kw>
+<status status="PASS" starttime="20200625 15:25:33.945" endtime="20200625 15:25:34.033" critical="yes"></status>
+</test>
+<test id="s1-t8" name="TC_008 XPath Injection on Asset API">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"Performing XPath Injection Attack on Asset API"</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:34.035" endtime="20200625 15:25:34.035"></status>
+</kw>
+<kw name="Injection Attack" library="API">
+<arguments>
+<arg>${Excel_Location}</arg>
+<arg>Agent</arg>
+<arg>Asset_API</arg>
+<arg>${Payload_Excel_Location}</arg>
+<arg>XPATH</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"Executing Injection Attack"</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:34.036" endtime="20200625 15:25:34.037"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${Excel_Location}</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:34.037" endtime="20200625 15:25:34.037"></status>
+</kw>
+<kw name="Input Validation" library="Injection">
+<arguments>
+<arg>${Excel_Location}</arg>
+<arg>${Excel_Sheet_Name}</arg>
+<arg>${Module_Name}</arg>
+<arg>${Payload_Excel_Location}</arg>
+<arg>${Payload_Sheet_Name}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20200625 15:25:34.148" level="INFO">Executing Input Validation
+Opening Excel
+Opened Excel
+Title of Sheet = Agent
+Row 1 = API_Name
+Row 2 = GATEWAY_API_POST
+Row 3 = GATEWAY_API_GET
+Row 4 = GATEWAY_API_DELETE
+Row 5 = Mapping_API
+Row 6 = Packages_API
+Row 7 = Asset_API
+Module Found : Asset_API in Row - 7 of Worksheet - Agent
+Asset_API
+POST
+POST
+https
+https
+
+BaseURL = qa.agent.exec.itsupport247.net
+
+RelativeURL = /agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset
+
+https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset
+Body = {"createTimeUTC": "2019-11-08T06:07:08.104Z","agentInstalledUTC":"2019-10-07T09:48:09.829Z","createdBy":"/agent/plugin/asset","name":"asset","type":"assetCollection","endpointID":"5e09a52f-c400-4880-8b60-62da19c2098b","partnerID":"150151","clientID":"259542","siteID":"259542","regID":"7255599","friendlyName":"RMM-PN-LT-500","remoteAddress":"10.4.36.95","resourceType":"Desktop","endpointType":"Server","networks":[{"vendor":"Intel Corporation","product":"Intel(R) Dual Band Wireless-AC 8265","dhcpEnabled":true,"dhcpServer":"1.1.1.1","dhcpServers":["1.1.1.1"],"dhcpLeaseObtained":"2019-09-12T09:43:44Z","dhcpLeaseExpires":"2019-09-20T14:46:28Z","dnsServers":["10.4.17.6"],"ipEnabled":true,"ipv4":"10.4.36.111","ipv4List":["10.4.36.111"],"ipv6":"fe80::8daa:9908:869a:67bc","ipv6List":["fe80::8daa:9908:869a:67bc"],"subnetMask":"255.255.254.0","subnetMasks":["255.255.254.0"],"defaultIPGateway":"10.4.36.1","defaultIPGateways":["10.4.36.1"],"macAddress":"60:F6:77:4A:24:79","winsPrimaryServer":"0.0.0.0","winsSecondaryServer":"0.0.0.0","logicalName":"Intel(R) Dual Band Wireless-AC 8265","interfaceIndex":13,"speed":173300000,"dhcpLeaseDuration":0}],"system":{"product":"Dell Inc.","model":"Latitude 7480","timeZone":"+0530","timeZoneDescription":"IST","systemName":"RMM-PN-LT-500","domain":"CORP","domainRole":1}}
+
+{'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}
+Header = {"Continuum-Probe-EndpointId":"$3792393741297393242$"}
+
+{'Continuum-Probe-EndpointId': '$3792393741297393242$'}
+Cookie = {"":""}
+
+{'': ''}
+{'HTTPMethod': 'POST', 'Protocol': 'https', 'URL': 'https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset', 'Body': {'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}, 'Header': {'Continuum-Probe-EndpointId': '$3792393741297393242$'}, 'Cookie': {'': ''}}
+Data from find_vulnerable_parameters 
+{'HTTPMethod': 'POST', 'Protocol': 'https', 'URL': 'https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset', 'Body': {'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}, 'Header': {'Continuum-Probe-EndpointId': '$3792393741297393242$'}, 'Cookie': {'': ''}}
+HTTP Method: POST
+Protocol: https
+URL: https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset
+Body: {'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}
+Header: {'Continuum-Probe-EndpointId': '$3792393741297393242$'}
+Cookie: {'': ''}
+Parameter found in URL
+[]
+Parameter found in Body
+[]
+Parameter found in Header
+['3792393741297393242']
+Parameter found in Cookie
+[]
+Data from input_validation
+{'HTTPMethod': 'POST', 'Protocol': 'https', 'URL': 'https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset', 'Body': {'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}, 'Header': {'Continuum-Probe-EndpointId': '$3792393741297393242$'}, 'Cookie': {'': ''}, 'URL_Parameter': [], 'Body_Parameter': [], 'Header_Parameter': ['3792393741297393242'], 'Cookie_Parameter': []}
+POST
+URL: https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset
+Parameters in URL: 
+[]
+Body: 
+{'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}
+Parameters in Body: 
+[]
+Header: 
+{'Continuum-Probe-EndpointId': '$3792393741297393242$'}
+Parameters in Header: 
+['3792393741297393242']
+Cookie: 
+{'': ''}
+Parameters in Cookie: 
+[]
+Executing POST Method
+Parameter found in POST URL
+Worksheet Found = XPATH
+Title of Sheet = XPATH
+Number of Payloads for XPATH = 11
+Row 1 = "\'"
+Row 2 = "//*"
+Row 3 = "@*"
+Row 4 = "\' OR \'=\'"
+Row 5 = "\' OR \'1\'=\'1\'"
+Row 6 = "x\' or 1=1 or \'x\'=\'y"
+Row 7 = "%s\' or 1=1 or \'%s\'=\'%s"%(r_string(10),r_string(10),r_string(10))
+Row 8 = "x' or name()='username' or 'x'='y"
+Row 9 = "%s\' or name()='username' or '%s'='%s"%(r_string(10),r_string(10),r_string(10))
+Row 10 = "\' and count(/*)=1 and \'1\'=\'1"
+Row 11 = "\' and count(/@*)=1 and \'1\'=\'1"</msg>
+<msg timestamp="20200625 15:25:34.148" level="INFO">${result} = []</msg>
+<status status="PASS" starttime="20200625 15:25:34.037" endtime="20200625 15:25:34.148"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${result}</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:34.148" endtime="20200625 15:25:34.149"></status>
+</kw>
+<kw name="List Should Not Contain Value" library="Collections">
+<doc>Fails if the ``value`` is found from ``list``.</doc>
+<arguments>
+<arg>${result}</arg>
+<arg>200</arg>
+<arg>Vulnerability Not Observed</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:34.149" endtime="20200625 15:25:34.150"></status>
+</kw>
+<status status="PASS" starttime="20200625 15:25:34.036" endtime="20200625 15:25:34.150"></status>
+</kw>
+<status status="PASS" starttime="20200625 15:25:34.034" endtime="20200625 15:25:34.150" critical="yes"></status>
+</test>
+<test id="s1-t9" name="TC_009 Basic Bash Command Injection on Asset API">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"Performing Basic Bash Command Injection Attack on Asset API"</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:34.153" endtime="20200625 15:25:34.153"></status>
+</kw>
+<kw name="Injection Attack" library="API">
+<arguments>
+<arg>${Excel_Location}</arg>
+<arg>Agent</arg>
+<arg>Asset_API</arg>
+<arg>${Payload_Excel_Location}</arg>
+<arg>BASH</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"Executing Injection Attack"</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:34.154" endtime="20200625 15:25:34.155"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${Excel_Location}</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:34.155" endtime="20200625 15:25:34.155"></status>
+</kw>
+<kw name="Input Validation" library="Injection">
+<arguments>
+<arg>${Excel_Location}</arg>
+<arg>${Excel_Sheet_Name}</arg>
+<arg>${Module_Name}</arg>
+<arg>${Payload_Excel_Location}</arg>
+<arg>${Payload_Sheet_Name}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20200625 15:25:34.259" level="INFO">Executing Input Validation
+Opening Excel
+Opened Excel
+Title of Sheet = Agent
+Row 1 = API_Name
+Row 2 = GATEWAY_API_POST
+Row 3 = GATEWAY_API_GET
+Row 4 = GATEWAY_API_DELETE
+Row 5 = Mapping_API
+Row 6 = Packages_API
+Row 7 = Asset_API
+Module Found : Asset_API in Row - 7 of Worksheet - Agent
+Asset_API
+POST
+POST
+https
+https
+
+BaseURL = qa.agent.exec.itsupport247.net
+
+RelativeURL = /agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset
+
+https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset
+Body = {"createTimeUTC": "2019-11-08T06:07:08.104Z","agentInstalledUTC":"2019-10-07T09:48:09.829Z","createdBy":"/agent/plugin/asset","name":"asset","type":"assetCollection","endpointID":"5e09a52f-c400-4880-8b60-62da19c2098b","partnerID":"150151","clientID":"259542","siteID":"259542","regID":"7255599","friendlyName":"RMM-PN-LT-500","remoteAddress":"10.4.36.95","resourceType":"Desktop","endpointType":"Server","networks":[{"vendor":"Intel Corporation","product":"Intel(R) Dual Band Wireless-AC 8265","dhcpEnabled":true,"dhcpServer":"1.1.1.1","dhcpServers":["1.1.1.1"],"dhcpLeaseObtained":"2019-09-12T09:43:44Z","dhcpLeaseExpires":"2019-09-20T14:46:28Z","dnsServers":["10.4.17.6"],"ipEnabled":true,"ipv4":"10.4.36.111","ipv4List":["10.4.36.111"],"ipv6":"fe80::8daa:9908:869a:67bc","ipv6List":["fe80::8daa:9908:869a:67bc"],"subnetMask":"255.255.254.0","subnetMasks":["255.255.254.0"],"defaultIPGateway":"10.4.36.1","defaultIPGateways":["10.4.36.1"],"macAddress":"60:F6:77:4A:24:79","winsPrimaryServer":"0.0.0.0","winsSecondaryServer":"0.0.0.0","logicalName":"Intel(R) Dual Band Wireless-AC 8265","interfaceIndex":13,"speed":173300000,"dhcpLeaseDuration":0}],"system":{"product":"Dell Inc.","model":"Latitude 7480","timeZone":"+0530","timeZoneDescription":"IST","systemName":"RMM-PN-LT-500","domain":"CORP","domainRole":1}}
+
+{'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}
+Header = {"Continuum-Probe-EndpointId":"$3792393741297393242$"}
+
+{'Continuum-Probe-EndpointId': '$3792393741297393242$'}
+Cookie = {"":""}
+
+{'': ''}
+{'HTTPMethod': 'POST', 'Protocol': 'https', 'URL': 'https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset', 'Body': {'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}, 'Header': {'Continuum-Probe-EndpointId': '$3792393741297393242$'}, 'Cookie': {'': ''}}
+Data from find_vulnerable_parameters 
+{'HTTPMethod': 'POST', 'Protocol': 'https', 'URL': 'https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset', 'Body': {'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}, 'Header': {'Continuum-Probe-EndpointId': '$3792393741297393242$'}, 'Cookie': {'': ''}}
+HTTP Method: POST
+Protocol: https
+URL: https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset
+Body: {'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}
+Header: {'Continuum-Probe-EndpointId': '$3792393741297393242$'}
+Cookie: {'': ''}
+Parameter found in URL
+[]
+Parameter found in Body
+[]
+Parameter found in Header
+['3792393741297393242']
+Parameter found in Cookie
+[]
+Data from input_validation
+{'HTTPMethod': 'POST', 'Protocol': 'https', 'URL': 'https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset', 'Body': {'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}, 'Header': {'Continuum-Probe-EndpointId': '$3792393741297393242$'}, 'Cookie': {'': ''}, 'URL_Parameter': [], 'Body_Parameter': [], 'Header_Parameter': ['3792393741297393242'], 'Cookie_Parameter': []}
+POST
+URL: https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset
+Parameters in URL: 
+[]
+Body: 
+{'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}
+Parameters in Body: 
+[]
+Header: 
+{'Continuum-Probe-EndpointId': '$3792393741297393242$'}
+Parameters in Header: 
+['3792393741297393242']
+Cookie: 
+{'': ''}
+Parameters in Cookie: 
+[]
+Executing POST Method
+Parameter found in POST URL
+Worksheet Found = BASH
+Title of Sheet = BASH
+Number of Payloads for BASH = 7
+Row 1 = "/bin/cat /etc/passwd"
+Row 2 = "/etc/passwd"
+Row 3 = "/et*/passw?"
+Row 4 = "/ca?/bi? /et?/passw?"
+Row 5 = "/et*/pa??wd"
+Row 6 = "cat /etc/passwd"
+Row 7 = "/bi*/echo \"%s\""%(r_string(10))</msg>
+<msg timestamp="20200625 15:25:34.259" level="INFO">${result} = []</msg>
+<status status="PASS" starttime="20200625 15:25:34.156" endtime="20200625 15:25:34.259"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${result}</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:34.259" endtime="20200625 15:25:34.260"></status>
+</kw>
+<kw name="List Should Not Contain Value" library="Collections">
+<doc>Fails if the ``value`` is found from ``list``.</doc>
+<arguments>
+<arg>${result}</arg>
+<arg>200</arg>
+<arg>Vulnerability Not Observed</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:34.260" endtime="20200625 15:25:34.260"></status>
+</kw>
+<status status="PASS" starttime="20200625 15:25:34.153" endtime="20200625 15:25:34.261"></status>
+</kw>
+<status status="PASS" starttime="20200625 15:25:34.152" endtime="20200625 15:25:34.261" critical="yes"></status>
+</test>
+<test id="s1-t10" name="TC_010 Verb Parameter Tampering on Asset API">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"Performing Verb Tampering attack on Asset API"</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:34.263" endtime="20200625 15:25:34.263"></status>
+</kw>
+<kw name="Dangerous Method" library="API">
+<arguments>
+<arg>${Excel_Location}</arg>
+<arg>Agent</arg>
+<arg>Asset_API</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"Executing Dangerous Methods"</arg>
+</arguments>
+<status status="PASS" starttime="20200625 15:25:34.264" endtime="20200625 15:25:34.264"></status>
+</kw>
+<kw name="Arbitrary Method" library="Verb_Attack">
+<arguments>
+<arg>${Excel_Location}</arg>
+<arg>${Excel_Sheet_Name}</arg>
+<arg>${Module_Name}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20200625 15:25:34.293" level="INFO">Opening Excel
+Opened Excel
+Title of Sheet = Agent
+Row 1 = API_Name
+Row 2 = GATEWAY_API_POST
+Row 3 = GATEWAY_API_GET
+Row 4 = GATEWAY_API_DELETE
+Row 5 = Mapping_API
+Row 6 = Packages_API
+Row 7 = Asset_API
+Module Found : Asset_API in Row - 7 of Worksheet - Agent
+Asset_API
+HTTP Method = POST
+HTTP Method = POST
+Protocol = https
+
+BaseURL = qa.agent.exec.itsupport247.net
+
+RelativeURL = /agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset
+
+Body = {"createTimeUTC": "2019-11-08T06:07:08.104Z","agentInstalledUTC":"2019-10-07T09:48:09.829Z","createdBy":"/agent/plugin/asset","name":"asset","type":"assetCollection","endpointID":"5e09a52f-c400-4880-8b60-62da19c2098b","partnerID":"150151","clientID":"259542","siteID":"259542","regID":"7255599","friendlyName":"RMM-PN-LT-500","remoteAddress":"10.4.36.95","resourceType":"Desktop","endpointType":"Server","networks":[{"vendor":"Intel Corporation","product":"Intel(R) Dual Band Wireless-AC 8265","dhcpEnabled":true,"dhcpServer":"1.1.1.1","dhcpServers":["1.1.1.1"],"dhcpLeaseObtained":"2019-09-12T09:43:44Z","dhcpLeaseExpires":"2019-09-20T14:46:28Z","dnsServers":["10.4.17.6"],"ipEnabled":true,"ipv4":"10.4.36.111","ipv4List":["10.4.36.111"],"ipv6":"fe80::8daa:9908:869a:67bc","ipv6List":["fe80::8daa:9908:869a:67bc"],"subnetMask":"255.255.254.0","subnetMasks":["255.255.254.0"],"defaultIPGateway":"10.4.36.1","defaultIPGateways":["10.4.36.1"],"macAddress":"60:F6:77:4A:24:79","winsPrimaryServer":"0.0.0.0","winsSecondaryServer":"0.0.0.0","logicalName":"Intel(R) Dual Band Wireless-AC 8265","interfaceIndex":13,"speed":173300000,"dhcpLeaseDuration":0}],"system":{"product":"Dell Inc.","model":"Latitude 7480","timeZone":"+0530","timeZoneDescription":"IST","systemName":"RMM-PN-LT-500","domain":"CORP","domainRole":1}}
+
+{'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}
+Header = {"Continuum-Probe-EndpointId":"$3792393741297393242$"}
+
+{'Continuum-Probe-EndpointId': '$3792393741297393242$'}
+Cookie = {"":""}
+
+{'': ''}
+CompleteURL = https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset
+https://qa.agent.exec.itsupport247.net/agent/v1/bb78b736-68ea-4d82-9d2d-7c848e9f31fd/asset
+{'createTimeUTC': '2019-11-08T06:07:08.104Z', 'agentInstalledUTC': '2019-10-07T09:48:09.829Z', 'createdBy': '/agent/plugin/asset', 'name': 'asset', 'type': 'assetCollection', 'endpointID': '5e09a52f-c400-4880-8b60-62da19c2098b', 'partnerID': '150151', 'clientID': '259542', 'siteID': '259542', 'regID': '7255599', 'friendlyName': 'RMM-PN-LT-500', 'remoteAddress': '10.4.36.95', 'resourceType': 'Desktop', 'endpointType': 'Server', 'networks': [{'vendor': 'Intel Corporation', 'product': 'Intel(R) Dual Band Wireless-AC 8265', 'dhcpEnabled': True, 'dhcpServer': '1.1.1.1', 'dhcpServers': ['1.1.1.1'], 'dhcpLeaseObtained': '2019-09-12T09:43:44Z', 'dhcpLeaseExpires': '2019-09-20T14:46:28Z', 'dnsServers': ['10.4.17.6'], 'ipEnabled': True, 'ipv4': '10.4.36.111', 'ipv4List': ['10.4.36.111'], 'ipv6': 'fe80::8daa:9908:869a:67bc', 'ipv6List': ['fe80::8daa:9908:869a:67bc'], 'subnetMask': '255.255.254.0', 'subnetMasks': ['255.255.254.0'], 'defaultIPGateway': '10.4.36.1', 'defaultIPGateways': ['10.4.36.1'], 'macAddress': '60:F6:77:4A:24:79', 'winsPrimaryServer': '0.0.0.0', 'winsSecondaryServer': '0.0.0.0', 'logicalName': 'Intel(R) Dual Band Wireless-AC 8265', 'interfaceIndex': 13, 'speed': 173300000, 'dhcpLeaseDuration': 0}], 'system': {'product': 'Dell Inc.', 'model': 'Latitude 7480', 'timeZone': '+0530', 'timeZoneDescription': 'IST', 'systemName': 'RMM-PN-LT-500', 'domain': 'CORP', 'domainRole': 1}}
+{'Continuum-Probe-EndpointId': '3792393741297393242'}
+{'': ''}</msg>
+<msg timestamp="20200625 15:25:34.294" level="FAIL">TypeError: string indices must be integers</msg>
+<status status="FAIL" starttime="20200625 15:25:34.265" endtime="20200625 15:25:34.295"></status>
+</kw>
+<status status="FAIL" starttime="20200625 15:25:34.264" endtime="20200625 15:25:34.295"></status>
+</kw>
+<status status="FAIL" starttime="20200625 15:25:34.262" endtime="20200625 15:25:34.296" critical="yes">TypeError: string indices must be integers</status>
+</test>
+<status status="FAIL" starttime="20200625 15:25:30.166" endtime="20200625 15:25:34.297"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="9" fail="1">Critical Tests</stat>
+<stat pass="9" fail="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="9" fail="1" id="s1" name="Asset">Asset</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20200625 15:25:30.466" level="ERROR">Error in file 'D:\Programming\Application Security\coe-application-security\Resources\API.robot' on line 3: Importing test library 'JSpringBotGlobal' failed: ModuleNotFoundError: No module named 'JSpringBotGlobal'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Python37\Scripts\robot.exe
+  c:\python37\python37.zip
+  c:\python37\DLLs
+  c:\python37\lib
+  c:\python37
+  c:\python37\lib\site-packages
+  c:\python37\lib\site-packages\win32
+  c:\python37\lib\site-packages\win32\lib
+  c:\python37\lib\site-packages\Pythonwin</msg>
+<msg timestamp="20200625 15:25:32.020" level="ERROR">Error in file 'D:\Programming\Application Security\coe-application-security\Resources\API.robot' on line 9: Importing test library 'D:\Programming\Application Security\coe-application-security\MethodFiles\PayloadAttack.py' failed: IndentationError: unexpected indent (PayloadAttack.py, line 83)
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Python37\Scripts\robot.exe
+  c:\python37\python37.zip
+  c:\python37\DLLs
+  c:\python37\lib
+  c:\python37
+  c:\python37\lib\site-packages
+  c:\python37\lib\site-packages\win32
+  c:\python37\lib\site-packages\win32\lib
+  c:\python37\lib\site-packages\Pythonwin</msg>
+<msg timestamp="20200625 15:25:32.026" level="ERROR">Error in file 'D:\Programming\Application Security\coe-application-security\Resources\API.robot' on line 10: Importing test library 'D:\Programming\Application Security\coe-application-security\MethodFiles\Excel.py' failed: ModuleNotFoundError: No module named 'Excel'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Python37\Scripts\robot.exe
+  c:\python37\python37.zip
+  c:\python37\DLLs
+  c:\python37\lib
+  c:\python37
+  c:\python37\lib\site-packages
+  c:\python37\lib\site-packages\win32
+  c:\python37\lib\site-packages\win32\lib
+  c:\python37\lib\site-packages\Pythonwin</msg>
+</errors>
+</robot>

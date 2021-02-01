@@ -16,14 +16,15 @@ ${student_id}  28
 ${base_url}  http://thetestingworldapi.com
 ${relative_url}  api/studentsDetails
 ${relative_url1}  api/studentsDetails/${student_id}
-
+${Browser}  Firefox
+${URL}  https://control.dtitsupport247.net
 
 
 *** Test Cases ***
 TC_001 Browser Start and Open URL
-    Start Browser and Maximize
-    should be equal as strings  ITSPORTAL
-    #[Setup]  Start Browser and Maximize
+    Open Browser  ${URL}  ${Browser}
+    Sleep  10
+    Close Browser
 
 TC_002 Insert Data In Text Feild
     Enter Username Password Email  Testing  Abc@1234  testingworld@gmail.com

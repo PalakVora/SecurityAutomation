@@ -1,0 +1,670 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.0.2 (Python 3.6.2 on win32)" generated="20210120 10:52:51.675">
+<suite id="s1" name="Injection Attack" source="C:\Users\palak\Downloads\coe-application-security\TestCases\injection_attack.robot">
+<test id="s1-t1" name="TC_001">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"Performing SQL Injection Attack on Batch Profile API"</arg>
+</arguments>
+<status status="PASS" starttime="20210120 10:52:53.157" endtime="20210120 10:52:53.159"></status>
+</kw>
+<kw name="Injection Attack" library="API">
+<arguments>
+<arg>${Excel_Location}</arg>
+<arg>${team}</arg>
+<arg>${aPI}</arg>
+<arg>${Payload_Excel_Location}</arg>
+<arg>SQL</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"Executing Injection Attack"</arg>
+</arguments>
+<status status="PASS" starttime="20210120 10:52:53.160" endtime="20210120 10:52:53.161"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${Excel_Location}</arg>
+</arguments>
+<status status="PASS" starttime="20210120 10:52:53.161" endtime="20210120 10:52:53.164"></status>
+</kw>
+<kw name="Input Validation" library="API_Injection">
+<arguments>
+<arg>${Excel_Location}</arg>
+<arg>${Excel_Sheet_Name}</arg>
+<arg>${Module_Name}</arg>
+<arg>${Payload_Excel_Location}</arg>
+<arg>${Payload_Sheet_Name}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20210120 10:59:13.278" level="INFO">Opening Excel
+Opened Excel
+Outside read excel
+inside sheet name
+Title of Sheet = Agent
+Sheetname =Agent
+Out of sheet nameAgent
+Row 1 = API_Name
+Row 2 = GATEWAY_API_POST
+Row 3 = GATEWAY_API_GET
+Row 4 = GATEWAY_API_DELETE
+Row 5 = Mapping_API
+Row 6 = Packages_API
+Row 7 = Asset_API
+Row 8 = ACMS_Summary_API
+Row 9 = ACMS_Batch_Profiles_API
+Module Found : ACMS_Batch_Profiles_API in Row - 9 of Worksheet - Agent
+Outside row
+ROw9
+GET
+ROw9
+GET
+GET
+http
+http
+
+BaseURL = internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com
+
+RelativeURL = /agent-configuration/v1/batchProfiles
+
+http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+Body ROW {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"$1683$"}],"configurations":[{"packageName":"$platform-hyperv-plugin$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Body = {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"$1683$"}],"configurations":[{"packageName":"$platform-hyperv-plugin$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+
+Fdata Body
+{"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"$1683$"}],"configurations":[{"packageName":"$platform-hyperv-plugin$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header = {"Content-Type": "application/json","Connection": "keep-alive"}
+
+{'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Body ROW {"iplanetDirectpryPro":"fgtth78frtt"}
+Cookie = {"iplanetDirectpryPro":"fgtth78frtt"}
+
+{'iplanetDirectpryPro': 'fgtth78frtt'}
+{'HTTPMethod': 'GET', 'Protocol': 'http', 'URL': 'http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles', 'Body': '{"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"$1683$"}],"configurations":[{"packageName":"$platform-hyperv-plugin$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}', 'Header': {'Content-Type': 'application/json', 'Connection': 'keep-alive'}, 'Cookie': {'iplanetDirectpryPro': 'fgtth78frtt'}}
+Data from find_vulnerable_parameters 
+{'HTTPMethod': 'GET', 'Protocol': 'http', 'URL': 'http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles', 'Body': '{"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"$1683$"}],"configurations":[{"packageName":"$platform-hyperv-plugin$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}', 'Header': {'Content-Type': 'application/json', 'Connection': 'keep-alive'}, 'Cookie': {'iplanetDirectpryPro': 'fgtth78frtt'}}
+HTTP Method: GET
+Protocol: http
+URL: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+Body: {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"$1683$"}],"configurations":[{"packageName":"$platform-hyperv-plugin$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header: {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie: {'iplanetDirectpryPro': 'fgtth78frtt'}
+No Parameter found in URL
+Parameter found in Body
+['1683', 'platform-hyperv-plugin']
+No Parameter found in Header
+No Parameter found in Cookie
+MEthodGET
+Worksheet Found = SQL
+Title of Sheet = SQL
+Number of Payloads for SQL = 19
+Executing GET Method
+Parameter found in Body
+Parameter found in = Body
+Row 1 = {"":""}
+Area is = Body
+Original BOdy ==============={"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"${"":""}$"}],"configurations":[{"packageName":"$platform-hyperv-plugin$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+for2 3
+URL : http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+AttackBody : {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"{"":""}"}],"configurations":[{"packageName":"platform-hyperv-plugin"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'iplanetDirectpryPro': 'fgtth78frtt'}
+Method found in attack = GET
+&lt;module 'traceback' from 'c:\\python36\\lib\\traceback.py'&gt;
+Error in executing: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+['500']
+['500']
+Area is = Body
+Original BOdy ==============={"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"{"":""}","tag":"rmm-core","targets":["partnerID":"$1683$"}],"configurations":[{"packageName":"${"":""}$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+for2 3
+URL : http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+AttackBody : {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"{"":""}","tag":"rmm-core","targets":["partnerID":"1683"}],"configurations":[{"packageName":"{"":""}"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'iplanetDirectpryPro': 'fgtth78frtt'}
+Method found in attack = GET
+&lt;module 'traceback' from 'c:\\python36\\lib\\traceback.py'&gt;
+Error in executing: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+['500', '500']
+['500', '500']
+Row 2 = {"":""}
+Area is = Body
+Original BOdy ==============={"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"${"":""}$"}],"configurations":[{"packageName":"$platform-hyperv-plugin$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+for2 4
+URL : http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+AttackBody : {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"{"":""}"}],"configurations":[{"packageName":"platform-hyperv-plugin"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'iplanetDirectpryPro': 'fgtth78frtt'}
+Method found in attack = GET
+&lt;module 'traceback' from 'c:\\python36\\lib\\traceback.py'&gt;
+Error in executing: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+['500', '500', '500']
+['500', '500', '500']
+Area is = Body
+Original BOdy ==============={"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"{"":""}","tag":"rmm-core","targets":["partnerID":"$1683$"}],"configurations":[{"packageName":"${"":""}$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+for2 4
+URL : http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+AttackBody : {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"{"":""}","tag":"rmm-core","targets":["partnerID":"1683"}],"configurations":[{"packageName":"{"":""}"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'iplanetDirectpryPro': 'fgtth78frtt'}
+Method found in attack = GET
+&lt;module 'traceback' from 'c:\\python36\\lib\\traceback.py'&gt;
+Error in executing: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+['500', '500', '500', '500']
+['500', '500', '500', '500']
+Row 3 = {"":""}
+Area is = Body
+Original BOdy ==============={"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"${"":""}$"}],"configurations":[{"packageName":"$platform-hyperv-plugin$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+for2 5
+URL : http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+AttackBody : {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"{"":""}"}],"configurations":[{"packageName":"platform-hyperv-plugin"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'iplanetDirectpryPro': 'fgtth78frtt'}
+Method found in attack = GET
+&lt;module 'traceback' from 'c:\\python36\\lib\\traceback.py'&gt;
+Error in executing: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+['500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500']
+Area is = Body
+Original BOdy ==============={"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"{"":""}","tag":"rmm-core","targets":["partnerID":"$1683$"}],"configurations":[{"packageName":"${"":""}$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+for2 5
+URL : http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+AttackBody : {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"{"":""}","tag":"rmm-core","targets":["partnerID":"1683"}],"configurations":[{"packageName":"{"":""}"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'iplanetDirectpryPro': 'fgtth78frtt'}
+Method found in attack = GET
+&lt;module 'traceback' from 'c:\\python36\\lib\\traceback.py'&gt;
+Error in executing: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+['500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500']
+Row 4 = None
+Area is = Body
+Original BOdy ==============={"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"$None$"}],"configurations":[{"packageName":"$platform-hyperv-plugin$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+for2 6
+URL : http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+AttackBody : {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"None"}],"configurations":[{"packageName":"platform-hyperv-plugin"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'iplanetDirectpryPro': 'fgtth78frtt'}
+Method found in attack = GET
+&lt;module 'traceback' from 'c:\\python36\\lib\\traceback.py'&gt;
+Error in executing: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+['500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500']
+Area is = Body
+Original BOdy ==============={"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"None","tag":"rmm-core","targets":["partnerID":"$1683$"}],"configurations":[{"packageName":"$None$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+for2 6
+URL : http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+AttackBody : {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"None","tag":"rmm-core","targets":["partnerID":"1683"}],"configurations":[{"packageName":"None"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'iplanetDirectpryPro': 'fgtth78frtt'}
+Method found in attack = GET
+&lt;module 'traceback' from 'c:\\python36\\lib\\traceback.py'&gt;
+Error in executing: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+['500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500']
+Row 5 = None
+Area is = Body
+Original BOdy ==============={"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"$None$"}],"configurations":[{"packageName":"$platform-hyperv-plugin$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+for2 7
+URL : http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+AttackBody : {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"None"}],"configurations":[{"packageName":"platform-hyperv-plugin"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'iplanetDirectpryPro': 'fgtth78frtt'}
+Method found in attack = GET
+&lt;module 'traceback' from 'c:\\python36\\lib\\traceback.py'&gt;
+Error in executing: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+['500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500']
+Area is = Body
+Original BOdy ==============={"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"None","tag":"rmm-core","targets":["partnerID":"$1683$"}],"configurations":[{"packageName":"$None$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+for2 7
+URL : http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+AttackBody : {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"None","tag":"rmm-core","targets":["partnerID":"1683"}],"configurations":[{"packageName":"None"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'iplanetDirectpryPro': 'fgtth78frtt'}
+Method found in attack = GET
+&lt;module 'traceback' from 'c:\\python36\\lib\\traceback.py'&gt;
+Error in executing: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Row 6 = None
+Area is = Body
+Original BOdy ==============={"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"$None$"}],"configurations":[{"packageName":"$platform-hyperv-plugin$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+for2 8
+URL : http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+AttackBody : {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"None"}],"configurations":[{"packageName":"platform-hyperv-plugin"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'iplanetDirectpryPro': 'fgtth78frtt'}
+Method found in attack = GET
+&lt;module 'traceback' from 'c:\\python36\\lib\\traceback.py'&gt;
+Error in executing: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Area is = Body
+Original BOdy ==============={"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"None","tag":"rmm-core","targets":["partnerID":"$1683$"}],"configurations":[{"packageName":"$None$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+for2 8
+URL : http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+AttackBody : {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"None","tag":"rmm-core","targets":["partnerID":"1683"}],"configurations":[{"packageName":"None"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'iplanetDirectpryPro': 'fgtth78frtt'}
+Method found in attack = GET
+&lt;module 'traceback' from 'c:\\python36\\lib\\traceback.py'&gt;
+Error in executing: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Row 7 = None
+Area is = Body
+Original BOdy ==============={"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"$None$"}],"configurations":[{"packageName":"$platform-hyperv-plugin$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+for2 9
+URL : http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+AttackBody : {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"None"}],"configurations":[{"packageName":"platform-hyperv-plugin"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'iplanetDirectpryPro': 'fgtth78frtt'}
+Method found in attack = GET
+&lt;module 'traceback' from 'c:\\python36\\lib\\traceback.py'&gt;
+Error in executing: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Area is = Body
+Original BOdy ==============={"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"None","tag":"rmm-core","targets":["partnerID":"$1683$"}],"configurations":[{"packageName":"$None$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+for2 9
+URL : http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+AttackBody : {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"None","tag":"rmm-core","targets":["partnerID":"1683"}],"configurations":[{"packageName":"None"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'iplanetDirectpryPro': 'fgtth78frtt'}
+Method found in attack = GET
+&lt;module 'traceback' from 'c:\\python36\\lib\\traceback.py'&gt;
+Error in executing: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Row 8 = None
+Area is = Body
+Original BOdy ==============={"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"$None$"}],"configurations":[{"packageName":"$platform-hyperv-plugin$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+for2 10
+URL : http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+AttackBody : {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"None"}],"configurations":[{"packageName":"platform-hyperv-plugin"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'iplanetDirectpryPro': 'fgtth78frtt'}
+Method found in attack = GET
+&lt;module 'traceback' from 'c:\\python36\\lib\\traceback.py'&gt;
+Error in executing: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Area is = Body
+Original BOdy ==============={"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"None","tag":"rmm-core","targets":["partnerID":"$1683$"}],"configurations":[{"packageName":"$None$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+for2 10
+URL : http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+AttackBody : {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"None","tag":"rmm-core","targets":["partnerID":"1683"}],"configurations":[{"packageName":"None"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'iplanetDirectpryPro': 'fgtth78frtt'}
+Method found in attack = GET
+&lt;module 'traceback' from 'c:\\python36\\lib\\traceback.py'&gt;
+Error in executing: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Row 9 = None
+Area is = Body
+Original BOdy ==============={"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"$None$"}],"configurations":[{"packageName":"$platform-hyperv-plugin$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+for2 11
+URL : http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+AttackBody : {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"None"}],"configurations":[{"packageName":"platform-hyperv-plugin"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'iplanetDirectpryPro': 'fgtth78frtt'}
+Method found in attack = GET
+&lt;module 'traceback' from 'c:\\python36\\lib\\traceback.py'&gt;
+Error in executing: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Area is = Body
+Original BOdy ==============={"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"None","tag":"rmm-core","targets":["partnerID":"$1683$"}],"configurations":[{"packageName":"$None$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+for2 11
+URL : http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+AttackBody : {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"None","tag":"rmm-core","targets":["partnerID":"1683"}],"configurations":[{"packageName":"None"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'iplanetDirectpryPro': 'fgtth78frtt'}
+Method found in attack = GET
+&lt;module 'traceback' from 'c:\\python36\\lib\\traceback.py'&gt;
+Error in executing: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Row 10 = None
+Area is = Body
+Original BOdy ==============={"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"$None$"}],"configurations":[{"packageName":"$platform-hyperv-plugin$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+for2 12
+URL : http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+AttackBody : {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"None"}],"configurations":[{"packageName":"platform-hyperv-plugin"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'iplanetDirectpryPro': 'fgtth78frtt'}
+Method found in attack = GET
+&lt;module 'traceback' from 'c:\\python36\\lib\\traceback.py'&gt;
+Error in executing: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Area is = Body
+Original BOdy ==============={"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"None","tag":"rmm-core","targets":["partnerID":"$1683$"}],"configurations":[{"packageName":"$None$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+for2 12
+URL : http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+AttackBody : {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"None","tag":"rmm-core","targets":["partnerID":"1683"}],"configurations":[{"packageName":"None"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'iplanetDirectpryPro': 'fgtth78frtt'}
+Method found in attack = GET
+&lt;module 'traceback' from 'c:\\python36\\lib\\traceback.py'&gt;
+Error in executing: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Row 11 = None
+Area is = Body
+Original BOdy ==============={"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"$None$"}],"configurations":[{"packageName":"$platform-hyperv-plugin$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+for2 13
+URL : http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+AttackBody : {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"None"}],"configurations":[{"packageName":"platform-hyperv-plugin"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'iplanetDirectpryPro': 'fgtth78frtt'}
+Method found in attack = GET
+&lt;module 'traceback' from 'c:\\python36\\lib\\traceback.py'&gt;
+Error in executing: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Area is = Body
+Original BOdy ==============={"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"None","tag":"rmm-core","targets":["partnerID":"$1683$"}],"configurations":[{"packageName":"$None$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+for2 13
+URL : http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+AttackBody : {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"None","tag":"rmm-core","targets":["partnerID":"1683"}],"configurations":[{"packageName":"None"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'iplanetDirectpryPro': 'fgtth78frtt'}
+Method found in attack = GET
+&lt;module 'traceback' from 'c:\\python36\\lib\\traceback.py'&gt;
+Error in executing: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Row 12 = None
+Area is = Body
+Original BOdy ==============={"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"$None$"}],"configurations":[{"packageName":"$platform-hyperv-plugin$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+for2 14
+URL : http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+AttackBody : {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"None"}],"configurations":[{"packageName":"platform-hyperv-plugin"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'iplanetDirectpryPro': 'fgtth78frtt'}
+Method found in attack = GET
+&lt;module 'traceback' from 'c:\\python36\\lib\\traceback.py'&gt;
+Error in executing: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Area is = Body
+Original BOdy ==============={"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"None","tag":"rmm-core","targets":["partnerID":"$1683$"}],"configurations":[{"packageName":"$None$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+for2 14
+URL : http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+AttackBody : {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"None","tag":"rmm-core","targets":["partnerID":"1683"}],"configurations":[{"packageName":"None"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'iplanetDirectpryPro': 'fgtth78frtt'}
+Method found in attack = GET
+&lt;module 'traceback' from 'c:\\python36\\lib\\traceback.py'&gt;
+Error in executing: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Row 13 = None
+Area is = Body
+Original BOdy ==============={"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"$None$"}],"configurations":[{"packageName":"$platform-hyperv-plugin$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+for2 15
+URL : http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+AttackBody : {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"None"}],"configurations":[{"packageName":"platform-hyperv-plugin"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'iplanetDirectpryPro': 'fgtth78frtt'}
+Method found in attack = GET
+&lt;module 'traceback' from 'c:\\python36\\lib\\traceback.py'&gt;
+Error in executing: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Area is = Body
+Original BOdy ==============={"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"None","tag":"rmm-core","targets":["partnerID":"$1683$"}],"configurations":[{"packageName":"$None$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+for2 15
+URL : http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+AttackBody : {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"None","tag":"rmm-core","targets":["partnerID":"1683"}],"configurations":[{"packageName":"None"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'iplanetDirectpryPro': 'fgtth78frtt'}
+Method found in attack = GET
+&lt;module 'traceback' from 'c:\\python36\\lib\\traceback.py'&gt;
+Error in executing: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Row 14 = None
+Area is = Body
+Original BOdy ==============={"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"$None$"}],"configurations":[{"packageName":"$platform-hyperv-plugin$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+for2 16
+URL : http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+AttackBody : {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"None"}],"configurations":[{"packageName":"platform-hyperv-plugin"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'iplanetDirectpryPro': 'fgtth78frtt'}
+Method found in attack = GET
+&lt;module 'traceback' from 'c:\\python36\\lib\\traceback.py'&gt;
+Error in executing: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Area is = Body
+Original BOdy ==============={"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"None","tag":"rmm-core","targets":["partnerID":"$1683$"}],"configurations":[{"packageName":"$None$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+for2 16
+URL : http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+AttackBody : {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"None","tag":"rmm-core","targets":["partnerID":"1683"}],"configurations":[{"packageName":"None"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'iplanetDirectpryPro': 'fgtth78frtt'}
+Method found in attack = GET
+&lt;module 'traceback' from 'c:\\python36\\lib\\traceback.py'&gt;
+Error in executing: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Row 15 = None
+Area is = Body
+Original BOdy ==============={"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"$None$"}],"configurations":[{"packageName":"$platform-hyperv-plugin$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+for2 17
+URL : http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+AttackBody : {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"None"}],"configurations":[{"packageName":"platform-hyperv-plugin"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'iplanetDirectpryPro': 'fgtth78frtt'}
+Method found in attack = GET
+&lt;module 'traceback' from 'c:\\python36\\lib\\traceback.py'&gt;
+Error in executing: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Area is = Body
+Original BOdy ==============={"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"None","tag":"rmm-core","targets":["partnerID":"$1683$"}],"configurations":[{"packageName":"$None$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+for2 17
+URL : http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+AttackBody : {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"None","tag":"rmm-core","targets":["partnerID":"1683"}],"configurations":[{"packageName":"None"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'iplanetDirectpryPro': 'fgtth78frtt'}
+Method found in attack = GET
+&lt;module 'traceback' from 'c:\\python36\\lib\\traceback.py'&gt;
+Error in executing: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Row 16 = None
+Area is = Body
+Original BOdy ==============={"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"$None$"}],"configurations":[{"packageName":"$platform-hyperv-plugin$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+for2 18
+URL : http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+AttackBody : {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"None"}],"configurations":[{"packageName":"platform-hyperv-plugin"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'iplanetDirectpryPro': 'fgtth78frtt'}
+Method found in attack = GET
+&lt;module 'traceback' from 'c:\\python36\\lib\\traceback.py'&gt;
+Error in executing: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Area is = Body
+Original BOdy ==============={"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"None","tag":"rmm-core","targets":["partnerID":"$1683$"}],"configurations":[{"packageName":"$None$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+for2 18
+URL : http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+AttackBody : {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"None","tag":"rmm-core","targets":["partnerID":"1683"}],"configurations":[{"packageName":"None"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'iplanetDirectpryPro': 'fgtth78frtt'}
+Method found in attack = GET
+&lt;module 'traceback' from 'c:\\python36\\lib\\traceback.py'&gt;
+Error in executing: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Row 17 = None
+Area is = Body
+Original BOdy ==============={"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"$None$"}],"configurations":[{"packageName":"$platform-hyperv-plugin$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+for2 19
+URL : http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+AttackBody : {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"None"}],"configurations":[{"packageName":"platform-hyperv-plugin"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'iplanetDirectpryPro': 'fgtth78frtt'}
+Method found in attack = GET
+&lt;module 'traceback' from 'c:\\python36\\lib\\traceback.py'&gt;
+Error in executing: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Area is = Body
+Original BOdy ==============={"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"None","tag":"rmm-core","targets":["partnerID":"$1683$"}],"configurations":[{"packageName":"$None$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+for2 19
+URL : http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+AttackBody : {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"None","tag":"rmm-core","targets":["partnerID":"1683"}],"configurations":[{"packageName":"None"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'iplanetDirectpryPro': 'fgtth78frtt'}
+Method found in attack = GET
+&lt;module 'traceback' from 'c:\\python36\\lib\\traceback.py'&gt;
+Error in executing: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Row 18 = None
+Area is = Body
+Original BOdy ==============={"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"$None$"}],"configurations":[{"packageName":"$platform-hyperv-plugin$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+for2 20
+URL : http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+AttackBody : {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"None"}],"configurations":[{"packageName":"platform-hyperv-plugin"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'iplanetDirectpryPro': 'fgtth78frtt'}
+Method found in attack = GET
+&lt;module 'traceback' from 'c:\\python36\\lib\\traceback.py'&gt;
+Error in executing: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Area is = Body
+Original BOdy ==============={"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"None","tag":"rmm-core","targets":["partnerID":"$1683$"}],"configurations":[{"packageName":"$None$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+for2 20
+URL : http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+AttackBody : {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"None","tag":"rmm-core","targets":["partnerID":"1683"}],"configurations":[{"packageName":"None"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'iplanetDirectpryPro': 'fgtth78frtt'}
+Method found in attack = GET
+&lt;module 'traceback' from 'c:\\python36\\lib\\traceback.py'&gt;
+Error in executing: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Row 19 = None
+Area is = Body
+Original BOdy ==============={"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"$None$"}],"configurations":[{"packageName":"$platform-hyperv-plugin$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+for2 21
+URL : http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+AttackBody : {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"platform-hyperv-plugin","tag":"rmm-core","targets":["partnerID":"None"}],"configurations":[{"packageName":"platform-hyperv-plugin"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'iplanetDirectpryPro': 'fgtth78frtt'}
+Method found in attack = GET
+&lt;module 'traceback' from 'c:\\python36\\lib\\traceback.py'&gt;
+Error in executing: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+Area is = Body
+Original BOdy ==============={"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"None","tag":"rmm-core","targets":["partnerID":"$1683$"}],"configurations":[{"packageName":"$None$"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+for2 21
+URL : http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+AttackBody : {"createdTime":"2020-06-04T13:49:16.401Z","modifiedTime":"2020-06-04T13:49:16.401Z","id":"2e6f6ae4-a66a-11ea-898b-12e97a1f6711","description":"None","tag":"rmm-core","targets":["partnerID":"1683"}],"configurations":[{"packageName":"None"}],"createdBy":"santoshiMandloi","modifiedBy":"santoshiMandloi"}
+Header : {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
+Cookie : {'iplanetDirectpryPro': 'fgtth78frtt'}
+Method found in attack = GET
+&lt;module 'traceback' from 'c:\\python36\\lib\\traceback.py'&gt;
+Error in executing: http://internal-qaplatformagentconfigurationserv-1810934581.us-east-1.elb.amazonaws.com/agent-configuration/v1/batchProfiles
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']
+['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500']</msg>
+<msg timestamp="20210120 10:59:13.279" level="INFO">${result} = ['500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '500', '50...</msg>
+<status status="PASS" starttime="20210120 10:52:53.164" endtime="20210120 10:59:13.279"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${result}</arg>
+</arguments>
+<status status="PASS" starttime="20210120 10:59:13.279" endtime="20210120 10:59:13.281"></status>
+</kw>
+<kw name="List Should Not Contain Value" library="Collections">
+<doc>Fails if the ``value`` is found from ``list``.</doc>
+<arguments>
+<arg>${result}</arg>
+<arg>200</arg>
+</arguments>
+<status status="PASS" starttime="20210120 10:59:13.281" endtime="20210120 10:59:13.281"></status>
+</kw>
+<kw name="List Should Not Contain Value" library="Collections">
+<doc>Fails if the ``value`` is found from ``list``.</doc>
+<arguments>
+<arg>${result}</arg>
+<arg>201</arg>
+</arguments>
+<status status="PASS" starttime="20210120 10:59:13.281" endtime="20210120 10:59:13.282"></status>
+</kw>
+<kw name="List Should Not Contain Value" library="Collections">
+<doc>Fails if the ``value`` is found from ``list``.</doc>
+<arguments>
+<arg>${result}</arg>
+<arg>202</arg>
+</arguments>
+<status status="PASS" starttime="20210120 10:59:13.282" endtime="20210120 10:59:13.282"></status>
+</kw>
+<status status="PASS" starttime="20210120 10:52:53.159" endtime="20210120 10:59:13.282"></status>
+</kw>
+<status status="PASS" starttime="20210120 10:52:53.156" endtime="20210120 10:59:13.283" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20210120 10:52:51.677" endtime="20210120 10:59:13.284"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="Injection Attack">Injection Attack</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20210120 10:52:51.705" level="ERROR">Error in file 'C:\Users\palak\Downloads\coe-application-security\TestCases\injection_attack.robot': Importing test library 'SeleniumLibrary' failed: ImportError: cannot import name 'PY_VERSION'
+Traceback (most recent call last):
+  File "c:\python36\lib\site-packages\SeleniumLibrary\__init__.py", line 26, in &lt;module&gt;
+    from robotlibcore import DynamicCore
+  File "c:\python36\lib\site-packages\robotlibcore.py", line 26, in &lt;module&gt;
+    from robot.utils import PY_VERSION
+PYTHONPATH:
+  c:\python36\python36.zip
+  c:\python36\DLLs
+  c:\python36\lib
+  c:\python36
+  c:\python36\lib\site-packages</msg>
+<msg timestamp="20210120 10:52:51.722" level="ERROR">Error in file 'C:\Users\palak\Downloads\coe-application-security\Resources\API.robot': Importing test library 'SeleniumLibrary' failed: ImportError: cannot import name 'PY_VERSION'
+Traceback (most recent call last):
+  File "c:\python36\lib\site-packages\SeleniumLibrary\__init__.py", line 26, in &lt;module&gt;
+    from robotlibcore import DynamicCore
+  File "c:\python36\lib\site-packages\robotlibcore.py", line 26, in &lt;module&gt;
+    from robot.utils import PY_VERSION
+PYTHONPATH:
+  c:\python36\python36.zip
+  c:\python36\DLLs
+  c:\python36\lib
+  c:\python36
+  c:\python36\lib\site-packages</msg>
+<msg timestamp="20210120 10:52:51.735" level="ERROR">Error in file 'C:\Users\palak\Downloads\coe-application-security\Resources\API.robot': Importing test library 'JSpringBotGlobal' failed: ModuleNotFoundError: No module named 'JSpringBotGlobal'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  c:\python36\python36.zip
+  c:\python36\DLLs
+  c:\python36\lib
+  c:\python36
+  c:\python36\lib\site-packages</msg>
+</errors>
+</robot>

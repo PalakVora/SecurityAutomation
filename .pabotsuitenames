@@ -1,0 +1,16 @@
+datasources:9d6f71e57a5f55f7bea851a6bfb925d5669939b4
+commandlineoptions:65f95c924ba97541f47949701c4e3c51192a5b43
+suitesfrom:no-suites-from-option
+file:408fe95f0bb7d0d5006429a798b1f557561d6060
+--test Batch Profile.TC_001
+--test Batch Profile.TC_002 HTTP Strict Transport Security Check on Batch Profile API
+--test Batch Profile.TC_003
+--test Batch Profile.TC_004 Cross Site Scripting on Batch Profile API
+--test Batch Profile.TC_005 Local File Inclusion Attack on Batch Profile API
+--test Batch Profile.TC_006 Lightweight Directory Access Protocol Attack on Batch Profile API
+--test Batch Profile.TC_007 Server Side Injection Attack on Batch Profile API
+--test Batch Profile.TC_008 XPath Injection on Batch Profile API
+--test Batch Profile.TC_009 Basic Bash Command Injection on Batch Profile API
+--test Batch Profile.TC_010 Verb Parameter Tampering on Batch Profile API
+--test Batch Profile.TC_011 Host Header Injection Attack on Batch Profile
+--test Batch Profile.TC_012 Cross Origin Resource Sharing on Batch Profile

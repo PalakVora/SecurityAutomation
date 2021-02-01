@@ -1,0 +1,10 @@
+[ ERROR ] Error in file 'C:\Users\palak\Downloads\coe-application-security\Resources\API.robot' on line 3: Importing test library 'JSpringBotGlobal' failed: ModuleNotFoundError: No module named 'JSpringBotGlobal'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Python36\Scripts\robot.exe
+  c:\python36\python36.zip
+  c:\python36\DLLs
+  c:\python36\lib
+  c:\python36
+  c:\python36\lib\site-packages
