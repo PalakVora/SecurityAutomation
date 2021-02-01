@@ -22,10 +22,11 @@ ${relative_url1}  api/studentsDetails/${student_id}
 *** Test Cases ***
 TC_001 Browser Start and Open URL
     Start Browser and Maximize
+    should be equal as strings  ITSPORTAL
     #[Setup]  Start Browser and Maximize
 
 TC_002 Insert Data In Text Feild
-    Enter Username Password Email  Testing  testingworld@gmail.com  Abc@1234
+    Enter Username Password Email  Testing  Abc@1234  testingworld@gmail.com
 
 TC_003 Clear Data From Text Feild
     Clear Element Text  name:fld_username
