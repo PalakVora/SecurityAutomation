@@ -1,6 +1,6 @@
 *** Settings ***
 Library  SeleniumLibrary
-Resource  ../../../../Resources/API.robot
+Resource  ../Resources/API.robot
 
 
 *** Variables ***
